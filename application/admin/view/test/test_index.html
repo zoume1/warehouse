@@ -1,10 +1,270 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{include file="template/_meta" /}
+<title></title>
 </head>
+
+{block name="css"}
+
+<style type="text/css">
+	body {
+		background: #fff;
+		padding: 40px 60px;
+	}
+	
+	#page {
+		width: 96%;
+		height: 50px;
+		line-height: 50px;
+		border: solid 1px #E2E2E2;
+		padding-left: 50px;
+		background: #FDFDFE;
+	}
+	
+	.on {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	
+	.distribution_list {
+		margin-bottom: 10px;
+		border-bottom: solid 1px #D7D7D7;
+	}
+	
+	.distribution_list ul {
+		display: flex;
+		width: 600px;
+		justify-content: center;
+		align-items: center;
+		margin: 10px auto;
+	}
+	
+	.distribution_list ul li {
+		color: #333;
+	}
+	.table {margin-top: 20px;
+	}
+	.table table {
+		width: 100%;
+		border: 0;
+	}
+	
+	.table table  th{
+		background: #F2F2F2;
+		height: 60px;
+		border: 0;
+	}
+	
+	.table table td{
+		width: 100%;
+		padding: 10px;
+		border-top: 0;
+		border-right: 0;
+		border-left: 0;
+	}
+	.table table td .img{
+		display: inline-block;
+		width: 80px;
+		height: 80px;
+		text-align: center;
+		line-height: 80px;
+		color: #fff;
+		background: #DD9522;
+	}
+	table td input{
+		text-align: center;
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+	}
+	td span{
+		display: inline-block;
+		
+	}
+	
+</style>
+
+{/block}
+
 <body>
-*
+
+	{block name="content"}
+
+	<div class="childrenBody">
+		<div class="distribution_list">
+			<ul>
+				<li class="on">1.选择服务 </li>
+				<li>------2.确认订单信息 </li>
+				<li>------3.确认付款</li>
+				<li>------4.完成订购</li>
+			</ul>
+
+		</div>
+		<div class="service_box">
+			<div class="shop">
+				<span>订购店铺：</span>
+				<span>siring</span>
+			</div>
+			<div class="table">
+				<table border="" cellspacing="" cellpadding="">
+					<tr>
+						<th style="width: 25%;">订购服务</th>
+						<th style="width: 25%;"> 有效期（年）</th>
+						<th style="width: 25%;">金额</th>
+						<th style="width: 25%;">小计（元）</th>
+					</tr>
+			     	<tr>
+						<td style="width: 25%;">
+							<span class="img">万用版</span>
+							<span>小程序</span>
+							<span>万用版</span>
+						</td>
+						<td style="width: 25%;" >
+							<div style="border-radius:3px ; border: solid 1px #AEAEAE;width: 108px;">
+									<input type="text" name="" id="" value="-" readonly="readonly" class="subtract" style="border: 0;"/>
+									<input type="number" name="" id="" value="1"  class="number" style="border: 0; border-right: solid 1px #AEAEAE; border-left: solid 1px #AEAEAE;" />
+									<input type="text" name="" id="" value="+" readonly="readonly" class="add" style="border: 0;"/>
+							</div>
+						</td>
+						<td style="width: 25%;">
+							362.00
+						</td>
+						<td style="width: 25%;">
+							362.00
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+						   <input type="checkbox"  title="我已阅读并同意" >
+						   <a href="">《智慧茶仓商家服务协议》</a>
+						 </td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+			var vals = $("input").data("id");
+			//点击操作确认按钮
+			var data_id = [];
+			$("#opration_btu").click(function() {
+				var opration_val = $(".opation select option:selected").val();
+				if(opration_val == 0) {
+					layer.alert('请选择操作', {
+						skin: 'layui-layer-molv' //样式类名
+							,
+						closeBtn: 0
+					});
+				} else if(opration_val == 1) {
+					layer.confirm('你确认要删除吗？', {
+						btn: ['确认', '取消'] //按钮
+					}, function() {
+						layer.close(index);
+						var child = $("tbody").find('input[type="checkbox"]:not([name="show"]):checked');
+						for(var i = 0; i < child.length; i++) {
+							data_id.push($(child[i])[0].dataset.id);
+						}
+						$.ajax({
+							type: "POST",
+							url: "{:url('admin/Category/dels')}",
+							data: {
+								"id": data_id,
+							},
+							success: function(data) {
+								console.log("成功");
+								console.log(data);
+								var data = $.parseJSON(data);
+								layer.alert(data.info, {
+									skin: 'layui-layer-molv' //样式类名
+										,
+									closeBtn: 0
+								});
+								location.reload();
+								data_id.splice(0, data_id.length);
+							},
+							error: function(data) {
+								var data = $.parseJSON(data);
+								layer.alert(data.info, {
+									skin: 'layui-layer-molv' //样式类名
+										,
+									closeBtn: 0
+								});
+								console.log(data);
+								console.log("错误");
+								data_id.splice(0, data_id.length);
+							}
+						});
+					});
+
+				}
+
+			});
+
+			//全选
+			form.on('checkbox(allChoose)', function(data) {
+				var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+
+			//通过判断文章是否全部选中来确定全选按钮是否选中
+			form.on("checkbox(choose)", function(data) {
+				var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+				var childChecked = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"]):checked')
+				if(childChecked.length == child.length) {
+					$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = true;
+				} else {
+					$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = false;
+				}
+				form.render('checkbox');
+			})
+
+			form.on('switch(isShow)', function(data) {
+				if($(this).val() == 0) {
+					$(this).val(1);
+				} else {
+					$(this).val(0);
+				}
+				var vals = data.value;
+				var id = $(this).data("id");
+				var status = $(this).val();
+				$.ajax({
+					type: "POST",
+					url: "{:url('')}",
+					data: {
+						"id": id,
+						"status": status
+					},
+					success: function(data) {
+						console.log("成功")
+					},
+					error: function(data) {
+						console.log("错误")
+					}
+				});
+
+			})
+		})
+	</script>
+
+	{/block}
+
 </body>
+
 </html>
