@@ -15,7 +15,7 @@ return [
     // 服务器地址
     'hostname'        => 'rm-wz9l3z92630ora5wjwo.mysql.rds.aliyuncs.com',
     // 数据库名
-    'database'        => 'teahouse',
+    'database'        => 'warehouse',
     // 用户名
     'username'        => 'siring',
     // 密码
