@@ -1,0 +1,279 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+
+<style type="text/css">
+	img {
+		width: 100%;
+	}
+	
+	body {
+		background: #fff;
+	}
+	
+	label {
+		text-align: left !important;
+	}
+	
+	.layui-form-item {
+		max-width: 100% !important;
+	}
+	
+	.layui-form-item {
+		width: 100%;
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+	
+	.layui-form-label {
+		width: 26% !important;
+	}
+	
+	.layui-input-inline {
+		width: 70% !important;
+	}
+	
+	#page {
+		width: 96%;
+		height: 50px;
+		line-height: 50px;
+		border: solid 1px #E2E2E2;
+		padding-left: 50px;
+		background: #FDFDFE;
+	}
+	
+	.img_show {
+		width: 150px;
+	}
+	
+	.pagination {
+		float: right;
+	}
+
+</style>
+
+{/block}
+
+<body>
+
+	{block name="content"}
+
+	<div class="childrenBody">
+
+		<blockquote class="layui-elem-quote news_search">
+			<form class="layui-form" action="{:url('admin/ActiveOrder/search')}">
+				<div class="seach">
+					<div class="seach_list">
+						<div class="seach_laber">输入搜索</div>
+						<div class="seach_input">
+							<input type="text" name="search_name" lay-verify="title" autocomplete="off" placeholder="活动名称" class="layui-input" id="zhanghu">
+						</div>
+					</div>
+					<div class="seach_list">
+						<div class="seach_laber">用户账号</div>
+						<div class="seach_input">
+							<input type="text" name="search_key" lay-verify="title" autocomplete="off" placeholder="活动名称" class="layui-input" id="nichwng">
+						</div>
+					</div>
+					 <button class="layui-btn" type="submit">立即搜索</button>
+				</div>
+			</form>
+
+		</blockquote>
+
+		<div class="layui-form news_list">
+
+			<table class="layui-table">
+				<colgroup>
+					<col width="3%">
+
+				</colgroup>
+				<thead>
+					<tr>
+						<th><input type="checkbox" sname="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
+						<th>报名订单</th>
+						<th>活动名称</th>
+						<th>活动图片</th>
+						<th>活动地址</th>
+						<th>活动分类</th>
+						<th>报名用户账号</th>
+						<th>报名费用</th>
+						<th>报名人数</th>
+						<th>活动时间</th>
+					</tr>
+				</thead>
+				<tbody class="news_content">
+					{volist name="active" id="va"}
+					<tr>
+						<td><input type="checkbox" sname="" lay-skin="primary" lay-filter="choose" data-id="{$va.id}" class="check"></td>
+						<td>{$va.signup_order}</td>
+						<td>
+							<div class="overflow">
+								{$va.activity_name}
+							</div>
+						</td>
+						<td>
+							<div class="tdimg"><img src="__UPLOADS__/{$va.classify_image}" /></div>
+						</td>
+						<td>{$va.address}</td>
+						<td>{if $va.pid !=0}{$va.names} {else} 无 {/if}</td>
+						<td>{$va.register_userid}</td>
+						<td>{$va.cost_moneny}</td>
+						<td>{$va.peoples}</td>
+						<td>{$va.start_time|date="Y-m-d H:i",###}</td>
+					</tr>
+					{/volist}
+				</tbody>
+
+			</table>
+			{$active->render()}
+			<div id="page">
+				<div class="opation" style="width: 200px; float: left;">
+					<select name="" style="color: #C1A5A5; border-color: #E4E4E4;height: 30px;">
+						<option check="" value="0">请选择</option>
+						<option value="1">批量删除</option>
+					</select>
+				</div>
+				<div style="float: left; height: 52px;line-height: 52px; margin-left: 20px;">
+					<button type="button" id="opration_btu" style="width: 60px; background: #fff; color: #333333;border:#CCCCCC solid 1px;height: 38px;line-height: 38px;">确定
+					</button>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+			var vals = $("input").data("id");
+			//点击操作确认按钮
+			var data_id = [];
+			$("#opration_btu").click(function() {
+				var opration_val = $(".opation select option:selected").val();
+				if(opration_val == 0) {
+					layer.alert('请选择操作', {
+						skin: 'layui-layer-molv' //样式类名
+							,
+						closeBtn: 0
+					});
+				} else if(opration_val == 1) {
+					layer.confirm('你确认要删除吗？', {
+						btn: ['确认', '取消'] //按钮
+					},  function(index) {
+						layer.close(index);
+						var child = $("tbody").find('input[type="checkbox"]:not([name="show"]):checked');
+						for(var i = 0; i < child.length; i++) {
+							data_id.push($(child[i])[0].dataset.id);
+						}
+						$.ajax({
+							type: "POST",
+							url: "{:url('admin/User/dels')}",
+							data: {
+								"id": data_id,
+							},
+							success: function(data) {
+								console.log("成功");
+								console.log(data);
+								var data = $.parseJSON(data);
+								layer.alert(data.info, {
+									skin: 'layui-layer-molv' //样式类名
+										,
+									closeBtn: 0
+								});
+								location.reload();
+								data_id.splice(0, data_id.length);
+							},
+							error: function(data) {
+								var data = $.parseJSON(data);
+								layer.alert(data.info, {
+									skin: 'layui-layer-molv' //样式类名
+										,
+									closeBtn: 0
+								});
+								console.log(data);
+								console.log("错误");
+								data_id.splice(0, data_id.length);
+							}
+						});
+					});
+
+				}
+
+			});
+
+			// console.log(data_id);
+			//全选
+			form.on('checkbox(allChoose)', function(data) {
+				var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+
+			//通过判断文章是否全部选中来确定全选按钮是否选中
+			form.on("checkbox(choose)", function(data) {
+				var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+				var childChecked = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"]):checked')
+				if(childChecked.length == child.length) {
+					$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = true;
+				} else {
+					$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = false;
+				}
+				form.render('checkbox');
+			})
+
+			//是否展示
+			form.on('switch(isShow)', function(data) {
+				if($(this).val() == 0) {
+					$(this).val(1);
+				} else {
+					$(this).val(0);
+				}
+				var vals = data.value;
+				var id = $(this).data("id");
+				var status = $(this).val();
+				console.log(status);
+				$.ajax({
+					type: "POST",
+					url: "{:url('admin/user/status')}",
+					data: {
+						"id": id,
+						"status": status
+					},
+					success: function(data) {
+						console.log("成功")
+					},
+					error: function(data) {
+						console.log("错误")
+					}
+				});
+
+			})
+
+		})
+	</script>
+
+	{/block}
+
+</body>
+
+</html>

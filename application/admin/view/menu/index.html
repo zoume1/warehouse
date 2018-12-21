@@ -1,0 +1,101 @@
+{extend name="layout"}
+
+{block name="css"}
+
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+	
+	#page{
+		width: 96%;
+    height: 50px;
+    line-height: 50px;
+    border: solid 1px #E2E2E2;
+   padding-left: 50px;
+   background: #FDFDFE;
+	}
+</style>
+
+{/block}
+
+<body>
+
+	{block name="content"}
+	<div class="childrenBody">
+		<blockquote class="layui-elem-quote news_search">
+			<div class="layui-inline">
+				<a class="layui-btn layui-btn-danger bataadtwo" href="{:url('admin/Menu/add')}">添加</a>
+			</div>
+
+		</blockquote>
+		<div class="layui-form news_list">
+			<table class="layui-table">
+				<colgroup>
+					<col width="5%">
+					<col width="9%">
+					<col width="9%">
+					<col width="9%">
+					<col width="15%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th >ID</th>
+						<th>菜单名称</th>
+						<th>URL</th>
+						<th>上级ID</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody class="news_content"></tbody>
+				{volist name="menu_lists" id="value"}
+				<tr>
+					<td align="left">{$value.id}</td>
+					<td>{$value.name}</td>
+					<td>{$value.url}</td>
+					<td>{$value.pid}</td>
+					<td>
+						<a href="{:url('admin/menu/edit',['id'=>$value.id])}" class="layui-btn layui-btn-mini account_edit"><i class="iconfont icon-edit"></i> 编辑</a>
+						<a href="{:url('admin/menu/del',['id'=>$value.id])}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="undefined"><i class="layui-icon"></i> 删除</a>
+					</td>
+				</tr>
+				{/volist}
+			</table>
+			
+		</div>
+		<div id="page">
+			{$page}
+		</div>
+
+		{/block}
+
+		<!--_footer 作为公共模版分离出去-->
+		{include file="template/_footer" /}
+		<!--/_footer 作为公共模版分离出去-->
+
+		<!--请在下方写此页面业务相关的脚本-->
+		{block name="bottom"}
+		<script>
+            (function(){
+                $.ajax({
+                    type:"POST",
+                    url:"{:url('admin/menu/index')}",
+                    data:{},
+                    async:false,
+                    timeout:5000,
+                    dataType:"json",
+                    success:function (data) {
+                        console.log(data)
+                    },
+                    error:function () {
+                        console.log("错误");
+                    }
+                })
+            })()
+		</script>
+		<!--自定义内容-->
+		{/block}
+
+</body>
+
+</html>

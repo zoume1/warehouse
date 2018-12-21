@@ -1,0 +1,706 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/common/css/aaa.css" />
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+    
+    #hot {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .list {
+        margin-right: 10px;
+        margin-bottom: 6px;
+    }
+    
+    .title {
+        height: 50px;
+        background: #F2F2F2;
+        font-size: 20px;
+        line-height: 50px;
+        padding-left: 20px;
+        font-weight: bold;
+    }
+    
+    .special,
+    .general,
+    .special .layui-form-item,
+    .general .layui-form-item {
+        min-width: 100%;
+    }
+    
+    .add-content {
+        background: #F2F2F2;
+        width: 100%;
+    }
+    
+    .general-kuang {
+        border: solid 1px #E4E4E4;
+        width: 1000px;
+        padding-left: 10px;
+    }
+    
+    .btus {
+        background: #fff;
+        border: solid 1px #E4E4E4;
+        color: #0099FF;
+        width: 141px;
+        display: inline-block;
+        margin: 10px;
+    }
+    
+    #general-content .layui-form-item {
+        width: 100%;
+    }
+    
+    .sky-blue {
+        color: #0099FF;
+    }
+    
+    .bgwhite {
+        background: #fff;
+    }
+    
+    .noshow {
+        display: none;
+    }
+    
+    .special .layui-form-item {
+        width: 100%;
+    }
+    
+    .general .layui-form-item {
+        width: 100%;
+    }
+    
+    .special .layui-form-item label {
+        width: 10%;
+    }
+    
+    .general .layui-form-item label {
+        width: 10%;
+    }
+    
+    .operation-btus {
+        width: 60px;
+        height: 40px;
+        border-radius: 3px;
+        color: #fff;
+    }
+    
+    .btu-delet {
+        background: #FF0000;
+    }
+    
+    .btu-cancel {}
+    
+    .btu-add {
+        background: #0099FF;
+    }
+    
+    .num-content {
+        overflow: hidden;
+    }
+    
+    #general_content>div {
+        margin-top: 6px;
+    }
+    /* 弹窗 */
+    
+    .tanchuang {
+        width: 100%;
+        min-height: 1000px;
+        background: RGBA(0, 0, 0, 0.3);
+        position: fixed;
+        z-index: 9999;
+    }
+    
+    table .full {
+        width: 100px !important;
+        min-width: 100px !important;
+    }
+    
+    table input {
+        width: 80px !important;
+        min-width: 80px !important;
+    }
+    
+    table .z_photo {
+        padding: 0;
+    }
+    
+    table th {
+        text-align: center;
+    }
+    
+    table td {
+        text-align: center;
+    }
+    
+    .tan {
+        cursor: pointer;
+    }
+</style>
+
+{/block}
+
+<body>
+    {block name="content"}
+    <div class="tanchuang noshow">
+        <div style="width: 395px;height: 527px;margin: 10% auto;">
+            <img src="" class="tanimg" />
+        </div>
+
+    </div>
+
+    <form class="layui-form layui-form-lists" action="{:url('admin/Goods/save')}" method="post" enctype="multipart/form-data">
+        <div class="form-title">基础信息 </div>
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品名称</label>
+            <div class="form-input">
+                <input type="text" name="goods_name" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    商品名称必须填写，最多100个字
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">出品商</label>
+            <div class="form-input">
+                <input type="text" name="produce" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    选填项
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">品牌</label>
+            <div class="form-input">
+                <input type="text" name="brand" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    选填项
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">商品编号</label>
+            <div class="form-input">
+                <input type="text" name="goods_number" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    *可自行设定规则按照2位大写字母+4位数字设定（例如：NB0001)
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">商品卖点</label>
+            <div class="form-input">
+                <input type="text" name="goods_selling" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    *在商品列表页、详情页标题下面展示卖点信息，建议60字以内 <span class="tan" style="color: #0E90D2;" data-id="__STATIC__/admin/common/img/u27672.png">查看实例</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">卖点标签</label>
+            <div class="form-input" style="display: flex; align-items: center;">
+                <div id="hot">
+                    <div class="list">
+                        <input type="checkbox" name="goods_sign" lay-skin="primary" title="hot" checked="">
+                    </div>
+                    <div class="list">
+                        <input type="checkbox" name="goods_sign" lay-skin="primary" title="aaa">
+                    </div>
+                    <div class="list">
+                        <input type="checkbox" name="goods_sign" lay-skin="primary" title="特色活动">
+                        <span style="color: #0EA9E3;font-size: 12px;" class="change_text">修改</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="add_biao">
+                +添加文字标签
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">分享描述</label>
+            <div class="form-input">
+                <input type="text" name="goods_describe" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    微信分享给好友时会显示，建议36个字以内<span class="tan" style="color: #0E90D2;" data-id="__STATIC__/admin/common/img/u27291.png">查看实例</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">归属分类</label>
+            <div class="form-input">
+                {if !empty($goods_list)}
+                <select name="pid" id="admin_role" class="role_list">
+                <option value="0">顶级</option>
+                {volist name="goods_list" id="value"}
+                <option value="{$value.id}">{$value.name}</option>
+                {/volist}
+                </select><br/> {else}
+                <select name="pid" class="role_list">
+                <option value="0">顶级</option>
+                </select><br/> {/if}
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">商品排序</label>
+            <div class="form-input">
+                <input type="number" name="sort_number" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    *填写正整数，从大到小排序
+                </div>
+            </div>
+        </div>
+        <div class="form-title">价格库存 </div>
+        <div class="form-item">
+            <label class="form-label">商品规格</label>
+            <div class="form-input">
+                <input type="radio" name="goods_standard" value="统一规格" title="统一规格" lay-filter="guige" checked="">
+                <input type="radio" name="goods_standard" value="特殊规格" title="特殊规格" lay-filter="guige">
+            </div>
+        </div>
+        <div class="nomal ">
+            <div class="form-item">
+                <label class="form-label"><span class="red"></span>商品售价</label>
+                <div class="form-input line">
+                    <input type="number" name="goods_new_money" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">商品划线价</label>
+                <div class="form-input line">
+                    <input type="text" name="goods_bottom_money" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                    <span href="" class="tan" data-id="__STATIC__/admin/common/img/u27291.png"> 查看示例</span>
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label"><span class="red"></span>商品成本价</label>
+                <div class="form-input line">
+                    <input type="text" name="goods_cost" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                    <div class="tips">
+                        *成本价不显示到客户端，适用于利润分析等
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-item">
+                <label class="form-label"><span class="red">*</span>库存</label>
+                <div class="form-input line">
+                    <input type="number" name="goods_repertory" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                </div>
+            </div>
+            <div class="form-item">
+                <label class="form-label">商品折扣</label>
+                <div class="form-input line">
+                    <input type="checkbox" name="goods_member" lay-skin="primary" title="参加会员折扣" value="1">
+                    <a href="">管理会员卡</a>
+                </div>
+            </div>
+        </div>
+        <div class="form-item general noshow">
+            <div class="layui-input-block general-kuang">
+                <div class="control-group">
+                    <div class="controls" style="padding: 10px;">
+                        <button id="add_lv1" class="btn btn-primary" type="button">添加规格项</button>
+                        <button id="update_table" class="btn btn-success" type="button">刷新规格项目表</button>
+                        <span class="red">*注意：请添加完规格值和规格参数，刷新后，添加价格组才会显示！</span>
+                    </div>
+                </div>
+                <div id="lv_table_con" class="control-group" style="display: none; ">
+                    <label class="control-label">规格项目表</label>
+                    <div class="controls" style="">
+                        <div id="lv_table" style="padding: 10px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="layui-input-block general-kuang">
+                <div id="general_content"></div>
+                <div class="add-content content" id="add_general_buts">
+                    <button type="button" class="btus general_buts">添加规格项目</button>
+                </div>
+            </div>-->
+        </div>
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品图</label>
+            <div class="form-input">
+                <div class="img-box full">
+                    <section class=" img-section">
+                        <div class="z_photo upimg-div clear">
+                            <section class="z_file fl">
+                                <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+                                <input type="file" name="goods_show_images[]" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="15" />
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <aside class="mask works-mask">
+                    <div class="mask-content">
+                        <p class="del-p ">您确定要删除作品图片吗？</p>
+                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                    </div>
+                </aside>
+                <div class="tips">
+                    建议尺寸：800*800像素，其中第一张为主图，你可以拖拽图片调整顺序，最多上传15张
+                </div>
+            </div>
+
+        </div>
+        <div class="form-item">
+            <label class="form-label">主图视频链接</label>
+            <div class="form-input">
+                <input type="text" name="video_link" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">*如何获取视频地址？免费上传视频到七牛云存储</div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>商品详情</label>
+            <div class="form-input">
+                <script id="editor" type="text/plain" name="goods_text" style="width:800px;height:500px;"></script>
+            </div>
+        </div>
+        <div class="form-title">价格库存 </div>
+        <div class="form-item">
+            <label class="form-label">配送方式</label>
+            <div class="form-input line">
+                <input type="checkbox" name="goods_delivery" lay-skin="primary" title="商家配送" value="1" checked="">
+                <input type="checkbox" name="goods_delivery" lay-skin="primary" title="到店自提" value="2">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">快递运费</label>
+            <div style="display: flex;flex-direction:column">
+                <div class="form-input line" style="margin-bottom: 4px;">
+                    <input type="radio" title="商家配送" checked="">
+                    <input type="number" name="goods_franking" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input"> </input>
+                    </input>
+
+                </div>
+                <div class="form-input line" style="margin-bottom: 4px;">
+                    <input type="radio" title="运费模板">
+                    <input type="number" name="templet_id" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input"> </input>
+                    </input>
+                    <a href="">新建</a>
+                </div>
+                <div class="tips">*运费模版支持按地区设置运费，按购买件数计算运费，按重量计算运费等</div>
+            </div>
+
+        </div>
+        <div class="form-item">
+            <label class="form-label">状态</label>
+            <div class="form-input">
+                <input type="radio" name="label" value="0" title="暂不上架" checked="">
+                <input type="radio" name="label" value="1" title="立即上架">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">首页推荐</label>
+            <div class="form-input">
+                <input type="radio" name="status" value="1" title="首页推荐" checked="">
+                <input type="radio" name="status" value="0" title="首页不推荐">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+                <button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+            </div>
+        </div>
+    </form>
+
+    {/block}
+
+    <!--_footer 作为公共模版分离出去-->
+    {include file="template/_footer" /}
+    <!--/_footer 作为公共模版分离出去-->
+
+    <!--请在下方写此页面业务相关的脚本-->
+    {block name="bottom"}
+
+
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor');
+        layui.config({
+            base: "js/"
+        }).use(['form', 'layer', 'jquery', 'laypage', 'upload'], function() {
+            var form = layui.form(),
+                $ = layui.jquery;
+            form.render();
+            $(".add_biao").click(function() {
+                var dhtml = "";
+                dhtml =
+                    '<div class="list" ><input type="checkbox" name="" lay-skin="primary" title="特色活动"><span style="color: #0EA9E3; font-size: 12px;"  class="change_text">修改</span></div>'
+                $("#hot").append(dhtml);
+                form.render();
+            });
+            var vals = '';
+            var lv1HTML = '';
+            lv1HTML += '<div class="control-group lv1" style="padding: 10px;">';
+            lv1HTML += '	<label class="control-label">规格名称</label>';
+            lv1HTML += '	<div class="controls">';
+            lv1HTML += '		<input type="text" name="lv1[]" class="lvv3"  placeholder="规格名称" />';
+            lv1HTML += '		<button class="btn btn-primary add_lv2" type="button">添加规格值</button>';
+            lv1HTML += '		<button class="btn btn-danger remove_lv1" type="button">删除规格名 </button>';
+            lv1HTML += '	</div>';
+            lv1HTML += '	<div class="controls lv2s">';
+            lv1HTML += '	</div>';
+            lv1HTML += '</div>';
+
+
+
+
+            function isPositiveNum(s) {
+                var re = /^[0-9]*[1-9][0-9]*$/;
+                return re.test(s);
+            }
+
+            $(document).ready(function() {
+                $('#add_lv1').on('click', function() {
+                    var last = $('.control-group.lv1:last');
+                    if (!last || last.length == 0) {
+                        $(this).parents('.control-group').eq(0).after(lv1HTML);
+                    } else {
+                        last.after(lv1HTML);
+                    }
+                });
+                $(document).on('click', '.remove_lv1', function() {
+                    $(this).parents('.lv1').remove();
+                });
+                $(document).on('click', '.add_lv2', function() {
+                    var vals = $(this).siblings("input").val();
+                    var lv2HTML = '';
+                    lv2HTML += '<div style="margin-top: 5px;">';
+                    lv2HTML += '	<input type="text" name="' + vals + '[]" class="lvv4" placeholder="参数名称" />';
+                    lv2HTML += '	<button class="btn btn-danger remove_lv2" type="button">删除规格值</button>';
+                    lv2HTML += '</div>';
+                    $(this).parents('.lv1').find('.lv2s').append(lv2HTML);
+                });
+                $(document).on('click', '.remove_lv2', function() {
+                    $(this).parent().remove();
+                });
+                $('#update_table').on('click', function() {
+                    var lv1Arr = $('input[class="lvv3"]');
+                    if (!lv1Arr || lv1Arr.length == 0) {
+                        $('#lv_table_con').hide();
+                        $('#lv_table').html('');
+                        return;
+                    }
+                    for (var i = 0; i < lv1Arr.length; i++) {
+                        var lv2Arr = $(lv1Arr[i]).parents('.lv1').find('input[class="lvv4"]');
+                        if (!lv2Arr || lv2Arr.length == 0) {
+                            alert('请先删除无参数的规格项！');
+                            return;
+                        }
+                    }
+
+                    var tableHTML = '';
+                    tableHTML += '<table class="table table-bordered">';
+                    tableHTML += '	<thead>';
+                    tableHTML += '		<tr>';
+                    for (var i = 0; i < lv1Arr.length; i++) {
+                        tableHTML += '			<th width="50"><input value="' + $(lv1Arr[i]).val() + '"  readonly style="border:0;"></th>';
+                    }
+                    tableHTML += '			<th width="100px"><input value="价格（元）"  readonly style="border:0;"></th>';
+                    tableHTML += '			<th width="100px"><input value="库存"  readonly style="border:0;"></th>';
+                    tableHTML += '			<th width="100px"><input value="规格编码"  readonly style="border:0;"></th>';
+                    tableHTML += '			<th width="100px"><input value="成本价"  readonly style="border:0;"></th>';
+                    tableHTML += '			<th width="100px"><input value="图片"  readonly style="border:0;"></th>';
+                    tableHTML += '			<th width="100px"><input value="开关"  readonly style="border:0;"></th>';
+                    tableHTML += '		</tr>';
+                    tableHTML += '	</thead>';
+                    tableHTML += '	<tbody>';
+
+                    var numsArr = new Array();
+                    var idxArr = new Array();
+                    for (var i = 0; i < lv1Arr.length; i++) {
+                        numsArr.push($(lv1Arr[i]).parents('.lv1').find('input[class="lvv4"]').length);
+                        idxArr[i] = 0;
+                    }
+
+                    var len = 1;
+                    var rowsArr = new Array();
+                    for (var i = 0; i < numsArr.length; i++) {
+                        len = len * numsArr[i];
+
+                        var tmpnum = 1;
+                        for (var j = numsArr.length - 1; j > i; j--) {
+                            tmpnum = tmpnum * numsArr[j];
+                        }
+                        rowsArr.push(tmpnum);
+                    }
+
+                    for (var i = 0; i < len; i++) {
+                        tableHTML += '		<tr data-row="' + (i + 1) + '">';
+
+                        var name = '';
+                        for (var j = 0; j < lv1Arr.length; j++) {
+                            var n = parseInt(i / rowsArr[j]);
+                            if (j == 0) {} else if (j == lv1Arr.length - 1) {
+                                n = idxArr[j];
+                                if (idxArr[j] + 1 >= numsArr[j]) {
+                                    idxArr[j] = 0;
+                                } else {
+                                    idxArr[j]++;
+                                }
+                            } else {
+                                var m = parseInt(i / rowsArr[j]);
+                                n = m % numsArr[j];
+                            }
+
+                            var text = $(lv1Arr[j]).parents('.lv1').find('input[class="lvv4"]').eq(n).val();
+                            if (j != lv1Arr.length - 1) {
+                                name += text + '_';
+                            } else {
+                                name += text;
+                            }
+
+                            if (i % rowsArr[j] == 0) {
+                                tableHTML += '	<td width="50" rowspan="' + rowsArr[j] + '" data-rc="' + (i + 1) + '_' + (j + 1) + '"><input value="' + text + '"  readonly style="border:0;"></td>';
+                            }
+                        }
+
+                        tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[price]" /></td>';
+                        tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[stock]" /></td>';
+                        tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[coding]" /></td>';
+                        tableHTML += '			<td width="100px"><input type="text" name="sss' + name + '[cost]" /></td>';
+                        tableHTML += '			<td width="100px">';
+                        tableHTML += '                         <div class="img-box full">';
+                        tableHTML += '	                    <section class=" img-section">';
+                        tableHTML += '	                        <div class="z_photo upimg-div clear">';
+                        tableHTML += '	                            <section class="z_file fl">';
+                        tableHTML += '	                                <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">';
+                        tableHTML += '	                                <input type="file" name="imgs[]" id="file_' + i + '" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="1" />';
+                        tableHTML += '	                            </section>';
+                        tableHTML += '	                        </div>';
+                        tableHTML += '                    </section>';
+                        tableHTML += '                </div>';
+                        tableHTML += '                <aside class="mask works-mask">';
+                        tableHTML += '                   <div class="mask-content">';
+                        tableHTML += '                       <p class="del-p ">您确定要删除作品图片吗？</p>';
+                        tableHTML += '                     <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>';
+                        tableHTML += '                 </div>';
+                        tableHTML += '            </aside>';
+                        tableHTML += '             </td>';
+                        tableHTML += '			<td width="100px"><input type="checkbox" class="Status" name="sss' + name + '[status]" value="0" lay-skin="switch" lay-text="是|否" lay-filter="isShow" name="sss' + name + '[static]"></td>';
+                        tableHTML += '		</tr>';
+                    }
+                    tableHTML += '	</tbody>';
+                    tableHTML += '</table>';
+
+                    $('#lv_table_con').show();
+                    $('#lv_table').html(tableHTML);
+                    form.render();
+                });
+            });
+
+            $("#hot").on('click', ".change_text", function() {
+                    var texts = $(this).siblings('input');
+                    layer.prompt({
+                            title: '请输入修改的文字',
+                            formType: 2
+                        },
+                        function(text, index) {
+                            texts.attr("title", text);
+                            layer.close(index);
+                            form.render();
+                        });
+
+                })
+                //TODO点击取消按钮
+            $("#general_content").on('click', ".btu-cancel", function() {
+                $(this).parent(".add-names").addClass("noshow");
+                $(this).parent().siblings(".add-names").addClass("noshow");
+                $(this).parent().siblings(".add-name").removeClass("noshow");
+            });
+
+            // TODO商品规格变化
+            form.on('radio(guige)', function(data) {
+                var checkval = data.value;
+                console.log(checkval)
+                if (checkval == "统一规格") {
+                
+                    $(".general").addClass("noshow");
+                    $(".nomal").removeClass("noshow");
+                    $("#general_content").children("div").remove();
+                    $(".nomal").children(".form-item").children(".form-input").children("input").attr("disabled", false)
+
+                } else {
+                    $(".nomal").children(".form-item").children(".form-input").children("input").attr("disabled", true)
+                    $(".nomal").addClass("noshow");
+                    $(".general ").removeClass("noshow");
+                }
+
+            });
+
+            form.on('switch(isShow)', function(data) {
+                if ($(this).val() == 0) {
+                    $(this).val(1);
+                } else {
+                    $(this).val(0);
+                }
+
+            });
+           //	TODO点击添加添加规格名
+            $("#general_content").on('click', ".add-name", function() {
+                $(this).addClass("noshow");
+                $(this).siblings(".add-names").removeClass("noshow");
+            });
+            $("#general_content").on('click', ".guibtu-add", function() {
+                var text = $(this).parent().siblings(".add-names").children("input").val();
+                var data_id = $(this).data("id");
+                $.ajax({
+                    type: "POST",
+                    url: "goods_name",
+                    data: {
+                        "goods_name": text
+                    },
+                    success: function(data) {
+                        data = eval("(" + data + ")");
+                        //                      console.log(data)
+                        layer.msg(data.info);
+                        if (data.info == "成功") {
+                            var dhtmls = "";
+                            dhtmls = '<option value="' + text + '">' + text + '</option> ';
+                            $(".universal_standard_name_" + data_id).prepend(dhtmls);
+                        }
+
+                        form.render('select');
+                    },
+                    error: function(data) {
+                        console.log(data)
+                    }
+                });
+
+            });
+            $(".tan").click(function() {
+                src = $(this).data("id");
+                $(".tanchuang").removeClass("noshow");
+                $(".tanimg").attr("src", src);
+            });
+            $(".tanchuang").click(function() {
+                $(".tanchuang").addClass("noshow");
+            });
+
+
+
+        });
+    </script>
+ 
+
+
+    {/block}
+
+</body>
+
+</html>

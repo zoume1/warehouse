@@ -1,0 +1,127 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+
+	label {
+		text-align: left !important;
+	}
+
+	.layui-form-item {
+		width: 40% !important;
+		margin-bottom: 0;
+		margin-top: 0;
+
+	}
+
+	.layui-form-label {
+		width: 26% !important;
+	}
+
+	.layui-input-inline {
+		width: 70% !important;
+	}
+
+	#page {
+		width: 96%;
+		height: 50px;
+		line-height: 50px;
+		border: solid 1px #E2E2E2;
+		padding-left: 50px;
+		background: #FDFDFE;
+	}
+</style>
+
+
+
+{/block}
+<body>
+
+	{block name="content"}
+
+	<div class="childrenBody">
+		<blockquote class="layui-elem-quote news_search">
+			<div class="layui-inline">
+				<a class="layui-btn layui-btn-danger batchDel" href="{:url('admin/capital/edit')}"> 添加规格</a>
+			</div>
+		</blockquote>
+		<div class="layui-form news_list">
+			<table class="layui-table">
+				
+				<thead>
+					<tr>
+						<th>充值金额（元）</th>
+						<th>送积分</th>
+						<th>功能开关</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody class="news_content">
+				{if !empty($recharge_data)}
+				{volist name="recharge_data" id="vo"}
+					<tr>
+						<td>{$vo.recharge_setting_full_money}</td>
+						<td>{$vo.recharge_setting_send_integral}</td>
+						<td>
+							{if $vo.status==1}
+							<input type="checkbox" checked class="Status" name="status" value="{$vo.recharge_setting_id}" lay-skin="switch" lay-text="是|否" lay-filter="isShow"
+							 data-id="{$vo.recharge_setting_id}">
+							{else}
+							<input type="checkbox" class="Status" name="status" value="{$vo.recharge_setting_id}" lay-skin="switch" lay-text="是|否" lay-filter="isShow"
+								   data-id="{$vo.recharge_setting_id}">
+							{/if}
+
+						</td>
+						<td>
+							<a class="layui-btn layui-btn-mini edit" href="{:url('admin/capital/edit',['id'=>$vo.recharge_setting_id])}"><i class="iconfont icon-edit"></i> 编辑</a>
+
+							<a href="{:url('admin/capital/del',['id'=>$vo.recharge_setting_id])}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del"
+							 data-id="undefined"><i class="layui-icon"></i> 删除</a>
+						</td>
+					</tr>
+				{/volist}
+				{/if}
+				</tbody>
+			</table>
+		</div>
+		<div id="page">
+			{$recharge_data->render()}
+		</div>
+
+	</div>
+
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+			
+
+
+		})
+	</script>
+
+	{/block}
+
+</body>
+</html>

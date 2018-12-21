@@ -1,0 +1,415 @@
+{include file="template/_meta" /}
+
+
+{block name="css"}
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .list {}
+
+    .img {
+        position: absolute;
+        width: 40px;
+    }
+
+    .num-title {}
+
+    .num {}
+
+    .parta ul {
+        display: flex;
+    }
+
+    .parta ul li {
+        padding: 30px;
+        position: relative;
+        margin: 11px;
+        text-align: center;
+        flex: 1;
+        border: solid 1px #E4E4E4;
+    }
+
+    .partb {
+        padding: 11px;
+    }
+
+    .partb table {
+        border: 0;
+        border-color: #E4E4E4;
+        width: 100%;
+    }
+
+    .partb table th {
+        border-color: #E4E4E4;
+        background: #F3F3F3;
+        padding: 12px;
+        font-weight: bold;
+    }
+
+    .partb table td {
+
+        border-color: #E4E4E4;
+        padding: 12px;
+    }
+
+    .partc ul {
+        display: flex;
+    }
+
+    .partc ul li {
+        flex: 1;
+
+        padding: 11px;
+        width: 50%;
+    }
+
+    .partc ul li table {
+        border: 0;
+        width: 100%;
+    }
+
+    .partc ul li table th {
+        border-color: #E4E4E4;
+        background: #F3F3F3;
+        padding: 12px;
+        font-weight: bold;
+    }
+
+    .partc ul li table td {
+        border-color: #E4E4E4;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .red {
+        color: red;
+    }
+
+    .select {
+        overflow: hidden;
+        line-height: 40px;
+    }
+
+    .select ul {
+        float: right;
+        overflow: hidden;
+    }
+
+    .select ul li {
+        margin-right: 20px;
+        float: left;
+    }
+    .partd table{
+        border: 0;
+        margin: 11px;
+        width: 98%;
+    }
+    .partd table td{
+    }
+    .partd table th{
+        border-color: #E4E4E4;
+        background: #F3F3F3;
+        padding: 12px;
+        font-weight: bold;
+    }
+    .parte table{
+        border: 0;
+        margin: 11px;
+        width: 98%;
+    }
+    .parte table td{
+    }
+    .parte table th{
+        border-color: #E4E4E4;
+        background: #F3F3F3;
+        padding: 12px;
+        font-weight: bold;
+    }
+</style>
+
+{/block}
+
+
+{block name="content"}
+{if $admin.role_id == 2}
+<div class="layui-form">
+    <div class="parta">
+        <ul>
+            <li class="list">
+                <div class="img"><img src="__STATIC__/admin/index/img/u168.png"></div>
+                <div class="num-title">今日订单总数</div>
+                <div class="num">200</div>
+            </li>
+            <li class="list">
+                <div class="img"><img src="__STATIC__/admin/index/img/u170.png"></div>
+                <div class="num-title">今日订单总数</div>
+                <div class="num">200</div>
+            </li>
+            <li class="list">
+                <div class="img"><img src="__STATIC__/admin/index/img/u172.png"></div>
+                <div class="num-title">今日订单总数</div>
+                <div class="num">200</div>
+            </li>
+            <li class="list">
+                <div class="img"><img src="__STATIC__/admin/index/img/u158.png"></div>
+                <div class="num-title">今日订单总数</div>
+                <div class="num">200</div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="partb">
+        <table border="" cellspacing="" cellpadding="">
+            <tr>
+                <th colspan="3">待处理事务</th>
+            </tr>
+            <tr>
+                <td>
+                    <span>待付款订单</span>
+                    <span style="color: red; float: right;">
+						(10)
+					</span>
+
+                </td>
+                <td>
+                    <span>待发货订单</span>
+
+                    <span style="color: red; float: right;">
+						(10)
+					</span>
+                </td>
+                <td>
+                    <span>待处理售后维修订单</span>
+
+                    <span style="color: red;float: right;">
+						(10)
+					</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>待服务订单</span>
+                    <span style="color: red; float: right;">
+						(10)
+					</span>
+
+                </td>
+                <td>
+                    <span>已完成订单</span>
+
+                    <span style="color: red; float: right;">
+						(10)
+					</span>
+                </td>
+                <td></td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="partc">
+        <ul>
+            <li>
+                <table border="" cellspacing="" cellpadding="">
+                    <tr>
+                        <th colspan="3">商品总览</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="red">100</p>
+                            <p>已下架</p>
+                        </td>
+                        <td>
+                            <p class="red">100</p>
+                            <p>已下架</p>
+                        </td>
+                        <td>
+                            <p class="red">100</p>
+                            <p>已下架</p>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table border="" cellspacing="" cellpadding="">
+                    <tr>
+                        <th colspan="4">用户总览</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="red">100</p>
+                            <p>今日新增</p>
+                        </td>
+                        <td>
+                            <p class="red">100</p>
+                            <p>昨日新增</p>
+                        </td>
+                        <td>
+                            <p class="red">100</p>
+                            <p>本月新增</p>
+                        </td>
+                        <td>
+                            <p class="red">100</p>
+                            <p>会员总数</p>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+
+        </ul>
+    </div>
+    <div class="partd">
+        <table border="" cellspacing="" cellpadding="">
+            <tr>
+                <th colspan="2">订单统计</th>
+            </tr>
+            <tr>
+                <td width="14%">
+                    <div class="left_content" style="text-align: center;">
+                        <p style="font-size: 10px; color: #989898; ">本月订单总数</p>
+                        <p style="font-size: 20px; color: #333; ">10000</p>
+                        <p style="font-size: 10px; color: #989898; "><span style="color: #00A950;">↑10%</span>同比上周</p>
+                    </div>
+                    <div class="left_content" style="text-align: center; margin-top: ;" >
+                        <p style="font-size: 10px; color: #989898; ">本月订单总数</p>
+                        <p style="font-size: 20px; color: #333; ">10000</p>
+                        <p style="font-size: 10px; color: #989898; "><span style="color: #00A950;">↑10%</span>同比上周</p>
+                    </div>
+                </td>
+                <td width="86%">
+                    <div class="select">
+                        <ul>
+                            <li>
+                                选择时间:
+                                <span class="time"><input type="text" class="text datetimepicker" readonly="readonly" id="beginTime" value=""
+                                                          style="width: 100px; font-size: 13px;">
+										</span>至
+                                <span class="time"><input type="text" class=" text datetimepicker" readonly="readonly" id="endTime" value="" style="width: 100px; font-size: 13px;">
+										</span>
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="container" style="width:80%; height: 400px; margin: 0 auto"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="parte">
+        <table border="" cellspacing="" cellpadding="">
+            <tr>
+                <th colspan="2">订单统计</th>
+            </tr>
+            <tr>
+                <td width="14%">
+                    <div class="left_content" style="text-align: center;">
+                        <p style="font-size: 10px; color: #989898; ">本月销售总额</p>
+                        <p style="font-size: 20px; color: #333; ">10000</p>
+                        <p style="font-size: 10px; color: #989898; "><span style="color: #00A950;">↑10%</span>同比上周</p>
+                    </div>
+                    <div class="left_content" style="text-align: center; margin-top: ;" >
+                        <p style="font-size: 10px; color: #989898; ">本周销售总额</p>
+                        <p style="font-size: 20px; color: #333; ">10000</p>
+                        <p style="font-size: 10px; color: #989898; "><span style="color: #00A950;">↑10%</span>同比上周</p>
+                    </div>
+                </td>
+                <td width="86%">
+                    <div class="select">
+                        <ul>
+                            <li>
+                                选择时间:
+                                <span class="time"><input type="text" class="text datetimepicker" readonly="readonly" id="beginTime1" value=""
+                                                          style="width: 100px; font-size: 13px;">
+										</span>至
+                                <span class="time"><input type="text" class=" text datetimepicker" readonly="readonly" id="endTime1" value="" style="width: 100px; font-size: 13px;">
+										</span>
+
+
+
+
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="containerb" style="width:80%; height: 400px; margin: 0 auto"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+{/if}
+{/block}
+
+<!--_footer 作为公共模版分离出去-->
+{include file="template/_footer" /}
+<!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="__STATIC__/admin/common/zhexian/highcharts.js"></script>
+<script language="JavaScript">
+    $(document).ready(function() {
+        var title = {
+            text: '本月订单统计'
+        };
+        var subtitle = {
+            text: 'Source: runoob.com'
+        };
+        var xAxis = {
+            categories: ['11-1', '11-1', '11-1', '11-1', '11-1', '11-1','11-1',
+            ]
+        };
+        var yAxis = {
+            title: {
+                text: ''
+            },
+            plotLines: [{
+                // value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        };
+
+        var tooltip = {
+        }
+
+        var legend = {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        };
+
+        var series = [{
+            name: '日期',
+            data: [100,100,200,200,200,100,300
+            ]
+        },
+
+        ];
+
+        var json = {};
+
+        json.title = title;
+        json.subtitle = subtitle;
+        json.xAxis = xAxis;
+        json.yAxis = yAxis;
+        json.tooltip = tooltip;
+        json.legend = legend;
+        json.series = series;
+
+        $('#container').highcharts(json);
+        $('#containerb').highcharts(json);
+    });
+</script>
+
+
+<!--请在下方写此页面业务相关的脚本-->
+{block name="bottom"}
+<!--自定义内容-->
+{/block}

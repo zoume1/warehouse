@@ -1,0 +1,317 @@
+{extend name="layout"} {block name="css"}
+
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+    
+    label {
+        text-align: left !important;
+    }
+    
+    .layui-form-item {
+        max-width: 100% !important;
+        width: 100%;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    
+    .layui-form-label {
+        width: 25% !important;
+    }
+    
+    .layui-input-inline {
+        width: 70% !important;
+    }
+    
+    #page {
+        width: 96%;
+        height: 50px;
+        line-height: 50px;
+        border: solid 1px #E2E2E2;
+        padding-left: 50px;
+        background: #FDFDFE;
+    }
+    
+    select {
+        font-size: 15px;
+    }
+    
+    button {
+        width: 60px;
+        height: 40px;
+        border-radius: 3px;
+    }
+</style>
+
+{/block}
+
+<body>
+
+    {block name="content"}
+
+    <div class="childrenBody">
+        <blockquote class="layui-elem-quote news_search">
+            <form class="layui-form" action="{:url('admin/Advertisement/accessories_business_search')}">
+                <div class="seach">
+                    <div class="seach_list">
+                        <div class="seach_laber">输入搜索</div>
+                        <div class="seach_input">
+                            <input type="text" name="titles" lay-verify="title" autocomplete="off" placeholder="活动名称" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="seach_list">
+                        <div class="seach_laber">标签</div>
+                        <div class="seach_input">
+                            <select name="labely">
+                                <option  value="1">已发布</option>
+								<option  value="0">未发布</option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="seach_list">
+                        <div class="seach_laber">状态</div>
+                        <div class="seach_input">
+                            <select name="times">
+                                <option  value="1">未过期</option>  
+                                <option  value="0">过期</option>
+							</select>
+                        </div>
+                    </div>
+                    <button class="layui-btn " type="submit" id="seach">立即搜索</button>
+                </div>
+
+            </form>
+
+        </blockquote>
+        <div class="layui-inline">
+            <a class="layui-btn layui-btn-danger batchDel" href="{:url('admin/Advertisement/accessories_business_add')}">添加活动</a>
+        </div>
+        <div class="layui-form news_list">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="3%">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" sname="" lay-skin="primary" lay-filter="allChoose"></th>
+                        <th>活动名称</th>
+                        <th>活动图片</th>
+                        <th>活动地址</th>
+                        <th>活动分类</th>
+                        <th>价格</th>
+                        <th>标签</th>
+                        <th>排序</th>
+                        <th>活动时间</th>
+                        <th>首页推荐</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody class="news_content">
+                    {volist name="accessories" id="value"}
+                    <tr>
+                        <td><input type="checkbox" sname="" lay-skin="primary" lay-filter="choose" data-id="{$value.id}"></td>
+                        <td>
+                            <div class="overflow">
+                                {$value.activity_name}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="tdimg"><img src="__UPLOADS__/{$value.classify_image}" /></div>
+                        </td>
+                        <td>
+                            <div class="overflow">
+                                {$value.address}
+                            </div>
+                        </td>
+                        <td>{if $value.pid !=0}{$value.named} {else} 无 {/if}</td>
+                        <td>￥{$value.cost_moneny}</td>
+                        <td>
+                            {$value.label|show_lable_repay}
+                        </td>
+                        <td>{$value.order_ing}</td>
+
+                        <td>
+                            <div>
+                                {if $value.start_time > time()}未过期{else}过期{/if}
+                            </div>
+                            <div>
+                                {$value.start_time|date="Y-m-d H:i",###}
+                            </div>
+
+                        </td>
+                        <td>
+                            {if $value.status == 0}
+                            <input type="checkbox" class="Status" name="status" value="{$value.status}" lay-skin="switch" lay-text="是|否" lay-filter="isShow" data-id="{$value.id}"> {else}
+                            <input type="checkbox" class="Status" name="status" value="{$value.status}" lay-skin="switch" lay-text="是|否" lay-filter="isShow" checked data-id="{$value.id}"> {/if}
+                        </td>
+                        <td width="100px;">
+                            <a class="layui-btn layui-btn-mini edit" href="{:url('admin/Advertisement/accessories_business_edit',['id'=>$value.id])}"><i class="iconfont icon-edit"></i>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+								编辑</a>
+                            <a href="{:url('admin/Advertisement/accessories_business_del',['id'=>$value.id])}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="undefined"><i class="layui-icon"></i> 删除</a>
+
+                        </td>
+                    </tr>
+                    {/volist}
+                </tbody>
+            </table>
+
+            {$access}
+            <div id="page">
+                <div class="opation" style="width: 200px; float: left;">
+                    <select name="" style="color: #C1A5A5; border-color: #E4E4E4;height: 30px;">
+						<option check="" value="0">请选择</option>
+						<option value="1">批量删除</option>
+						<option value="2">活动上架</option>
+						<option value="3">活动下架</option>
+						<option value="4">批量删除</option>
+						
+					</select>
+                </div>
+                <div style="float: left; height: 52px;line-height: 52px; margin-left: 20px;">
+                    <button type="button" id="opration_btu" style="width: 60px; background: #fff; color: #333333;border:#CCCCCC solid 1px;height: 38px;line-height: 38px;">确定
+					</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    </div>
+    {/block}
+
+    <!--_footer 作为公共模版分离出去-->
+    {include file="template/_footer" /}
+    <!--/_footer 作为公共模版分离出去-->
+
+    <!--请在下方写此页面业务相关的脚本-->
+    {block name="bottom"}
+    <script type="text/javascript">
+        layui.config({
+            base: "js/"
+        }).use(['form', 'layer', 'jquery', 'laypage'], function() {
+            var form = layui.form(),
+                layer = parent.layer === undefined ? layui.layer : parent.layer,
+                laypage = layui.laypage,
+                $ = layui.jquery;
+            var vals = $("input").data("id");
+             //点击操作确认按钮
+            var data_id = [];
+            $("#opration_btu").click(function() {
+                var opration_val = $(".opation select option:selected").val();
+                if (opration_val == 0) {
+                    layer.alert('请选择操作', {
+                        skin: 'layui-layer-molv' //样式类名
+                            ,
+                        closeBtn: 0
+                    });
+                } else if (opration_val == 1) {
+                    layer.confirm('你确认要删除吗？', {
+                        btn: ['确认', '取消'] //按钮
+                    },  function(index) {
+						layer.close(index);
+                        var child = $("tbody").find('input[type="checkbox"]:not([name="show"]):checked');
+                        for (var i = 0; i < child.length; i++) {
+                            data_id.push($(child[i])[0].dataset.id);
+                        }
+                        $.ajax({
+                            type: "POST",
+                            url: "{:url('admin/Comments/deletes')}",
+                            data: {
+                                "id": data_id,
+                            },
+                            success: function(data) {
+                                console.log("成功");
+                                console.log(data);
+                                var data = $.parseJSON(data);
+                                layer.alert(data.info, {
+                                    skin: 'layui-layer-molv' //样式类名
+                                        ,
+                                    closeBtn: 0
+                                });
+                                location.reload();
+                                data_id.splice(0, data_id.length);
+                            },
+                            error: function(data) {
+                                var data = $.parseJSON(data);
+                                layer.alert(data.info, {
+                                    skin: 'layui-layer-molv' //样式类名
+                                        ,
+                                    closeBtn: 0
+                                });
+                                console.log(data);
+                                console.log("错误");
+                                data_id.splice(0, data_id.length);
+                            }
+                        });
+                    });
+
+
+                }
+
+
+            });
+
+            //是否展示
+            form.on('switch(isShow)', function(data) {
+                if ($(this).val() == 0) {
+                    $(this).val(1);
+                } else {
+                    $(this).val(0);
+                }
+                var vals = data.value;
+                var id = $(this).data("id");
+                var status = $(this).val();
+                console.log(status);
+                $.ajax({
+                    type: "POST",
+                    url: "{:url('admin/Advertisement/accessories_business_label')}",
+                    data: {
+                        "id": id,
+                        "status": status
+                    },
+                    success: function(data) {
+                        console.log("成功")
+                    },
+                    error: function(data) {
+                        console.log("错误")
+                    }
+                });
+
+
+            });
+
+            //全选
+            form.on('checkbox(allChoose)', function(data) {
+                var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+                child.each(function(index, item) {
+                    item.checked = data.elem.checked;
+                });
+                form.render('checkbox');
+            });
+
+            //通过判断文章是否全部选中来确定全选按钮是否选中
+            form.on("checkbox(choose)", function(data) {
+                var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+                var childChecked = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"]):checked')
+                if (childChecked.length == child.length) {
+                    $(data.elem).parents('table').find('thead input#allChoose').get(0).checked = true;
+                } else {
+                    $(data.elem).parents('table').find('thead input#allChoose').get(0).checked = false;
+                }
+                form.render('checkbox');
+            })
+
+
+        })
+    </script>
+
+    {/block}
+
+</body>
+
+</html>

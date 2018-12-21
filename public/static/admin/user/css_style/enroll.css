@@ -1,0 +1,114 @@
+a{
+		color:white;
+		font-size:13px;
+		float:right;
+	}
+	.inputImg.txt{
+
+		background: url("../img/enroll/aaa.png") no-repeat center;
+
+	}
+	.inputImg.mm{
+
+		background: url("../img/enroll/mmm.png") no-repeat center;
+
+	}
+	.inputImg{
+		width:30px;
+		height:30px;
+		border-right:1px solid #f4f4f4;
+		position: relative;
+		top:-35px;
+		left:5px;
+		}
+	ul{
+		padding:0;
+		margin:auto;
+		width:400px;
+		font-size:15px;
+		color:#fff;
+	}
+	span{
+		margin-left:10px;
+	}
+	.err{	
+		background-color:red;
+		border:1px solid red;
+		border-radius:3px;}
+	.ok{
+		background-color:green;
+		border:1px solid green;
+		border-radius:3px;}
+	h3{
+		text-align: center;
+		margin:25px 0;
+		color:white;
+	}
+	li{
+		margin-top:20px;
+	}
+	/*body {
+		background-image: url("../img/enroll/2.jpg") ;
+		background-size:1920px,1080px;
+	}
+*/
+	#h{
+		height:580px;
+		background-position: 0 50%;
+	}
+	#h > div{
+		width:480px;
+		height:400px;	
+		background-color: rgba(68, 56, 56, 0.26);
+		position: relative;
+		top:15%;
+		left:700px;
+	}
+	input{
+		padding:0 45px;
+		box-sizing:border-box;
+		width:400px;
+		height:40px;
+		line-height:30px;
+		border:none;
+		border-radius:3px;
+	}
+	[type='button']{
+		background-color:#14A6F0;
+		color:white;
+		font-size:15px;
+	}
+	#upwdMsg,#unameMsg{
+		
+	}
+	#tjbtn{
+			cursor:pointer;
+		}
+	.logo{
+		width: 160px;
+		height:50px;
+		background: url(../img/logo.png) no-repeat;
+		position: absolute;
+		top:20px;
+		left:20px;
+	}
+	.desc{
+		font-size: 18px;
+		line-height: 34px;
+		border-left: 1px solid #ccc;
+		position: absolute;
+		left: 200px;
+		top:28px;
+		padding-left: 20px;
+		font-weight:bold;
+	}
+	header{
+		width:100%;
+		height: 110px;
+		position: relative;
+	}
+
+	.aaa1:hover{
+		background-color: #c0c0c0;
+	}
+

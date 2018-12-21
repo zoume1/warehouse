@@ -1,0 +1,155 @@
+{extend name="layout"} {block name="css"}
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+	
+	.layui-form label {
+		width: 17%;
+		text-align: left;
+	}
+	.layui-form .layui-input-block input {
+		width: 80%;
+	}
+	
+</style>
+
+
+{/block}
+
+<body>
+
+	{block name="content"}
+	<div class="open">
+
+	</div>
+	<form class="layui-form" action="{:url('admin/Goods/save')}" method="post" enctype="multipart/form-data">
+	
+		<div class="layui-form-item ">
+			<label class="layui-form-label"><span>*</span>会员等级:</label>
+			<div class="layui-input-block">
+				<input type="text" name="goods_name" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="goods_name">
+			</div>
+		</div>
+	
+		<div class="layui-form-item">
+			<label class="layui-form-label"><span>*</span>等级图标</label>
+			<div class="layui-input-block">
+				<div class="img-box full">
+					<section class=" img-section">
+						<div class="z_photo upimg-div clear">
+							<section class="z_file fl">
+								<img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+								<input type="file" name="goods_show_images" id="file" class="file" value="" data-id = "1" accept="image/jpg,image/jpeg,image/png,image/bmp"  multiple />
+							</section>
+						</div>
+					</section>
+				</div>
+				<aside class="mask works-mask">
+					<div class="mask-content">
+						<p class="del-p ">您确定要删除作品图片吗？</p>
+						<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+					</div>
+				</aside>
+			</div>
+		</div>
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">会员卡背景色：</label>
+			<div class="layui-input-inline">
+			<input type="color" name="" id="color" value="#2D9900" />
+			</div>
+			
+		</div>
+		<div class="layui-form-item ">
+			<label class="layui-form-label">有效期:</label>
+			<div class="layui-input-inline">
+				<select name="goods_brand">
+					<option value="浙江" selected="">浙江省</option>
+					<option value="你的工号">江西省</option>
+					<option value="你最喜欢的老师">福建省</option>
+				</select>	</div>
+				
+		</div>
+		<div class="layui-form-item ">
+			<label class="layui-form-label">首年消费满:</label>
+			<div class="layui-input-block">
+				<input type="text" name="sort_number" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" >万元
+				
+			</div>
+		</div>
+		<div class="layui-form-item ">
+			<label class="layui-form-label">次年消费满:</label>
+			<div class="layui-input-block">
+				<input type="text" name="sort_number" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" >万元
+			</div>
+		</div>
+		<div class="layui-form-item ">
+			<label class="layui-form-label">充值送会员:</label>
+			<div class="layui-input-block">
+				<input type="text" name="sort_number" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" >万元
+			</div>
+		</div>
+		<div class="layui-form-item ">
+			<label class="layui-form-label">充值送积分:</label>
+			<div class="layui-input-block">
+				<input type="text" name="sort_number" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" >
+			</div>
+		</div>
+		<div class="layui-form-item ">
+			<label class="layui-form-label">会员消费折扣:</label>
+			<div class="layui-input-block">
+				<input type="text" name="sort_number" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input"  id="sort_number">
+			</div>
+		</div>
+	  <div class="layui-form-item ">
+            <label class="layui-form-label">是否介绍隐藏:</label>
+            <div class="layui-input-block">
+            <input type="radio" name="sex" value="0" title="隐藏" checked="">
+            <input type="radio" name="sex" value="1" title="不隐藏"> </div>
+        </div>
+		
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn submit_btn" lay-submit="" lay-filter="demo1" type="submit">保存</button>
+				<button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);"> 返回</button>
+			</div>
+		</div>
+
+	</form>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+	<script type="text/javascript">
+			layui.config({
+				base: "js/"
+			}).use(['form', 'layer', 'jquery', 'laypage','layedit'], function() {
+				var form = layui.form(),
+				layedit = layui.layedit,
+					layer = parent.layer === undefined ? layui.layer : parent.layer,
+					laypage = layui.laypage,
+					$ = layui.jquery;
+					
+						//是否展示
+			form.on('switch(isShow)', function(data) {
+				alert(1211);
+				if ($(this).val() == 0) {
+					$(this).val(1);
+				} else {
+					$(this).val(0);
+				}
+				console.log($(this).val());
+			});
+			});
+	</script>
+	{/block}
+
+</body>
+
+</html>

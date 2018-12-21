@@ -1,0 +1,149 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/common/css/aaa.css" />
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+</style>
+
+{/block}
+
+<body>
+    {block name="content"}
+    <form class="layui-form layui-form-lists" action="{:url('admin/Distribution/setting_updata')}" method="post" enctype="multipart/form-data">
+        {if !empty($setting)} {volist name="setting" id="value"}
+        <input type="hidden" name="id" id="" value="{$value.id}" />
+        <div class="form-title">基础设置 </div>
+        <div class="form-item">
+            <label class="form-label">等级</label>
+            <div class="form-input">
+                <p>{$value.rank}</p>
+                <div class="tips">
+                    *购买者为0级，按照腾讯规则，包括购买者在内，总计不得超过3级，平台设置为4级，敬请留意！
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">佣金比例</label>
+            <div class="form-input">
+                <input type="text" name="grade" value="{$value.grade}" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    *0-100，支付金额的百分比为佣金，0表示无比例佣金
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">固定佣金</label>
+            <div class="form-input">
+                <input type="text" name="award" value="{$value.award}" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    *固定分红，单元（元），0表示无固定佣金
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">积分比例</label>
+            <div class="form-input">
+                <input type="text" name="scale" value="{$value.scale}" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    *0-100，支付金额的百分比为佣金，0表示无比例佣金
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">固定积分</label>
+            <div class="form-input">
+                <input type="text" name="integral" value="{$value.integral}" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+                <div class="tips">
+                    *固定分红，单元（元），0表示无固定佣金</div>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label">返利时机</label>
+            <div class="form-input">
+                {if $value.opportunity == 1}
+                <input type="radio" name="opportunity" value="1" title="付款成功后立即返利" checked="">
+                <input type="radio" name="opportunity" value="0" title="确认收货后才进行返利"> {else}
+                <input type="radio" name="opportunity" value="1" title="付款成功后立即返利">
+                <input type="radio" name="opportunity" value="0" title="确认收货后才进行返利" checked=""> {/if}
+                <div class="tips">
+                    退款给购买者订单，奖励收回
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="form-title">高级设置 </div>
+        <div class="form-item">
+            <label class="form-label">配送方式</label>
+            <div class="form-input line">
+                {if $value.way == 1}
+                <input type="radio" name="way" value="1" title="适用全部会员" checked="">
+                <input type="radio" name="way" value="0" title="不对普通会员开放"> {else}
+                <input type="radio" name="way" value="1" title="适用全部会员">
+                <input type="radio" name="way" value="0" title="不对普通会员开放" checked=""> {/if}
+
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">快递运费</label>
+            <div style="display: flex;flex-direction:column">
+                <div class="form-input">
+                    <input type="text" name="expenses" value="{$value.expenses}" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="form-item">
+            <label class="form-label">状态</label>
+            <div class="form-input">
+                {if $value.status == 1}
+                <input type="radio" name="status" value="1" title="开" checked="">
+                <input type="radio" name="status" value="0" title="关"> {else}
+                <input type="radio" name="status" value="1" title="开">
+                <input type="radio" name="status" value="0" title="关" checked=""> {/if}
+
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+                <button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+            </div>
+        </div>
+
+    </form>
+    {/volist} {/if} {/block}
+
+    <!--_footer 作为公共模版分离出去-->
+    {include file="template/_footer" /}
+    <!--/_footer 作为公共模版分离出去-->
+
+    <!--请在下方写此页面业务相关的脚本-->
+    {block name="bottom"}
+
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor');
+        layui.config({
+            base: "js/"
+        }).use(['form', 'layer', 'jquery', 'laypage', 'upload'], function() {
+            var form = layui.form(),
+                $ = layui.jquery;
+            form.render();
+        });
+    </script>
+
+    {/block}
+
+</body>
+
+</html>

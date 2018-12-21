@@ -1,0 +1,93 @@
+{extend name="layout"} {block name="css"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/common/css/aaa.css" />
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+
+	.layui-form {
+		width: 90%;
+		margin: 20px auto;
+	}
+
+	.layui-form label {
+		width: 17%;
+		text-align: left;
+	}
+
+	.layui-form .layui-input-block input {
+		width: 76%;
+	}
+</style>
+
+{/block}
+
+<body>
+
+	{block name="content"}
+	<div class="open">
+
+	</div>
+	<form class="layui-form" action="">
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"> 功能开关</label>
+			<div class="layui-input-block">
+				<input type="checkbox" class="Status" name="show" value="0" lay-skin="switch" lay-text="是|否" lay-filter="isShow"
+				 data-id="2">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">充值</label>
+			<div class="layui-input-block">
+				<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">元
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">送积分</label>
+			<div class="layui-input-block">
+				<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);"> 返回</button>
+
+				<button class="layui-btn" lay-submit="" lay-filter="demo1" type="submit">保存</button>
+
+			</div>
+		</div>
+
+	</form>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+
+
+		})
+	</script>
+
+
+
+	{/block}
+
+</body>
+
+</html>

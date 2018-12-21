@@ -1,0 +1,194 @@
+{extend name="layout"}
+
+{block name="css"}
+<style type="text/css">
+
+	body {
+		background: #fff;
+	}
+	
+	.layui-anim-upbit {
+		width: 95% !important;
+	}
+   .err{
+		    border: red solid 1px;
+	}
+
+</style>
+
+{/block}
+<body>
+{block name="content"}
+<form class="layui-form  layui-form-lists" action="{:url('admin/admin/save')}" method="post">
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>账号</label>
+			<div class="form-input">
+				<input type="text" name="account" placeholder="请输入" class="layui-input" id="account">
+			</div>
+		</div>	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>部门</label>
+			<div class="form-input">
+					<input type="text" name="department" placeholder="请输入" class="layui-input" id="department">
+			</div>
+		</div>	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>姓名</label>
+			<div class="form-input">
+				<input type="text" name="name" placeholder="请输入" class="layui-input" id="name">
+			</div>
+		</div>	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>性别</label>
+			<div class="form-input">
+			<input type="radio" name="sex" value="0" title="男">
+			<input type="radio" name="sex" value="1" title="女" checked>
+			</div>
+		</div>	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>密码</label>
+			<div class="form-input">
+				<input type="password" name="passwd" placeholder="请输入" class="layui-input" id="password">
+			</div>
+		</div>	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>密码确认</label>
+			<div class="form-input">
+				<input type="password"  placeholder="请输入" class="layui-input" id="repassword">
+			</div>
+		</div>	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>手机</label>
+			<div class="form-input">
+					<input type="text" name="phone" placeholder="请输入" class="layui-input"  id="phone">
+			</div>
+		</div>	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>邮箱</label>
+			<div class="form-input">
+					<input type="text" name="email" placeholder="请输入" class="layui-input" id="email">
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>角色</label>
+			<div class="form-input">
+					<select name="role_id" id="admin_role" class="role_list">
+				{volist name="roleList" id="value"}
+				<option value="{$value.id}">{$value.name}</option>
+				{/volist}
+			</select>
+			</div>
+		</div>	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>状态</label>
+			<div class="form-input">
+					<select name="status" id="admin_status">
+				<option value="1" selected="">启用</option>
+				<option value="2">禁用</option>
+			</select>
+			</div>
+		</div>	
+			<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+				<button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+			</div>
+		</div>
+	
+</form>
+{/block}
+
+<!--_footer 作为公共模版分离出去-->
+{include file="template/_footer" /}
+<!--/_footer 作为公共模版分离出去-->
+<!--请在下方写此页面业务相关的脚本-->
+{block name="bottom"}
+<script type="text/javascript">
+layui.config({
+		base: "js/"
+	}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+		var form = layui.form(),
+			layer = parent.layer === undefined ? layui.layer : parent.layer,
+			laypage = layui.laypage,
+			$ = layui.jquery;
+		    form.render();
+	
+	});
+	
+	
+	$("#submits").click(function(){
+		checks();
+	});
+	
+	
+	function checks(){
+		
+		if($("#account")[0].value==''){
+			$("#account").addClass("err");
+			return false; 
+		}
+		else{
+			$("#account").removeClass("err");
+//			return true;
+		}
+		if($("#department")[0].value==''){
+			$("#department").addClass("err");
+			return false;
+			 
+		}else{
+			$("#department").removeClass("err");
+//			return true;
+		}
+		if($("#name")[0].value==''){
+			$("#name").addClass("err");
+			return false;
+			 	 
+			 
+		}else{
+			$("#name").removeClass("err");
+//			return true;
+		}if($("#password")[0].value==''){
+			
+			$("#password").addClass("err");
+			return false;
+			 
+		}else{
+			$("#password").removeClass("err");
+//			return true;
+		}if($("#repassword")[0].value==''){
+			$("#repassword").addClass("err");
+			return false;
+			 
+		}else{
+			$("#repassword").removeClass("err");
+//			return true;
+		}if($("#phone")[0].value==''){
+			$("#phone").addClass("err");
+			return false;
+			 
+		}
+		else{
+			$("#phone").removeClass("err");
+//			return true;
+		}if($("#email")[0].value==''){
+			$("#email").addClass("err");
+			return false;
+			 
+		}
+		else{
+			$("#email ").removeClass("err");
+//			return true;
+		}
+		if($("#repassword")[0].value!=$("#password")[0].value){
+			alert("两次密码不一致");
+			return false;
+		}
+     $("#submits").attr("type","submit");
+		
+	}
+	</script>
+{/block}
+
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/common/css/aaa.css" />
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+	
+	.proportion{
+		width: 70%;
+		margin: 20px auto; 
+		border: 0;
+	}
+	.proportion th{
+		padding: 20px;
+		background: #F9FAFC;
+		text-align: center;
+		border-color: #E4E4E4;
+		
+	}
+	.proportion td{
+		padding: 10px;
+		text-align: center;
+	}
+	.proportion td input{
+		width: 100%;
+		border: 0;
+		padding-left: 10px;
+		box-sizing: border-box;
+		
+	}
+</style>
+
+{/block}
+
+<body>
+	{block name="content"}
+	
+
+	<form class="layui-form layui-form-lists" action="{:url('admin/Category/save')}" method="post" enctype="multipart/form-data">
+		<div class="form-title">特定商品  </div>
+		<div class="form-item">
+			<label class="form-label">用户名</label>
+			<div class="form-input">
+			<p style="line-height: 38px;">Jack </p>
+			</div>
+		</div>
+			
+		<div class="form-title">分佣比例 </div>
+		<table border="" cellspacing="" cellpadding="" class="proportion">
+			<tr>
+				<th>等级</th>
+				<th>佣金比例</th>
+				<th>佣金比例</th>
+				<th>积分比例</th>
+				<th>固定积分</th>
+			</tr>
+			<tr>
+				<td>
+					<input type="" name="" id="" value="0级（购买者）" />
+				</td>
+				<td><input type="" name="" id="" value="" /></td>
+				<td><input type="" name="" id="" value="" /></td>
+				<td><input type="" name="" id="" value="" /></td>
+				<td><input type="" name="" id="" value="" /></td>
+			</tr>
+		</table>
+		
+		<div class="form-title">高级设置 </div>
+		
+		<div class="form-item">
+			<label class="form-label">状态</label>
+			<div class="form-input">
+				<input type="radio" name="a" value="1" title="开" checked="">
+				<input type="radio" name="a" value="0" title="关">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+				<button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+			</div>
+		</div>
+	</form>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+
+
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage', 'upload'], function() {
+			var form = layui.form(),
+				$ = layui.jquery;
+			form.render();
+		
+		});
+	</script>
+
+	{/block}
+
+</body>
+
+</html>

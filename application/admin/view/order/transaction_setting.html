@@ -1,0 +1,121 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+	
+	form {
+		width: 50%;
+		margin: 100px auto;
+	}
+	
+	.btus {
+		width: 100%;
+		margin: 50px auto;
+	}
+	
+	.btus button {
+		width: 160px;
+		height: 40px;
+		border-radius: 3px;
+	}
+	
+	.return {
+		background: #F2F2F2;
+		color: #666666;
+	}
+	
+	.submit_btn {
+		margin-left: 30px;
+		color: #fff;
+		background: #32ADFF;
+	}
+	
+	.title {
+		display: inline-block;
+		width: 118px;
+		text-align: left;
+	}
+	
+	form div {
+		margin-top: 20px;
+	}
+</style>
+
+{/block}
+
+<body>
+
+	{block name="content"}
+
+	<form action="{:url('admin/Install/order_setting_update')}" method="post">
+		
+		<div>
+			<span class="title">正常订单超过：</span>
+			<span style="display: inline-block;height: 40px; line-height: 40px; border-color:#E4E4E4;">
+			<input type="text" name="normal" id="" value="" />
+		</span>
+			<span style="text-align: center; margin-left: -5px; display: inline-block; width: 40px;height: 40px; line-height: 40px;background: #F2F2F2; border: solid 2px #E4E4E4;">分</span>
+			<span>未付款，订单自动关闭</span>
+		</div>
+		<div>
+			<span class="title">发货超过：</span>
+			<span style="display: inline-block;height: 40px; line-height: 40px; border-color:#E4E4E4;">
+			<input type="text" name="deliver_goods" id="" value="" />
+		</span>
+			<span style="text-align: center; margin-left: -5px; display: inline-block; width: 40px;height: 40px; line-height: 40px;background: #F2F2F2; border: solid 2px #E4E4E4;">天</span>
+			<span>未收货，订单自动完成</span>
+		</div>
+		<div>
+			<span class="title">订单完成超过：</span>
+			<span style="display: inline-block;height: 40px; line-height: 40px; border-color:#E4E4E4;">
+			<input type="text" name="after_sale" id="" value="" />
+		</span>
+			<span style="text-align: center; margin-left: -5px; display: inline-block; width: 40px;height: 40px; line-height: 40px;background: #F2F2F2; border: solid 2px #E4E4E4;">天</span>
+			<span>自动结束交易，不能申请售后</span>
+		</div>
+		<div>
+			<span class="title">订单完成超过：</span>
+			<span style="display: inline-block;height: 40px; line-height: 40px; border-color:#E4E4E4;">
+			<input type="text" name="start_evaluate" id="" value="" />
+		</span>
+			<span style="text-align: center; margin-left: -5px; display: inline-block; width: 40px;height: 40px; line-height: 40px;background: #F2F2F2; border: solid 2px #E4E4E4;">天</span>
+			<span>自动五星好评</span>
+		</div>
+		<div class="btus">
+			<button type="button" class="return">取消</button>
+			<button type="submit" class="submit_btn">确定</button>
+		</div>
+
+	</form>
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+			var vals = $("input").data("id");
+
+		})
+	</script>
+
+	{/block}
+
+</body>
+
+</html>

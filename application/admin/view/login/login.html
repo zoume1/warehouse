@@ -1,0 +1,50 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>登录页面</title>
+		<link rel="stylesheet" type="text/css" href="__STATIC__/admin/loading/css/index.css"/>
+	</head>
+	<body>
+		 <div class="J_scroll_content store-banner b1" id="theOnlyScrollPage">
+                <div id="bg">
+                        <div id="grid"></div>
+                </div>
+                <div id="canvasPIXI"></div>
+           
+                <div id="content" style="display:none">
+                        <script>var selectedTemplate = "homePageTMP";</script>
+                </div>
+
+
+                <script>
+                        var createjs = window;
+                        var base_url = '#';
+                </script>
+        </div>
+		<form method="post" action="{:url('admin/Login/login')}" autoComplete="off" class="js-ajax-form">
+		     <div class="dowebok">
+		        <div class="logo"></div>
+		        <div class="form-item">
+		            <input id="username" name="account" type="text" autocomplete="off" placeholder="账户">
+		            <p class="tip">请输入合法的邮箱地址</p>
+		        </div>
+		        <div class="form-item">
+		            <input id="password" type="password" name="passwd" autocomplete="off" placeholder="登录密码">
+		            <p class="tip">邮箱或密码不正确</p>
+		        </div>
+		        <div class="form-item" style="display:inline-block;width:100%; height: 50px;     margin-left: 33px;">
+		            <!--<input id="password" type="password" name="passwd" autocomplete="off" placeholder=" 验证码">-->
+		           <input type="text" id="yzm" name="yzm" placeholder="验证码" style="width: 220px; height: 50px;">
+		        <span style="display:inline-block;float:right;margin-right: 92px;"><img src="{:url('admin/Login/captchas')}" onclick="this.src='{:url('admin/Login/captchas')}?id='+Math.random();" /></span>
+		        </div>
+				 
+		        <div class="form-item"><button id="submit">登 录</button></div>
+		    </div>
+		</form>
+		    <script type="text/javascript" src="__STATIC__/admin/common/js/jquery.js"></script>
+		     <script type="text/javascript" src="__STATIC__/admin/loading/js/EasePack.min.js"></script>
+		      <script type="text/javascript" src="__STATIC__/admin/loading/js/fi000001.72.js"></script>
+		       <script type="text/javascript" src="__STATIC__/admin/loading/js/TweenLite.min.js"></script>
+	</body>
+</html>

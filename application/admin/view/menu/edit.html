@@ -1,0 +1,195 @@
+{extend name="layout"} {block name="css"}
+<style type="text/css">
+    .err {
+        border: red solid 1px;
+    }
+    
+    body {
+        background: #fff;
+    }
+    /* 数据库展现图片样式 */
+    
+    .img {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+    }
+    
+    .imgcontent {
+        margin: 10px;
+    }
+    
+    .img>i {
+        display: inline-block;
+        width: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+</style>
+
+{/block}
+
+<body>
+
+    {block name="content"}
+
+    <form class="layui-form layui-form-lists" method="post" action="{:url('admin/menu/updata')}">
+
+        {volist name="menu" id="val"}
+        <div class="form-item">
+            <label class="form-label"><span class="red">*</span>菜单名称</label>
+            <div class="form-input">
+                <input type="text" value="{$val.name}" name="name" lay-verify="title" autocomplete="off" placeholder="请输入账号" class="layui-input" id="mun_name">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">URL</label>
+            <div class="form-input">
+                <input type="text" value="{$val.url}" name="url" lay-verify="title" autocomplete="off" placeholder="请输入部门" class="layui-input" id="mun_acc">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label">上一级名称</label>
+            <div class="form-input">
+                <select name="pid" lay-filter="aihao" class="select">
+					<option value="0">顶级</option>
+					{volist name="menu_list" id="value"}
+					<option value="{$value.id}">{$value.name}</option>
+					{/volist}
+				</select>
+            </div>
+        </div>
+
+        <div class="form-item">
+            <label class="form-label"><span>*</span>排序</label>
+            <div class="form-input">
+                <input type="text" value="{$val.sort_number}" name="sort_number" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="mun_num">
+            </div>
+        </div>
+        <div class="form-item">
+            <label class="form-label"><span>*</span>状态</label>
+            <div class="form-input">
+                <select name="status" id="admin_status">
+					<option value="1" selected="">启用</option>
+					<option value="0">禁用</option>
+				</select>
+            </div>
+        </div>
+        <!--<div class="form-item">
+			<label class="form-label"><span class="red">*</span>第一级菜单图</label>
+			<div class="img-edit">
+				 <div class="imgcontent" >
+                    <span class="img">
+						<img src="__STATIC__/admin/common/img/a11.png" width="100%">
+						<i class="remove-img" name="icon_image" value="" data-id="" data-value="2"><img src="__STATIC__/admin/common/img/a7.png"></i>
+					</span>
+                </div>
+			<div class="form-input">
+				<div class="img-box full">
+					<section class=" img-section">
+						<div class="z_photo upimg-div clear">
+							<section class="z_file fl">
+								<img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+								<input type="file" name="icon_image" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="1" />
+							</section>
+						</div>
+					</section>
+				</div>
+				<aside class="mask works-mask">
+					<div class="mask-content">
+						<p class="del-p ">您确定要删除作品图片吗？</p>
+						<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+					</div>
+				</aside>
+
+			</div>
+            </div>
+		</div>-->
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="hidden" name="id" value="{$val.id}">
+                <button class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+                <button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+            </div>
+        </div>
+        {/volist}
+    </form>
+
+    {/block}
+
+    <!--_footer 作为公共模版分离出去-->
+    {include file="template/_footer" /}
+    <!--/_footer 作为公共模版分离出去-->
+
+    <!--请在下方写此页面业务相关的脚本-->
+    {block name="bottom"}
+    <script type="text/javascript">
+        layui.config({
+            base: "js/"
+        }).use(['form', 'layer', 'jquery', 'laypage'], function() {
+            var form = layui.form(),
+                layer = parent.layer === undefined ? layui.layer : parent.layer,
+                laypage = layui.laypage,
+                $ = layui.jquery;
+
+            form.render();
+            //创建一个编辑器
+            //var editIndex = layedit.build('LAY_demo_editor');
+
+        });
+        // 图片删除
+        $(".remove-img").click(function() {
+            var remove = $(this).parent();
+            var id = $(this).data("id");
+            var value = $(this).data("value");
+            console.log(value)
+            console.log(id);
+            $.ajax({
+                type: "POST",
+                url: "{:url('admin/Category/images')}",
+                data: {
+                    "id": id
+                },
+                dataType: "json",
+                success: function(data) {
+                    remove.remove();
+                },
+                error: function(data) {
+                    console.log("错误");
+                }
+            });
+
+
+        });
+        $("#submits").click(function() {
+            checks();
+        });
+
+        function checks() {
+
+            if ($("#mun_name")[0].value == '') {
+                $("#mun_name").addClass("err");
+                return false;
+            } else {
+                $("#mun_name").removeClass("err");
+                //			return true;
+            }
+
+            if ($("#mun_num")[0].value == '') {
+                $("#mun_num").addClass("err");
+                return false;
+
+            } else {
+                $("#mun_num").removeClass("err");
+                //			return true;
+            }
+            $("#submits").attr("type", "submit");
+
+        }
+    </script>
+    {/block}
+
+</body>
+
+</html>

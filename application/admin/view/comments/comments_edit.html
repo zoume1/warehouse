@@ -1,0 +1,91 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+    
+    .layui-form label {
+        width: 20%;
+        text-align: left;
+    }
+    
+    .layui-form .layui-input-block input {
+        width: 100%;
+    }
+    
+    .layui-form-item {
+        width: 40% !important;
+    }
+    
+    .layui-form-label span {
+        color: red;
+    }
+    
+    .layui-form {
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+</style>
+
+
+{/block}
+
+<body>
+
+    {block name="content"} {if !empty($comments)} {volist name="comments" id="value"}
+    <form class="layui-form" action="{:url('admin/Comments/save',['id'=>$value.id])}" method="post" enctype="multipart/form-data">
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户评论</label>
+            <div class="layui-input-block">
+                <p><input type="text" name="comment" value="{$value.comment}"></p>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">官方回复</label>
+            <div class="layui-input-block">
+                <textarea rows="10" cols="50" name="reply_content">{$value.reply_content}</textarea>
+            </div>
+
+        </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" type="submit" id="submits">确定</button>
+                <button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);"> 返回</button>
+            </div>
+        </div>
+    </form>
+    {/volist} {/if} {/block}
+
+    <!--_footer 作为公共模版分离出去-->
+    {include file="template/_footer" /}
+    <!--/_footer 作为公共模版分离出去-->
+
+    <!--请在下方写此页面业务相关的脚本-->
+    {block name="bottom"}
+
+    <script type="text/javascript">
+        layui.config({
+            base: "js/"
+        }).use(['form', 'layer', 'jquery', 'laypage', 'upload'], function() {
+            var form = layui.form(),
+                $ = layui.jquery;
+            form.render();
+            //创建一个编辑器
+            //var editIndex = layedit.build('LAY_demo_editor');
+
+        });
+    </script>
+
+    {/block}
+
+</body>
+
+</html>s

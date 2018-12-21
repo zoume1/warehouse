@@ -1,0 +1,280 @@
+{extend name="layout"}
+
+{block name="css"}
+<style type="text/css">
+	.layui-form label {
+		text-align: left;
+	}
+
+	.red {
+		color: red;
+	}
+
+	.layui-form {
+		width: 80%;
+		margin: 0 auto;
+		padding-top: 40px;
+	}
+
+	body {
+		background: #fff;
+	}
+
+	.title {
+		background: #F2F2F2;
+		display: block;
+		color: #666666;
+		padding-left: 10px;
+		height: 54px;
+		line-height: 54px;
+		font-size: 20px;
+		border-top: solid 2px #E4E4E4;
+		border-bottom: solid 2px #E4E4E4;
+
+	}
+
+	ul {
+		overflow: hidden;
+	}
+
+	/* .quanxian ul li {
+		width: 30%;
+		height: 56px;
+		line-height: 56px;
+		float: left;
+		padding-left: 10px;
+	} */
+
+	.ultable {
+		height: auto;
+		padding-left: 10px;
+		
+	}
+
+	.layui-form-checkbox[lay-skin=primary] span {
+		font-size: 18px;
+	}
+
+
+	.err {
+		border: red solid 1px;
+	}
+
+	.list-three {
+		overflow: hidden;
+	}
+
+	.list-three ul {
+		display: flex;
+	}
+
+	.list-three ul li {
+		text-align: center;
+		flex: 1;
+	}
+
+	.ultable>ul>li>.layui-form-checkbox {
+		float: left;
+	}
+	.ultable>ul>li{
+		display: block;
+		overflow: hidden;
+		padding-bottom: 10px;
+	}
+	.tables{
+		border-bottom: solid 2px #E4E4E4;
+		border-right: solid 2px #E4E4E4;
+		border-left: solid 2px #E4E4E4;
+	}
+
+</style>
+{/block}
+
+<body>
+
+	{block name="content"}
+
+	<form class="layui-form layui-form-lists" action="{:url('admin/role/save')}" method="post">
+			<div class="form-item">
+				<label class="form-label"><span class="red">*</span>角色名称</label>
+				<div class="form-input">
+					<input type="text" name="name" placeholder="请输入" class="layui-input" id="role_name">
+				</div>
+		   </div>
+			<div class="form-item">
+			<label class="form-label"><span class="red">*</span>角色描述</label>
+			<div class="form-input">
+		<input type="text" name="desc" placeholder="请输入" class="layui-input" id="role_edit">
+			</div>
+		</div>
+			<div class="form-item">
+			<label class="form-label">上一级名称</label>
+			<div class="form-input">
+			<select name="pid" lay-filter="aihao" class="firstlist">
+					{volist name="roles" id="value"}
+					<option value="{$value.id}" selected="">{$value.name}</option>
+					{/volist}
+				</select>
+			</div>
+		</div>
+			<div class="form-item">
+			<label class="form-label"><span class="red">*</span>状态</label>
+			<div class="form-input">
+			<select name="status" id="status">
+					<option value="1">启用</option>
+					<option value="0">禁用</option>
+				</select>
+			</div>
+		</div>
+		
+		
+		<div class="layui-form-item">
+			<label class="layui-form-label">权限设置</label>
+		</div>
+		<div class="quanxian">
+		<div class="tables">
+			{volist name="menu_lists" id="value"}
+			<div class="list">
+				<p class="title">
+					<input type="checkbox" value="{$value.id}" data-id="12" lay-skin="primary" title="{$value.name}" name="menu_role_id[]" lay-filter="allChoose"
+					 class="allChoose">
+					<span>
+					</span>
+				</p>
+				<div class="ultable">
+					<ul>
+						{volist name="$value.sub" id="val"}
+						<li>
+							<input type="checkbox" value="{$val.id}" data-id="12" lay-skin="primary" title="{$val.name}" name="menu_role_id[]" lay-filter="choose"
+							 class="aaa">
+							<div class="list-three">
+								<ul>
+									{if !empty($val.sub)}
+									{volist name="$val.sub" id="v"}
+									<li>
+										<input type="checkbox" value="{$v.id}" data-id="12" lay-skin="primary" title="{$v.name}" name="menu_role_id[]" lay-filter="three-choose">
+									</li>
+									{/volist}
+									{/if}
+								</ul>
+							</div>
+						</li>
+						{/volist}
+					</ul>
+				</div>
+			</div>
+			{/volist}
+		</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+				<button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+			</div>
+		</div>
+	</form>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+
+
+			//全选选单选
+			form.on('checkbox(allChoose)', function(data) {
+
+				var child = $(data.elem).parents('.list').children('.ultable').find(
+					'ul li input[type="checkbox"]:not([name="show"])');
+
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+			
+
+			//全部选中来确定全选按钮是否选中
+			form.on('checkbox(choose)', function(data) {
+			  var three_child = $(data.elem).siblings().find(
+									'ul li input[type="checkbox"]:not([name="show"])');
+				three_child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				var child = $(data.elem).parents('.list').children('.ultable').find(
+					'ul li input[type="checkbox"]:not([name="show"])');
+				var childChecked = $(data.elem).parents('.list').children('.ultable').find(
+					'ul li input[type="checkbox"]:not([name="show"]):checked')
+			
+				if (childChecked.length == child.length) {
+					$(data.elem).parents('.list').children('.title').find(' input.allChoose').get(0).checked = true;
+				}
+				 else if(childChecked.length==0){
+					$(data.elem).parents('.list').children('.title').find(' input.allChoose').get(0).checked = false;
+				}
+				else {
+					$(data.elem).parents('.list').children('.title').find(' input.allChoose').get(0).checked = true;
+				}
+				form.render('checkbox');
+			})
+
+			form.on('checkbox(three-choose)', function(data) {
+					var child = $(data.elem).parents('li').find(
+					'input[type="checkbox"]:not([name="show"])');
+				var childChecked = $(data.elem).parents('li').find(
+					'ul li input[type="checkbox"]:not([name="show"]):checked')
+				if (childChecked.length == child.length-1) {
+					$(data.elem).parents('li').find(' input.aaa').get(0).checked = true;
+				} else if(childChecked.length==0){
+					$(data.elem).parents('li').find(' input.aaa').get(0).checked = false;
+				}
+				else {
+					$(data.elem).parents('li').find(' input.aaa').get(0).checked = true;
+				}
+						form.render('checkbox');
+					})
+		
+});
+
+		$("#submits").click(function() {
+			checks();
+		});
+
+
+		function checks() {
+
+			if ($("#role_name")[0].value == '') {
+				$("#role_name").addClass("err");
+				return false;
+			} else {
+				$("#role_name").removeClass("err");
+				//			return true;
+			}
+			if ($("#role_edit")[0].value == '') {
+				$("#department").addClass("err");
+				return false;
+
+			} else {
+				$("#role_edit").removeClass("err");
+				//			return true;
+			}
+			$("#submits").attr("type", "submit");
+
+		}
+	</script>
+	{/block}
+
+</body>
+
+</html>

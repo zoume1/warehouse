@@ -1,0 +1,318 @@
+{extend name="layout"} {block name="css"}
+<style type="text/css">
+    body {
+        background: #fff;
+    }
+    
+    .layui-form label {
+        width: 17%;
+        text-align: left;
+    }
+    
+    .layui-form .layui-input-block input {
+        width: 80%;
+    }
+    /* 数据库展现图片样式 */
+    
+    .img {
+        position: relative;
+        display: inline-block;
+        width: 100px;
+    }
+    
+    .img>i {
+        display: inline-block;
+        width: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+</style>
+
+
+{/block}
+
+<body>
+
+    {block name="content"}
+    <div class="open">
+
+    </div>
+    {if !empty($info)}
+    <form class="layui-form" action="{:url('admin/User/grade_edit',['id'=>$info.member_grade_id])}" method="post" enctype="multipart/form-data">
+        <div class="layui-form-item ">
+            <label class="layui-form-label"><span>*</span>会员等级:</label>
+            <div class="layui-input-block">
+                <input type="text" value="{$info.member_grade_name}" name="member_grade_name" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="goods_name">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label"><span>*</span>等级图标</label>
+            <div class="layui-input-block">
+                <div class="imgcontent">
+                    <span class="img">
+						<img src="__UPLOADS__/{$info.member_grade_img}" width="100%">
+						<i class="remove-img" data-id="{$info.member_grade_id}" data-value="2"><img src="__STATIC__/admin/common/img/a7.png"></i>
+					</span>
+                </div>
+            </div>
+            <div class="layui-input-block">
+                <div class="img-box full">
+                    <section class=" img-section">
+                        <div class="z_photo upimg-div clear">
+                            <section class="z_file fl">
+                                <!-- <img src="__UPLOADS__/{$info.member_grade_img}" class="add-img"> -->
+                                <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+                                <input type="file" name="member_grade_img" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="1" />
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <aside class="mask works-mask">
+                    <div class="mask-content">
+                        <p class="del-p ">您确定要删除作品图片吗？</p>
+                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">会员卡背景色：</label>
+            <div class="layui-input-inline">
+                <input type="color" name="member_background_color" id="" value="{$info.member_background_color}" />
+            </div>
+
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">有效期:</label>
+            <div class="layui-input-inline">
+                <select name="member_finite_period">
+					{if !empty($term_data)}
+					<!--<option value="{$info.member_finite_period}" selected="">{$info.member_finite_period}</option>-->
+					{volist name="term_data" id="vo"}
+						{if condition="$info.member_finite_period eq $vo.term_value"}
+					<option value="{$vo.term_value}" selected="">{$vo.term_name}</option>
+					{else}
+					<option value="{$vo.term_value}">{$vo.term_name}</option>
+					{/if}
+					{/volist}
+					{/if}
+				</select> </div>
+
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">首年消费满:</label>
+            <div class="layui-input-block">
+                <input value="{$info.first_year_pay_full}" type="text" name="first_year_pay_full" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">万元
+
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">次年消费满:</label>
+            <div class="layui-input-block">
+                <input value="{$info.second_year_pay_full}" type="text" name="second_year_pay_full" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">万元
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">充值送会员:</label>
+            <div class="layui-input-block">
+                <input value="{$info.recharge_member_send}" type="text" name="recharge_member_send" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">万元
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">充值送积分:</label>
+            <div class="layui-input-block">
+                <input value="{$info.recharge_integral_send}" type="text" name="recharge_integral_send" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">会员消费折扣:</label>
+            <div class="layui-input-block">
+                <input value="{$info.member_consumption_discount}" type="text" name="member_consumption_discount" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">
+            </div>
+        </div>
+         <div class="layui-form-item ">
+            <label class="layui-form-label">是否介绍隐藏:</label>
+            <div class="layui-input-block">
+                {if $info.introduction_display == 1}
+            <input type="radio" name="introduction_display" value="-1" title="隐藏" >
+            <input type="radio" name="introduction_display" value="1" title="不隐藏" checked="">
+             {/if}
+             {if $info.introduction_display == -1}
+             <input type="radio" name="introduction_display" value="-1" title="隐藏" checked="">
+             <input type="radio" name="introduction_display" value="1" title="不隐藏">
+             {/if}
+            {if ($info.introduction_display != 1&&$info.introduction_display != -1)}
+        <input type="radio" name="introduction_display" value="-1" title="隐藏" checked="">
+        <input type="radio" name="introduction_display" value="1" title="不隐藏">
+            {/if}
+            </div>
+
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn submit_btn" lay-submit="" lay-filter="demo1" type="submit">保存</button>
+                <button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);"> 返回</button>
+            </div>
+        </div>
+
+    </form>
+    {/if} {if empty($info)}
+    <form class="layui-form" action="{:url('admin/User/grade_edit',['id'=>0])}" method="post" enctype="multipart/form-data">
+        <div class="layui-form-item ">
+            <label class="layui-form-label"><span>*</span>会员等级:</label>
+            <div class="layui-input-block">
+                <input type="text" name="member_grade_name" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="goods_name">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label"><span>*</span>等级图标</label>
+            <div class="layui-input-block">
+                <div class="img-box full">
+                    <section class=" img-section">
+                        <div class="z_photo upimg-div clear">
+                            <section class="z_file fl">
+                                <img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+                                <input type="file" name="member_grade_img" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="1" />
+                            </section>
+                        </div>
+                    </section>
+                </div>
+                <aside class="mask works-mask">
+                    <div class="mask-content">
+                        <p class="del-p ">您确定要删除作品图片吗？</p>
+                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">会员卡背景色：</label>
+            <div class="layui-input-inline">
+                <input type="color" name="member_background_color" id="" value="#2D9900" />
+            </div>
+
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">有效期:</label>
+            <div class="layui-input-inline">
+                <select name="member_finite_period">
+					{if !empty($term_data)}
+					{volist name="term_data" id="vo"}
+					<option value="{$vo.term_value}" >{$vo.term_name}</option>
+					{/volist}
+					{/if}
+				</select>
+            </div>
+
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">首年消费满:</label>
+            <div class="layui-input-block">
+                <input type="text" name="first_year_pay_full" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">万元
+
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">次年消费满:</label>
+            <div class="layui-input-block">
+                <input type="text" name="second_year_pay_full" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">万元
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">充值送会员:</label>
+            <div class="layui-input-block">
+                <input type="text" name="recharge_member_send" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">万元
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">充值送积分:</label>
+            <div class="layui-input-block">
+                <input type="text" name="recharge_integral_send" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">会员消费折扣:</label>
+            <div class="layui-input-block">
+                <input type="text" name="member_consumption_discount" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">
+            </div>
+        </div>
+        <div class="layui-form-item ">
+            <label class="layui-form-label">是否介绍隐藏:</label>
+            <div class="layui-input-block">
+            <input type="radio" name="sintroduction_display" value="-1" title="隐藏" checked="">
+            <input type="radio" name="introduction_display" value="1" title="不隐藏"> </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn submit_btn" lay-submit="" lay-filter="demo1" type="submit">保存</button>
+                <button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);"> 返回</button>
+            </div>
+        </div>
+    </form>
+    {/if} {/block}
+
+    <!--_footer 作为公共模版分离出去-->
+    {include file="template/_footer" /}
+    <!--/_footer 作为公共模版分离出去-->
+
+    <!--请在下方写此页面业务相关的脚本-->
+    {block name="bottom"}
+    <script type="text/javascript">
+        layui.config({
+            base: "js/"
+        }).use(['form', 'layer', 'jquery', 'laypage', 'layedit'], function() {
+            var form = layui.form(),
+                layedit = layui.layedit,
+                layer = parent.layer === undefined ? layui.layer : parent.layer,
+                laypage = layui.laypage,
+                $ = layui.jquery;
+
+
+            // 图片删除
+            $(".remove-img").click(function() {
+                var remove = $(this).parent();
+                var id = $(this).data("id");
+                var value = $(this).data("value");
+                console.log(value)
+                console.log(id);
+                if (value == 1) {
+                    $.ajax({
+                        type: "POST",
+                        url: "{:url('admin/User/grade_start_image_del')}",
+                        data: {
+                            "id": id
+                        },
+                        dataType: "json",
+                        success: function(data) {
+                            remove.remove();
+                        },
+                        error: function(data) {
+                            console.log("错误");
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "{:url('admin/User/grade_start_image_del')}",
+                        data: {
+                            "id": id
+                        },
+                        dataType: "json",
+                        success: function(data) {
+                            remove.remove();
+                        },
+                        error: function(data) {
+                            console.log("错误");
+                        }
+                    });
+                }
+                // 		
+            });
+        });
+    </script>
+    {/block}
+
+</body>
+
+</html>

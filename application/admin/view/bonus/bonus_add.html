@@ -1,0 +1,275 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/common/css/aaa.css" />
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+	
+	#hot {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	
+	.list {
+		margin-right: 10px;
+		margin-bottom: 6px;
+	}
+	
+	.title {
+		height: 50px;
+		background: #F2F2F2;
+		font-size: 20px;
+		line-height: 50px;
+		padding-left: 20px;
+		font-weight: bold;
+	}
+	
+	.noshow{
+		display: none;
+	}
+		/* 弹窗 */
+        .tanchuang {
+            width: 100%;
+            min-height: 1000px;
+            background: RGBA(0, 0, 0, 0.3);
+            position: fixed;
+            z-index: 9999;
+        }
+
+	
+</style>
+
+{/block}
+
+<body>
+	{block name="content"}
+	 <div class="tanchuang noshow">
+	 	<div style="width: 395px;height: 527px;margin: 10% auto;">
+	 		 <img src="" class="tanimg"/>
+	 	</div>
+    
+    </div>
+
+	<form class="layui-form layui-form-lists" action="{:url('admin/Category/save')}" method="post" enctype="multipart/form-data">
+		<div class="form-title">基础信息 </div>
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>商品名称</label>
+			<div class="form-input">
+				<input type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" >
+				<div class="tips">
+					商品名称必须填写，最多100个字
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-item">
+			<label class="form-label">商品编号</label>
+			<div class="form-input">
+				<input type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+				<div class="tips">
+					*可自行设定规则按照2位大写字母+4位数字设定（例如：NB0001)
+				</div>
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="form-label">商品卖点</label>
+			<div class="form-input">
+				<input type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+				<div class="tips">
+					*在商品列表页、详情页标题下面展示卖点信息，建议60字以内 <span class="tan" style="color: #0E90D2;"data-id = "__STATIC__/admin/common/img/u27672.png">查看实例</span>
+				</div>
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="form-label">卖点标签</label>
+			<div class="form-input" style="display: flex; align-items: center;">
+				<div id="hot">
+					<div class="list">
+						<input type="checkbox" name="marker" lay-skin="primary" title="hot" checked="">
+					</div>
+					<div class="list">
+						<input type="checkbox" name="marker" lay-skin="primary" title="aaa">
+					</div>
+					<div class="list">
+						<input type="checkbox" name="marker" lay-skin="primary" title="特色活动">
+						<span style="color: #0EA9E3;font-size: 12px;" class="change_text">修改</span>
+					</div>
+				</div>
+
+			</div>
+			<div class="add_biao">
+				+添加文字标签
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="form-label">分享描述</label>
+			<div class="form-input">
+				<input type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+				<div class="tips">
+					微信分享给好友时会显示，建议36个字以内<span class="tan" style="color: #0E90D2;" data-id = "__STATIC__/admin/common/img/u27291.png">查看实例</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-item">
+			<label class="form-label">商品排序</label>
+			<div class="form-input">
+				<input type="number" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+				<div class="tips">
+					*填写正整数，从大到小排序
+				</div>
+			</div>
+		</div>
+			<div class="form-item">
+			<label class="form-label">兑换需要积分</label>
+			<div class="form-input">
+				<input type="number" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+				<div class="tips">
+					*填写正整数，从大到小排序
+				</div>
+			</div>
+		</div>
+			<div class="form-item">
+			<label class="form-label"><span class="red">*</span>库存</label>
+			<div class="form-input">
+				<input type="number" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+				<div class="tips">*如何获取视频地址？免费上传视频到七牛云存储</div>
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>商品图</label>
+			<div class="form-input">
+				<div class="img-box full">
+					<section class=" img-section">
+						<div class="z_photo upimg-div clear">
+							<section class="z_file fl">
+								<img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+								<input type="file" name="icon_image" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="1" />
+							</section>
+						</div>
+					</section>
+				</div>
+				<aside class="mask works-mask">
+					<div class="mask-content">
+						<p class="del-p ">您确定要删除作品图片吗？</p>
+						<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+					</div>
+				</aside>
+				<div class="tips">
+					建议尺寸：800*800像素，其中第一张为主图，你可以拖拽图片调整顺序，最多上传15张
+				</div>
+			</div>
+
+		</div>
+	
+		<div class="form-item">
+			<label class="form-label"><span class="red">*</span>商品详情</label>
+			<div class="form-input">
+				<script id="editor" type="text/plain" name="commodity" style="width:800px;height:500px;"></script>
+			</div>
+		</div>
+		<div class="form-title">其他信息 </div>
+		<div class="form-item">
+			<label class="form-label">配送方式</label>
+			<div class="form-input line">
+				<input type="checkbox" name="marker" lay-skin="primary" title="商家配送" checked="">
+				<input type="checkbox" name="marker" lay-skin="primary" title="到店自提">
+			</div>
+		</div>
+		<div class="form-item">
+			<label class="form-label">快递运费</label>
+			<div style="display: flex;flex-direction:column">
+				<div class="form-input line" style="margin-bottom: 4px;">
+					<input type="radio" name="aaa" value="1" title="商家配送" checked="">
+					<input type="number" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input"> </input>
+					</input>
+
+				</div>
+				<div class="form-input line" style="margin-bottom: 4px;">
+					<input type="radio" name="aaa" value="1" title="运费模板">
+					<input type="number" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input"> </input>
+					</input>
+					<a href="">新建</a>
+				</div>
+				<div class="tips">*运费模版支持按地区设置运费，按购买件数计算运费，按重量计算运费等</div>
+			</div>
+
+		</div>
+		<div class="form-item">
+			<label class="form-label">状态</label>
+			<div class="form-input">
+				<input type="radio" name="a" value="1" title="暂不上架" checked="">
+				<input type="radio" name="a" value="0" title="立即上架">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+				<button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+			</div>
+		</div>
+	</form>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+
+	<script type="text/javascript">
+		var ue = UE.getEditor('editor');
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage', 'upload'], function() {
+			var form = layui.form(),
+				$ = layui.jquery;
+			form.render();
+			$(".add_biao").click(function() {
+				var dhtml = "";
+				dhtml =
+					'<div class="list" ><input type="checkbox" name="" lay-skin="primary" title="特色活动"><span style="color: #0EA9E3; font-size: 12px;"  class="change_text">修改</span></div>'
+				$("#hot").append(dhtml);
+				form.render();
+			});
+
+			$("#hot").on('click', ".change_text", function() {
+				var texts = $(this).siblings('input');
+				layer.prompt({
+						title: '请输入修改的文字',
+						formType: 2
+					},
+					function(text, index) {
+						texts.attr("title", text);
+						layer.close(index);
+						form.render();
+					});
+
+			})
+		
+		
+			$(".tan").click(function(){
+				src=$(this).data("id");
+				$(".tanchuang").removeClass("noshow");
+				$(".tanimg").attr("src", src);
+			});
+				$(".tanchuang").click(function(){
+				$(".tanchuang").addClass("noshow");
+			});
+
+		});
+	</script>
+
+	{/block}
+
+</body>
+
+</html>

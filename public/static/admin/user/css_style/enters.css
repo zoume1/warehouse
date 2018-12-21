@@ -1,0 +1,75 @@
+		a{
+			font-size: 13px;
+			color:white;
+			text-decoration:none;
+		}
+		#entera{
+			text-align: right;
+		}
+		input{
+			border:none;
+			outline:none ;
+			width:200px;
+			height:30px;
+			border-radius:3px;
+		}
+		 input{
+			padding-left:15px;
+			padding-right:20px;
+			box-sizing:border-box;
+		}
+		body > div > div{
+			border-radius:5px;
+			box-sizing:border-box;
+			float:right;	
+			background-color: rgba(68, 56, 56, 0.26);
+			width:500px;
+			height:450px;
+			padding-left:30px;
+			padding-top:20px;
+			margin-top:65px;
+			margin-right:50px;
+		}
+		body > :nth-child(1){
+			background-position: 0 50%;
+			height:580px;
+			margin:auto;
+			width:100%;
+			color:white;
+		}
+		body td:not(:last-child){
+		text-align: right;
+		font-size: 13px;
+		}
+		td{
+		height: 50px;
+			box-sizing:border-box;
+		}
+		.err{
+			font-size: 11px;
+			background-color: red;
+			border-radius:2px;
+		}
+		.ok{
+			border-radius:2px;
+			font-size: 11px;
+			background-color: green;
+		}
+		.asd{
+			border-radius:2px;
+			font-size: 11px;
+			background-color: gray;
+		}
+		table > :last-child > :last-child > :last-child input{
+		background-color: #14A6F0;
+		color:white;
+		}
+		#tjbtn{
+			cursor:pointer;
+		}
+
+		body{
+			background-image: url(../img/404-pic/timg.jpg);
+
+		}
+		

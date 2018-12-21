@@ -1,0 +1,358 @@
+{extend name="layout"} {block name="css"}
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+	
+	.layui-form label {
+		width: 14%;
+		text-align: left;
+	}
+	
+	.layui-form .layui-input-block input {
+		width: 97%;
+	}
+	
+	.layui-form-label span {
+		color: red;
+	}
+	
+	.layui-form {
+		width: 98%;
+		margin: 0 auto;
+		padding-top: 7px;
+	}
+	
+	.layui-input-block {
+		min-height: 40px;
+	}
+	
+	.biaoji .layui-form-radioed span {
+		color: #fff;
+		background: red;
+		width: 33px;
+		text-align: center;
+		height: 13px;
+		line-height: 13px;
+		font-size: 9px;
+		border-radius: 6px;
+	}
+	
+	.form-group .layui-form-select {
+		display: none;
+	}
+	
+	.title {
+		height: 50px;
+		background: #F2F2F2;
+		font-size: 20px;
+		line-height: 50px;
+		padding-left: 20px;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+	
+	.noshow {
+		display: none;
+	}
+	
+	.tips {
+		color: #999;
+	}
+	
+	.change_text {
+		cursor: pointer;
+	}
+</style>
+
+{/block}
+
+<body>
+
+	{block name="content"}
+	<div class="open">
+
+	</div>
+	<form class="layui-form" action="{:url('admin/Advertisement/accessories_business_save')}" method="post" enctype="multipart/form-data">
+		<div class="basic-information title"> 基本信息
+		</div>
+		<div class="layui-form-item ">
+			<label class="layui-form-label"><span>*</span>活动名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="activity_name" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="goods_name">
+				<div class="tips">
+					活动名称必须填写，最多100个字
+				</div>
+			</div>
+
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">活动地址</label>
+			<div class="layui-input-block">
+				<div class="form-inline">
+					<div data-toggle="distpicker">
+						<div class="form-group">
+							<label class="sr-only" for="province2">Province</label>
+							<select class="form-control" name="address_city1" id="province2" data-province="---- 选择省 ----"></select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="city2">City</label>
+							<select class="form-control" name="address_city2" id="city2" data-city="---- 选择市 ----"></select>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="district2">District</label>
+							<select class="form-control" name="address_city3" id="district2" data-district="---- 选择区 ----"></select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label"></label>
+			<div class="layui-input-block">
+				<input type="text" name="address_street" lay-verify="title" autocomplete="off" placeholder="请填写具体地址" class="layui-input" id="sort_number">
+
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">活动时间</label>
+			<div class="layui-input-block">
+				<input type="text" name="start_time" value="" class="layui-input" placeholder="请选择活动开始时间" id="datetimepicker" />
+
+			</div>
+		</div>
+		<div class="layui-form-item" class="biaoji">
+			<label class="layui-form-label">活动标记</label>
+			<div class="layui-input-block" style="overflow: hidden;">
+				<div id="hot" style="overflow: hidden; float: left;">
+					<div class="list" style="width: 70px; float: left;">
+						<input type="checkbox" name="marker" lay-skin="primary" title="hot" checked="">
+					</div>
+					<div class="list" style="width: 70px; float: left;">
+						<input type="checkbox" name="marker" lay-skin="primary" title="aaa">
+					</div>
+					<div class="list" style="width: 134px; float: left;">
+						<input type="checkbox" name="marker" lay-skin="primary" title="特色活动">
+						<span style="margin-top: 10px;vertical-align: -6px; color: #0EA9E3;" class="change_text">修改</span>
+					</div>
+				</div>
+				<div class="add_biao" style="float: left;margin-top: 6px; margin-left: 10px;">
+					+添加文字标签
+				</div>
+
+			</div>
+			<div class="tips" style="padding-left: 101px;;">
+				*在活动名称前添加，文字标签可编辑多选和添加，文字最长10个一个标签
+			</div>
+		</div>
+
+		<div class="layui-form-item ">
+			<label class="layui-form-label"><span>*</span>分享描述</label>
+			<div class="layui-input-block">
+				<input type="text" name="describe" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="sort_number">
+				<div class="tips">
+					*微信分享给好友时会显示，建议36个字以内 <span>查看示例</span>
+				</div>
+			</div>
+
+		</div>
+		<div class="layui-form-item ">
+			<label class="layui-form-label"><span>*</span>归属分类</label>
+			<div class="layui-input-block">
+				<div class="layui-input-inline">
+					{if !empty($teahost_name)}
+					<select name="pid" id="admin_role" class="role_list">
+						<option value="0">顶级</option>
+						{volist name="teahost_name" id="value"}
+						<option value="{$value.id}">{$value.name}</option>
+						{/volist}
+					</select><br/> {else}
+					<select name="pid" class="role_list">
+						<option value="0">顶级</option>
+					</select><br/> {/if}
+					</select>
+				</div>
+				<div class="layui-input-inline">
+					<a href="{:url('admin/Category/add')}" style="line-height: 40px;">添加分类</a>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">活动排序</label>
+			<div class="layui-input-block">
+				<input type="number" name="order_ing" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" id="sort_number">
+				<div class="tips">
+					*填写正整数，从大到小排序
+				</div>
+			</div>
+
+		</div>
+		<div class="basic-information title"> 详细信息</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">开放要求</label>
+			<div class="layui-input-block">
+				<input type="radio" name="open_request" value="0" title="对所有人开放" checked="">
+				<input type="radio" name="open_request" value="1" title="对会员开放">
+			</div>
+
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">活动要求</label>
+			<div class="layui-input-block">
+				<input type="radio" name="requirements" value="0" title="无需预约" checked="">
+				<input type="radio" name="requirements" value="1" title="需要预约">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">首页推荐</label>
+			<div class="layui-input-block">
+				<input type="radio" name="status" value="1" title="推荐">
+				<input type="radio" name="status" value="0" title="不推荐" checked="">
+			</div>
+
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label"><span class="red">*</span>活动上限人数</label>
+			<div class="layui-input-block">
+				<input type="number" name="participats" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" id="sort_number">
+				<div class="tips">
+					*不填写，表示不限制人数
+				</div>
+			</div>
+
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label"><span class="red">*</span>活动费用</label>
+			<div class="layui-input-block">
+				<input type="number" name="cost_moneny" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" id="sort_number">
+				<div class="tips">
+					*不填写，表示免费
+				</div>
+			</div>
+
+		</div>
+		<div class="layui-form-item" class="biaoji">
+			<label class="layui-form-label"><span>*</span>活动规格</label>
+			<div class="layui-input-block">
+				<div class="layui-input-inline">
+					<input type="checkbox" name="specification" lay-skin="primary" title="参加会员折扣" checked="">
+				</div>
+				<div class="layui-input-inline">
+					管理会员卡
+				</div>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">活动图</label>
+			<div class="layui-input-block">
+
+				<div class="img-box full">
+					<section class=" img-section">
+						<div class="z_photo upimg-div clear">
+							<section class="z_file fl">
+								<img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+								<input type="file" name="classify_image" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="15" />
+							</section>
+						</div>
+					</section>
+				</div>
+				<aside class="mask works-mask">
+					<div class="mask-content">
+						<p class="del-p ">您确定要删除作品图片吗？</p>
+						<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+					</div>
+				</aside>
+				<div class="tips">
+					建议尺寸：？*？像素
+				</div>
+			</div>
+
+		</div>
+		<div class="layui-form-item layui-form-text">
+			<label class="layui-form-label">商品描述：</label>
+			<div class="layui-input-block">
+				<div id="goods_text">
+					<script id="editor" type="text/plain" name="commodity" style="width:800px;height:500px;"></script>
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-form-item" class="biaoji">
+			<label class="layui-form-label">状态：</label>
+			<div class="layui-input-block" id="">
+				<input type="radio" name="label" value="0" title="暂不发布" checked="" class="hot">
+				<input type="radio" name="label" value="1" title="立即发布" class="">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn submit_btn" lay-submit="" lay-filter="demo1" type="submit">保存</button>
+				<button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);"> 返回</button>
+			</div>
+		</div>
+
+	</form>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage', 'layedit'], function() {
+			var form = layui.form(),
+				layedit = layui.layedit,
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+			layedit.build('demo');
+			form.render('select');
+			$(".add_biao").click(function() {
+				var dhtml = "";
+				dhtml =
+					'<div class="list" style="width: 134px; float: left;"><input type="checkbox" name="" lay-skin="primary" title="特色活动"><span style="margin-top: 10px;vertical-align: -6px; color: #0EA9E3;"  class="change_text">修改</span></div>'
+				$("#hot").append(dhtml);
+				form.render();
+			});
+
+			$("#hot").on('click', ".change_text", function() {
+				var texts = $(this).siblings('input');
+				layer.prompt({
+						title: '请输入修改的文字',
+						formType: 2
+					},
+					function(text, index) {
+						texts.attr("title", text);
+						layer.close(index);
+						form.render();
+					});
+
+			})
+
+		})
+	</script>
+
+	<script type="text/javascript">
+		//实例化编辑器
+		//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+		var ue = UE.getEditor('editor');
+
+		$('#datetimepicker').datetimepicker({
+			format: 'Y/m/d H:m',
+			step: 1,
+		});
+	</script>
+
+	{/block}
+
+</body>
+
+</html>

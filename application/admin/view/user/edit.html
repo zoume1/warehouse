@@ -1,0 +1,277 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+.layui-form	label{
+		width: 23%;
+		text-align: left;
+	}
+.layui-form .layui-input-block input{
+	width: 97%;
+}
+.layui-form-label span{
+	color: red;
+}
+.layui-form{
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 40px;
+}
+.layui-form-item{
+	display: inline-block;
+    width: 40%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+.layui-icon{
+	font-size: 26px;
+    color: #669900;
+    margin-right: 14px;
+}
+span{
+	    color: #666666;
+    font-size: 22px;
+}
+
+.title{
+	padding: 9px;
+    background: #F2F2F2;
+}
+</style>
+
+
+{/block}
+
+{block name="content"}
+
+{if !empty($member_data)}
+<form class="layui-form" action="{:url('admin/User/update',['id'=>$member_data.member_id])}" method="post">
+	<div class="title">
+	<span >
+		基本信息
+	</span>
+</div>
+  <div class="layui-form-item ">
+    <label class="layui-form-label">会员账号</label>
+    <div class="layui-input-block">
+      <input value="{$member_data.member_phone_num}" type="text" name="member_phone_num" lay-verify="title" autocomplete="off" placeholder="请输入账号" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">性别</label>
+    <div class="layui-input-block">
+     <p>{$member_data.member_sex}</p>
+		 </div>
+  </div>
+   <div class="layui-form-item">
+    <label class="layui-form-label">绑定手机号</label>
+    <div class="layui-input-block">
+      <input  value="{$member_data.member_phone_num}" type="text" name="member_phone_num" lay-verify="title" autocomplete="off" placeholder="请输入部门" class="layui-input">
+    </div>
+  </div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">会员名称</label>
+		<div class="layui-input-block">
+				<input  value="{$member_data.member_name}" type="text" name="member_name" lay-verify="title" autocomplete="off" placeholder="请输入部门" class="layui-input">
+		</div>
+	</div>
+   <div class="layui-form-item">
+    <label class="layui-form-label">上级账号</label>
+    <div class="layui-input-block">
+      <input value="{$member_data.inviter_id}" type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入部门" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+  	<label class="layui-form-label">会员头像</label>
+  	<div class="layui-input-block" >
+  		<div style="width: 100px; height: 100px; overflow: hidden;border-radius: 50%;">
+  				<img src="{$member_data.member_head_img}"/>
+  		</div>
+  
+  	</div>
+  </div>
+    <div class="layui-form-item">
+    <label class="layui-form-label">注册时间</label>
+    <div class="layui-input-block">
+      <input value="{$member_data.member_create_time|date='Y-m-d H:i:s',###}" type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入部门" class="layui-input">
+    </div>
+  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">会员等级</label>
+	    <div class="layui-input-block">
+	      <select name="member_grade_id" lay-filter="aihao">
+              {if !empty($term_data)}
+              {volist name="term_data" id="vo"}
+              {if condition="$member_data.member_grade_id eq $vo.member_grade_id"}
+              <option value="{$vo.member_grade_id}" selected >{$vo.member_grade_name}</option>
+              {else}
+              <option value="{$vo.member_grade_id}" >{$vo.member_grade_name}</option>
+              {/if}
+              {/volist}
+              {/if}
+	     
+	      </select>
+	    </div>
+	  </div>
+	
+   <div class="layui-form-item">
+    <label class="layui-form-label">会员到期时间</label>
+    <div class="layui-input-block">
+        {if !empty($member_data.member_grade_end_time)}
+    <input value='{$member_data.member_grade_end_time|date="Y-m-d H:i:s",###}' type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入部门" class="layui-input">
+        {/if}
+    </div>
+  </div>
+  	 <div class="layui-form-item">
+	    <label class="layui-form-label">会员地址</label>
+	    <div class="layui-input-block">
+	   <p>{$member_data.member_address}</p>
+	    </div>
+	  </div>
+   <div class="layui-form-item">
+    <label class="layui-form-label">状态</label>
+    <div class="layui-input-block">
+      <select name="member_status" lay-filter="aihao">
+        {if $member_data.member_status==1}
+        <option value="{$member_data.member_status}" selected="">启用</option>
+          <option value="-1">禁用</option>
+          {/if}
+          {if $member_data.member_status==-1}
+          <option value="1" >启用</option>
+        <option value="{$member_data.member_status}" selected="">禁用</option>
+          {/if}
+      </select>
+    </div>
+  </div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">会员邀请码</label>
+			<div class="layui-input-block">
+		<p>{$member_data.member_id}</p>
+			</div>
+		</div>
+<div class="title">
+	<span id="">
+
+高级信息
+	</span>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">真实姓名</label>
+    <div class="layui-input-block">
+      <input value="{$member_data.member_real_name}" type="text" name="member_real_name" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">身份证号</label>
+    <div class="layui-input-block">
+    	
+    		  <input value="{$member_data.ID_card}" type="text" name="ID_card" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+   
+    	
+     </div>
+  </div>
+	<div class="layui-form-item">
+		<label class="layui-form-label">身份证</label>
+		<div class="layui-input-block">
+			<div style="width: 200px; height: 150px;">
+			    <img src="__UPLOADS__/{$member_data.member_id_card_in_img}"/>
+			</div>
+		</div>
+	</div>
+	<div class="layui-form-item">
+		<label class="layui-form-label"></label>
+		<div class="layui-input-block">
+			<div style="width: 200px; height: 150px;">
+		<img src="__UPLOADS__/{$member_data.member_id_card_side_img}"/>
+		</div>
+		</div>
+	</div>
+	<div class="layui-form-item">
+	    <label class="layui-form-label">开户行</label>
+	    <div class="layui-input-block">
+	      <input value="{$member_data.member_bank_name}" type="text" name="member_bank_name" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">开户账号</label>
+	    <div class="layui-input-block">
+	      <input value="{$member_data.member_bank_card}" type="text" name="member_bank_card" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input">
+	    </div>
+	  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">保存</button>
+      <button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+    </div>
+  </div>
+</form>
+{/if}
+
+{/block}
+
+<!--_footer 作为公共模版分离出去-->
+{include file="template/_footer" /}
+<!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+{block name="bottom"}
+ <script type="text/javascript">
+
+ 				//表单依赖
+				layui.config({
+			base : "js/"
+		    }).use(['form','layer','jquery','laypage', 'laydate'],function(){
+			var form = layui.form(),
+			laydate = layui.laydate,
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				 laypage = layui.laypage,
+				 layedit = layui.layedit,
+				 $ = layui.jquery;
+		
+		
+		  
+		//	<!--是否展示-->
+			
+		    var vals=$("input").data("id");  
+			form.on('switch(isShow)', function(data){
+		        var vals=data.value;
+				var id=$(this).data("id");
+				var status = $(".Status").value;
+		
+		       $.ajax({
+		               type: "POST",
+		               url: "{:url('')}",
+		               data: {"id":id,"status":vals},
+		               success: function(data){
+		               	console.log("成功")
+					  },
+				      error:function (data) {
+						  console.log("错误")
+		              }
+		            });
+		            
+		         
+			});
+			
+			
+			    $(".doings").on("click",function(){
+			    
+		      		layer.prompt({title: '处理备注', formType: 1}, function(pass, index){
+		            layer.close(index);
+		            });
+		       });
+		
+		});
+	</script>	
+
+
+{/block}

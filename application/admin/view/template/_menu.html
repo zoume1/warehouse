@@ -1,0 +1,25 @@
+<div class="UCleft">
+	<input type="hidden" class="navlayout_parentMenu" value="HXY_FinanceCenter">
+	<div class="UCleft-fixed">
+
+		<!--<p class="index_text">首页</p>-->
+
+
+		{volist name="menu_list" id="value"}
+		{if isset($value["sub"])}
+		<dl class="">
+			<dt href="#"><i class=""><img src="__STATIC__/admin/common/img/u12469.png"/></i>{$value.name}<font class="iconfont1"></font></dt>
+			<dd>
+				{volist name="$value.sub" id="val"}
+				<p  class="" data-url="{:url($val['url'])}">{$val.name}</p>
+				{/volist}
+			</dd>
+		</dl>
+		{else}
+		<dl class="curr">
+			<dt href="#">{$value.name}<font class="iconfont1"></font></dt>
+		</dl>
+		{/if}
+		{/volist}
+	</div>
+</div>

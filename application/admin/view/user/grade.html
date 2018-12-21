@@ -1,0 +1,192 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+
+	label {
+		text-align: left !important;
+	}
+
+	.layui-form-item {
+		width: 100%;
+		margin-bottom: 0;
+		margin-top: 0;
+
+	}
+
+	.layui-form-label {
+		width: 26% !important;
+	}
+
+	.layui-input-inline {
+		width: 70% !important;
+	}
+
+	#page {
+		width: 96%;
+		height: 50px;
+		line-height: 50px;
+		border: solid 1px #E2E2E2;
+		padding-left: 50px;
+		background: #FDFDFE;
+	}
+</style>
+
+
+
+{/block}
+<body>
+
+	{block name="content"}
+
+	<div class="childrenBody">
+		<blockquote class="layui-elem-quote news_search">
+				<div class="layui-inline">
+					<a class="layui-btn layui-btn-danger batchDel" href="{:url('admin/User/grade_edit')}">添加等级</a>
+				</div>
+				</blockquote>
+		<div class="layui-form news_list">
+			<table class="layui-table">
+				
+				<thead>
+					<tr>
+						<th>等级名称</th>
+						<th>等级图标</th>
+						<th>有效期（年）</th>
+						<th>首年消费满（万元</th>
+						<th>次年消费满（万元）</th>
+						<th>充值送会员（万元）</th>
+						<th>充值送积分</th>
+						<th>会员消费折扣</th>
+						<th>介绍显示</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody class="news_content">
+				{if !empty($grade_data)}
+				{volist name="grade_data" id ="vo"}
+					<tr>
+						<td>{$vo.member_grade_name}</td>
+						<td ><div class="tdimg"><img src="__UPLOADS__/{$vo.member_grade_img}"></div></td>
+						<td>{$vo.member_finite_period}</td>
+						<td>{$vo.first_year_pay_full}</td>
+						<td>{$vo.second_year_pay_full}</td>
+						<td>{$vo.recharge_member_send}</td>
+						<td>{$vo.recharge_integral_send} </td>
+						<td>{$vo.member_consumption_discount} </td>
+						<td>
+							{if $vo.introduction_display==1}
+							<input type="checkbox" class="Status" name="show" value="{$vo.introduction_display}"   checked lay-skin="switch" lay-text="是|否" lay-filter="isShow"
+							 data-id="{$vo.member_grade_id}">
+							{else}
+							<input type="checkbox" class="Status" name="show" value="{$vo.introduction_display}"   lay-skin="switch" lay-text="是|否" lay-filter="isShow"
+								   data-id="{$vo.member_grade_id}">
+							{/if}
+
+						</td>
+						<td width="100px;">
+							<a class="layui-btn layui-btn-mini edit" href="{:url('admin/User/grade_edit',['id'=>$vo.member_grade_id])}"><i class="iconfont icon-edit"></i> 编辑</a>
+
+							<a href="{:url('admin/User/grade_del',['id'=>$vo.member_grade_id])}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del"
+							 data-id="undefined"><i class="layui-icon"></i> 删除</a>
+						</td>
+					</tr>
+				{/volist}
+				{/if}
+				</tbody>
+			</table>
+		</div>
+		<div id="page">
+			{if !empty($grade_data)}
+			{$grade_data->render()}
+			{/if}
+		</div>
+
+	</div>
+
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+			var vals = $("input").data("id");
+			//是否展示
+
+			//全选
+			form.on('checkbox(allChoose)', function(data) {
+				var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+
+			//通过判断文章是否全部选中来确定全选按钮是否选中
+			form.on("checkbox(choose)", function(data) {
+				var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+				var childChecked = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"]):checked')
+				if (childChecked.length == child.length) {
+					$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = true;
+				} else {
+					$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = false;
+				}
+				form.render('checkbox');
+			})
+
+			//是否展示
+			form.on('switch(isShow)', function(data) {
+                if ($(this).val() == -1) {
+                    $(this).val(1);
+                } else {
+                    $(this).val(-1);
+                }
+				var vals = data.value;
+				var id = $(this).data("id");
+				var status = $(this).val();
+				console.log(status);
+				$.ajax({
+					type: "POST",
+					url: "{:url('admin/User/grade_status')}",
+					data: {
+						"id": id,
+						"status": status
+					},
+					success: function(data) {
+						console.log("成功")
+					},
+					error: function(data) {
+						console.log("错误")
+					}
+				});
+
+
+			})
+
+
+		})
+	</script>
+
+	{/block}
+
+</body>
+</html>

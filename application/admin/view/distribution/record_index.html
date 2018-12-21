@@ -1,0 +1,172 @@
+{include file="template/_meta" /}
+<title></title>
+</head>
+
+{block name="css"}
+
+<style type="text/css">
+	body {
+		background: #fff;
+	}
+	
+	#page {
+		width: 96%;
+		height: 50px;
+		line-height: 50px;
+		border: solid 1px #E2E2E2;
+		padding-left: 50px;
+		background: #FDFDFE;
+	}
+		.on{
+		color: #21A5FA !important;
+	   border-bottom:solid 3px #21A5FA ;
+	}
+	.distribution_list{
+			margin-bottom: 10px;
+		border-bottom: solid 1px #D7D7D7;
+	}
+	.distribution_list ul{
+		
+		display: flex;
+		width: 400px;
+		justify-content: center;
+		align-items: center;
+		
+	}
+	.distribution_list a{
+	
+		font-size: 17px;
+		padding: 9px;
+		color: #5E5E5E;
+	}
+	.distribution_list ul li{
+		flex: 1;
+	}
+</style>
+
+{/block}
+
+<body>
+
+	{block name="content"}
+
+	<div class="childrenBody">
+	<div class="distribution_list">
+		<ul>
+			<li ><a href="distribution_setting_index" >分销设置</a></li>
+			<li><a href="distribution_goods_index">分销商品</a></li>
+			<li><a href="distribution_record_index" class="on">分销记录</a></li>
+			<li><a href="distribution_member_index">分销成员</a></li>
+		</ul>
+	</div>
+		<blockquote class="layui-elem-quote news_search">
+			<form class="layui-form" action="{:url('admin/Category/search')}">
+				<div class="seach">
+					<div class="seach_list">
+						<div class="seach_laber">输入搜索：</div>
+						<div class="seach_input">
+							<input type="text" name="" lay-verify="title" autocomplete="off" placeholder="商品编号/订单号" class="layui-input">
+
+						</div>
+					</div>
+				
+					<button class="layui-btn" type="submit" id="seach">立即搜索</button>
+				</div>
+
+			</form>
+		</blockquote>
+		<div class="layui-form news_list">
+			<table class="layui-table">
+			
+				<thead>
+					<tr>
+						<th>商品编号</th>
+						<th>商品名称</th>
+						<th>用户账号(手机号 )</th>
+						<th>订单号</th>
+						<th>订单金额</th>
+						<th>分成级别</th>
+						<th>佣金比例</th>
+						<th>佣金金额</th>
+						<th>积分比例</th>
+						<th>积分</th>
+						<th>时间</th>
+						<th>上级账号（手机号 ）</th>
+					</tr>
+				</thead>
+				<tbody class="news_content">
+					<tr>
+						<td>1000001</td>
+						
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		
+		</div>
+
+	</div>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+	<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+			var vals = $("input").data("id");
+		
+
+			form.on('switch(isShow)', function(data) {
+				if($(this).val() == 0) {
+					$(this).val(1);
+				} else {
+					$(this).val(0);
+				}
+				var vals = data.value;
+				var id = $(this).data("id");
+				var status = $(this).val();
+				$.ajax({
+					type: "POST",
+					url: "{:url('')}",
+					data: {
+						"id": id,
+						"status": status
+					},
+					success: function(data) {
+						console.log("成功")
+					},
+					error: function(data) {
+						console.log("错误")
+					}
+				});
+
+			})
+		})
+	</script>
+
+	{/block}
+
+</body>
+
+</html>

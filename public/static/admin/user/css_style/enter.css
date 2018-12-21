@@ -1,0 +1,167 @@
+/*重置默认的外边距和内边距*/
+*{
+	margin:0;
+	padding:0;
+}
+/*常用标签的样式重置*/
+i{
+	font-style: normal;
+}
+a{
+	text-decoration: none;
+}
+input{
+	outline: none;
+	border:none;
+
+
+}
+/*设定html和body的宽度为100%*/
+html,body{
+	width:100%;
+	font: 14px/150% tahoma,arial,Microsoft YaHei,Hiragino Sans GB,"\u5b8b\u4f53",sans-serif;
+	-webkit-font-smoothing: antialiased;
+	color: #666;
+}
+/*头部*/
+.logo{
+	width: 160px;
+	height:50px;
+	background: url(../img/logo.png) no-repeat;
+	position: absolute;
+	top:20px;
+	left:20px;
+}
+.desc{
+	font-size: 18px;
+	line-height: 34px;
+	border-left: 1px solid #ccc;
+	position: absolute;
+	left: 200px;
+	top:28px;
+	padding-left: 20px;
+	font-weight:bold;
+}
+header{
+	width:100%;
+	height: 110px;
+	position: relative;
+}
+/*注册信息*/
+/*总体布局*/
+
+.list{
+	width:600px;
+	height:800px;
+	position:absolute; z-index:1;
+	left:40%;
+	margin-top:100px;
+	background-color: rgba(68, 56, 56, 0.26);
+	margin-left:-100px;
+	border-radius:10px 10px 10px 10px;
+
+
+}
+form{
+	width: 550px;
+	margin: auto;
+	margin-top:50px;
+	margin-left:80px;
+}
+.register-box{
+	margin-bottom: 20px;
+	border-radius:5px 5px 5px 5px;
+}
+.register-box label{
+
+	font-weight: 600;
+	width:130px;
+	height: 49px;
+	line-height: 52px;
+	display: inline-block;
+	text-align:center;
+	background-color:white;
+	border-radius:7px 0px 0px 7px;
+}
+.register-box input{
+	width: 300px;
+	height: 18px;
+	padding-bottom:16px;
+	padding-left: 20px;
+	padding-top: 15px;
+	font-size: 14px;
+	color: #666;
+	font-family: "Microsoft YaHei","Hiragino Sans GB";
+	float:right;
+	margin-right:100px;
+	border-radius:0px 7px 7px 0px;
+
+}
+.register-box .tips{
+	position: absolute;
+	margin-top: 5px;
+	font-size: 14px;
+	color: #ccc;
+}
+/*用户名*/
+.register-box .username_label{
+	word-spacing: 8px;
+}
+/*密码，确认密码，*/
+.register-box .other_label{
+	word-spacing: 1px;
+}
+/*手机号*/
+.register-box span{
+	display: inline-block;
+	width: 77px;
+	height: 52px;
+	border-right: 1px solid #ddd;
+}
+.register-box .phone{
+	padding-left: 18px;
+}
+/*验证码*/
+#code{
+	display: inline-block;
+	width: 100px;
+	height: 46px;
+	vertical-align: middle;
+	background-color: black;
+	font-size: 25px;
+	color: #fff;
+	text-align: center;
+	line-height: 46px;
+}
+/*协议*/
+.arguement{
+	margin-bottom: 58px;
+}
+.arguement input{
+	vertical-align: middle;
+}
+.arguement a{
+	color: #38f;
+	text-decoration: none;
+	font-size: 12px;
+}
+/*提交按钮*/
+.submit_btn>input{
+	width: 81%;
+	height: 54px;
+	color: #fff;
+	background:#ff0000;
+	border: 0;
+	font-size: 16px;
+	font-family: "Microsoft YaHei","Hiragino Sans GB";
+	cursor:pointer;
+}
+.submit_btn>input:hover{
+	background-color:#E3170D;
+}
+
+h2{
+	text-align: center;
+	margin:50px 0;
+	color:white;
+}

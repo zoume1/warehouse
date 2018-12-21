@@ -1,0 +1,391 @@
+{include file="template/_meta" /}
+
+{block name="css"}
+<style type="text/css">
+body{
+	background: #fff;
+}
+
+.up-button{
+	margin: 30px;
+	width: 100px;
+	height: 30px;
+	color: #fff;
+	background: #3388FF;
+	border-radius: 10px;
+}
+.seach{
+ 
+    margin: 30px;
+    width: 250px;
+    height: 35px;
+    padding-left: 30px;
+    border-radius: 6px;
+    border: #E4E4E4 solid 1px;
+}
+.ico{
+	left: 34px;
+	top: 36px;
+	position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 23px;
+	background: url('__STATIC__/admin/common/img/glyphicons-halflings.png') no-repeat;
+     background-position: -45px 6px;
+}
+.input{
+	position: relative;
+	float: right;
+	width: auto;
+}
+.grouping-nav{
+	float: left;
+	min-width: 200px;
+	width: 15%;
+	height: 600px;
+	background: #F8F8F8;
+	margin: 20px;
+}
+.add-grouping{
+	width: 100px;
+    height: 30px;
+    background: #fff;
+    border-radius: 5px;
+	border: #333 solid 1px;
+}
+.grouping-content{
+	padding-top: 10px;
+}
+.grouping-content ul .active{
+	background: #fff;
+	
+}
+.grouping-content ul li{
+	height: 16px;
+		display: block;
+		padding: 10px;
+	
+}
+.photo-content{
+	    width: 78%;
+    height: 600px;
+    float: right;
+}
+.photo-library{
+	margin-top: 16px;
+}
+.photo-library ul li{
+	float: left;
+	margin: 10px;
+}
+.photo-imgs{
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+}
+.photo-name{
+	
+}
+.photo-opration ul li{
+	float: left;
+	margin: 1px;
+	cursor: pointer;
+	font-size: 12px;;
+   
+}
+.opration{
+	font-size:16px ;
+	height: 36px;
+    background: #F8F8F8;
+    line-height: 37px;
+    padding-left: 10px;
+}
+/* 弹窗 */
+	.tanchuang {
+		width: 100%;
+		min-height: 800px;
+		background: RGBA(0, 0, 0, 0.3);
+		position: fixed;
+		z-index: 9999;
+	}
+
+	.tanchuang-content {
+		width: 800px;
+		height: 500px;
+		background: #fff;
+		z-index: 10000;
+		position: fixed;
+		top: 20%;
+		left: 20%;
+	}
+
+	.close {
+		width: 30px;
+	}
+
+	.clear {
+		clear: both;
+	}
+
+	.title-a {
+		background: RGB(247, 247, 247);
+	}
+
+	.content-title {
+		padding-top: 10px;
+		padding-left: 20px;
+		float: left;
+		width: 50%;
+		height: 40px;
+
+	}
+	.noshow{
+		display: none;
+	}
+.layui-form-item{
+	width: 80%;
+}
+.layui-form-label{
+	    width: 16% !important;
+    text-align: left !important;
+}
+.tiqu{
+	width: 63px;
+    height: 36px;
+    color: #3388FF;
+    background: #fff;
+    border: #3388FF solid 1px;
+}
+.layui-input-inline{
+	width: 253px !!important;
+}
+.btu-sumit{
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    height: 30px;
+    color: #fff;
+    background: #007DDB;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+.btus button{
+	width: 100px;
+	height: 30px;
+	background: #fff;
+	color: #333;
+	border: #333 1px solid;
+}
+	.upimg-div{
+		height: 180px;
+		overflow-y: scroll;
+	}
+</style>
+
+{/block}
+
+
+{block name="content"}
+<div class="tanchuang noshow">
+		<div class="tanchuang-content ">
+			<div class="title-a clear">
+				<div class="content-title">本地上传</div>
+				<div class="close"><img src="__STATIC__/admin/common/img/a7.png"></div>
+			</div>
+			<!-- 里面的内容 -->
+			<div class="dom">
+				<form action="{:url('admin/Photo/images_online_push')}" method="post"  class="layui-form"  enctype="multipart/form-data">
+					<div class="layui-form-item ">
+						<label class="layui-form-label">网络图片:</label>
+						<div class="layui-input-inline">
+							<input type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" id="goods_name">
+						</div>
+						<div class="layui-input-inline">
+						  <button type="button" class="tiqu" >提取</button>
+						</div>
+					</div>
+					<div class="layui-form-item">
+						<label class="layui-form-label">上传图片</label>
+						<div class="layui-input-block">
+							<div class="img-box full">
+								<section class=" img-section">
+									<div class="z_photo upimg-div clear">
+										<section class="z_file fl">
+											<img src="__STATIC__/admin/common/upfile/img/a11.png" class="add-img">
+											<input type="file" name="goods_show[]" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple data-id="10"/>
+										</section>
+									</div>
+								</section>
+							</div>
+							<aside class="mask works-mask">
+								<div class="mask-content">
+									<p class="del-p ">您确定要删除作品图片吗？</p>
+									<p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+								</div>
+							</aside>
+						</div>
+					</div>
+					<button type="submit" class="btu-sumit">确定上传</button>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+<div>
+	<button type="button" class="up-button">上传图片</button>
+	<div class="input">
+		<i class="ico"></i>
+	<input type="text" name="" id="" value="" placeholder="输入要搜索的内容" class="seach" >
+	</div>
+</div>
+<div class="grouping-nav">
+	<div class="grouping-content">
+		<ul >
+			<li  class="active"><span>未分组</span><span style="float: right;">2</span></li>
+			<li ><span>未分组</span><span style="float: right;">2</span></li>
+		</ul>
+	</div>
+	<div class="btu" style="text-align: center;">
+		<button type="button" class="add-grouping">+添加分组</button>
+	</div>
+	
+</div>
+<div class="photo-content layui-form">
+	<p style="font-size: 17px;">未分组</p>
+	<div class="opration">
+		<input type="checkbox" sname="" lay-skin="primary" lay-filter="allChoose" id="allChoose" title="全选">
+	</div>
+	<div class="photo-library">
+		<ul class="clear">
+
+			{volist name="images_url" id="vo"}
+			<li>
+				<div class="photo-imgs"><img src="__UPLOAD__/{$vo.images}"  width="100%"></div>
+				<div class="photo-name">
+					<input type="checkbox" sname="" lay-skin="primary" lay-filter="choose" title="other.png">
+				</div>
+				<div class="photo-opration">
+					<ul class="clear">
+						<li class="rename">改名</li>
+						<li class="link" data-id="__UPLOAD__/{$vo.images}">链接</li>
+						<li class="grouping-ico">分组</li>
+						<li class="delect-ico"><a href="{:url('admin/Photo/delete',['id'=>$vo.id])}" onclick="if(!confirm('确定要删除吗？')) return false">删除</a></li>
+					</ul>
+				</div>
+			</li>
+			{/volist}
+
+		
+		</ul>
+	</div>
+    <div class="page">
+		<div class="btus">
+		<button type="button">修改分组</button>
+		<button type="button">删除</button>
+		</div>
+	</div>
+	
+</div>
+{/block}
+
+<!--_footer 作为公共模版分离出去-->
+{include file="template/_footer" /}
+<!--/_footer 作为公共模版分离出去-->
+
+
+
+<!--请在下方写此页面业务相关的脚本-->
+{block name="bottom"}
+<script type="text/javascript">
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
+				$(".add-grouping").click(function(){
+					layer.prompt({title: '添加分组', formType: 1}, function(pass, index){
+							  layer.close(index);
+							  
+							});
+				});
+				$(".rename").click(function(){
+					layer.prompt({title: '修改名称', formType: 1}, function(pass, index){
+							layer.close(index);
+							
+							});
+				});
+				$(".link").click(function(){
+					layer.confirm('确定复制该图片链接？', {
+							btn: ['确定','取消'] //按钮
+							}, function(){
+							
+							}, function(){
+							
+							
+							});
+				});
+				$(".grouping-ico").click(function(){
+					layer.prompt({title: '添加分组', formType: 1}, function(pass, index){
+							layer.close(index);
+							
+							});
+				});
+// 				$(".delect-ico").click(function(){
+// 					layer.confirm('确定删除该图片？', {
+// 							  btn: ['确定','取消'] //按钮
+// 							}, function(){
+// 							  
+// 							}, function(){
+// 							  
+// 							
+// 							});
+// 				});
+			
+			//全选
+			form.on('checkbox(allChoose)', function(data) {
+				var child = $(".photo-library").find('input[type="checkbox"]:not([name="show"])');
+				console.log(child);
+				child.each(function(index, item) {
+					item.checked = data.elem.checked;
+				});
+				form.render('checkbox');
+			});
+
+			//通过判断文章是否全部选中来确定全选按钮是否选中
+			form.on("checkbox(choose)", function(data) {
+				var child = $(".photo-library").find('input[type="checkbox"]:not([name="show"])');
+				var childChecked = $(".photo-library").find('input[type="checkbox"]:not([name="show"]):not([name="show"]):checked')
+				if (childChecked.length == child.length) {
+					$(".opration").find('input#allChoose').get(0).checked = true;
+				} else {
+					$(".opration").find('input#allChoose').get(0).checked = false;
+				}
+				form.render('checkbox');
+			})
+
+
+
+
+		})
+		$(".grouping-content ul li").click(function(){
+			$(this).addClass("active");
+			// console.log("")
+			$(this).siblings().removeClass("active");
+		});
+	</script>
+<!-- 弹窗 -->
+<script type="text/javascript">
+		$(".up-button").on('click', function() {
+			$(".tanchuang").removeClass("noshow");
+		});
+		$(".close").on('click', function() {
+			$(".tanchuang").addClass("noshow");
+		});
+		
+		
+	</script>
+	
+{/block}

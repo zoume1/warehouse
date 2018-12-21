@@ -1,0 +1,109 @@
+<script src="__STATIC__/admin/common/js/jquery.js"></script>
+<!--<script src="__STATIC__/admin/common/js/vue.js"></script>-->
+<!--<script src="__STATIC__/admin/common/js/bootstrap.js"></script>-->
+<!--<script src="__STATIC__/admin/common/js/bootstrap-table.min.js"></script>-->
+<!--<script src="__STATIC__/admin/common/layui/lay/modules/laydate.js"></script>-->
+<script src="__STATIC__/admin/common/layui/layui.js"></script>
+<!-- <script src="__STATIC__/admin/common/js/bootstrap.js"></script> -->
+<!--<script src="__STATIC__/admin/common/layui/lay/modules/laydate.js"></script>-->
+<script src="__STATIC__/admin/index/js/index.js"></script>
+<script type="text/javascript " src="__STATIC__/admin/common/upfile/js/imgUp.js"></script>
+<!-- <script type="text/javascript " src="__STATIC__/admin/common/upfile/js/imgPlugin.js"></script> -->
+<script type="text/javascript " src="__STATIC__/admin/common/js/datepicker.all.min.js"></script>
+<script type="text/javascript " src="__STATIC__/admin/common/js/moment.min.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/common/utf8-php/ueditor.config.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/common/utf8-php/ueditor.all.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/common/utf8-php//lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/common/js/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/common/diliweizhi/distpicker.data.js"></script>
+<script type="text/javascript" src="__STATIC__/admin/common/diliweizhi/distpicker.js"></script>
+	<script type="text/javascript" src="__STATIC__/admin/common/js/jquery-ui.js"></script>
+	<script type="text/javascript">
+		  $(function() {
+		    $( ".upimg-div" ).sortable();
+		    $( ".upimg-div" ).disableSelection();
+		  });
+	</script>
+<script type="text/javascript">
+		//时间
+		if ($(".datetimepickers").length > 0) {
+			$('.datetimepickers').datetimepicker({
+				timepicker: false,
+				scrollMonth: false
+			})
+		}
+
+		if ($(".datetimepickers2").length > 0) {
+			var datenow = new Date();
+			datenow = datenow.getFullYear() + "/" + (datenow.getMonth() + 1) + "/" + (datenow.getDate());
+			$('.datetimepickers2').datetimepicker({
+				timepicker: false,
+				maxDate: datenow,
+				scrollMonth: false
+			})
+		}
+		if ($(".datetimepicker").length > 0) {
+			var datenow = new Date();
+			datenow = datenow.getFullYear() + "/" + (datenow.getMonth() + 1) + "/" + (datenow.getDate());
+			var date = $("#beginTime").val();
+			var date1 = $("#endTime").val();
+			//时间控件
+			$('#beginTime').datetimepicker({
+				timepicker: false,
+				maxDate: datenow,
+				scrollMonth: false,
+				onClose: function(ct, $i) {
+					$('#endTime').datetimepicker({
+						minDate: $('#beginTime').val(),
+						maxDate: datenow,
+					});
+				}
+			});
+
+			$('#endTime').datetimepicker({
+				timepicker: false,
+				maxDate: datenow,
+				scrollMonth: false,
+				onClose: function(ct, $i) {
+					$('#beginTime').datetimepicker({
+						maxDate: $('#endTime').val(),
+					});
+				}
+			});
+		}
+		//清空时间
+		$(".handle_main span .cleartime").click(function() {
+			$(this).prev("input").val("")
+		})
+		//时间插件封装
+		function datetimepicker(beginTime, endTime) {
+			var datenow = new Date();
+			datenow = datenow.getFullYear() + "/" + (datenow.getMonth() + 1) + "/" + (datenow.getDate());
+			var date = $(beginTime).val();
+			var date1 = $(endTime).val();
+			//时间控件
+			$(beginTime).datetimepicker({
+				timepicker: false,
+				maxDate: datenow,
+				scrollMonth: false,
+				onClose: function(ct, $i) {
+					$(endTime).datetimepicker({
+						minDate: $(beginTime).val(),
+						maxDate: datenow,
+					});
+				}
+			});
+
+			$(endTime).datetimepicker({
+				timepicker: false,
+				maxDate: datenow,
+				scrollMonth: false,
+				onClose: function(ct, $i) {
+					$(beginTime).datetimepicker({
+						maxDate: $(endTime).val(),
+					});
+				}
+			});
+			
+		}
+	</script>
