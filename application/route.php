@@ -234,6 +234,11 @@ Route::group("admin",[
     "coupon_add"=>"admin/Bonus/coupon_add",    
 
 
+   /*TODO:测试使用开始*/
+   "test_index"=>"admin/Test/test_index",//测试首页
+   "test_add"=>"admin/Test/test_add",//测试添加页面
+   "test_edit"=>"admin/Test/test_edit",//测试编辑页面
+   /*TODO:测试使用结束*/
 
     
 
