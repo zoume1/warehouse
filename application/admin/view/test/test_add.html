@@ -1,11 +1,223 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{include file="template/_meta" /}
+<title></title>
 </head>
+
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/index/common/formSelects-v4.css" />
+<style type="text/css">
+	body {
+		background: #fff;
+	}	
+    .form-group .layui-form-select {
+		display: none;
+    }
+    .noshow{
+        display: none;
+    }
+	
+</style>
+
+{/block}
+
 <body>
-+
+	{block name="content"}
+
+	<form class="layui-form layui-form-lists" action="{:url('admin/Category/save')}" method="post" enctype="multipart/form-data">
+	
+		<div class="form-item">
+			<label class="form-label"> 模板名称</label>
+			<div class="form-input">
+				<input type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入" class="layui-input" >
+			
+			</div>
+        </div>
+        <div class="form-item">
+                <label class="form-label"><span class="red">*</span>费用计算方式</label>
+                <div class="form-input">
+                    <input type="radio" name="requirements" value="0" title="按片" checked="" lay-filter="guige">
+                    <input type="radio" name="requirements" value="1" title="按重量" lay-filter="guige">
+                </div>
+        </div>
+        <div class="form-item general " >
+                <label class="form-label"></label>
+                <div class="form-item " style=" flex-direction:column;">
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>首件（件）</label>
+                                    <div class="form-input">
+                                        <input type="text" name="" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" >
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>首费（元）</label>
+                                    <div class="form-input">
+                                        <input type="text" name="" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" >
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>续件（件）</label>
+                                    <div class="form-input">
+                                        <input type="text" name="" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" >
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>续费（元）</label>
+                                    <div class="form-input">
+                                        <input type="text" name="" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" >
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>目的地</label>
+                                    <div class="form-input">
+                                        <select name="goods_car_series"  class="city" xm-select-show-count="1" xm-select="city" multiple="multiple">
+                                                <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="form-item special noshow" >
+                <label class="form-label"></label>
+                <div class="form-item " style=" flex-direction:column;">
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>首重（kg）</label>
+                                    <div class="form-input">
+                                        <input type="text" name="" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" >
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span> 首费（元）</label>
+                                    <div class="form-input">
+                                        <input type="text" name="" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" >
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>续重（kg）</label>
+                                    <div class="form-input">
+                                        <input type="text" name="" lay-verify="title" autocomplete="off" placeholder="" class="layui-input" >
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>续费（元）</label>
+                                    <div class="form-input">
+                                        <input type="text" name="" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="form-input">
+                                <div class="form-item">
+                                    <label class="form-label"><span class="red">*</span>目的地</label>
+                                    <div class="form-input">
+                                        <select name="goods_car_series" class="city" xm-select-show-count="1" xm-select="city" multiple="multiple">
+                                                <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+				<button class="layui-btn layui-btn-normal" type="submit">确认提交</button>
+				<button type="button" class="layui-btn layui-btn-primary" onClick="javascript :history.back(-1);">返回</button>
+			</div>
+		</div>
+	</form>
+
+	{/block}
+
+	<!--_footer 作为公共模版分离出去-->
+	{include file="template/_footer" /}
+	<!--/_footer 作为公共模版分离出去-->
+
+	<!--请在下方写此页面业务相关的脚本-->
+	{block name="bottom"}
+    <script src="__STATIC__/admin/index/common/formSelects-v4.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var city={
+      110000: '北京市',
+      120000: '天津市',
+      130000: '河北省',
+      140000: '山西省',
+      150000: '内蒙古自治区',
+      210000: '辽宁省',
+      220000: '吉林省',
+      230000: '黑龙江省',
+      310000: '上海市',
+      320000: '江苏省',
+      330000: '浙江省',
+      340000: '安徽省',
+      350000: '福建省',
+      360000: '江西省',
+      370000: '山东省',
+      410000: '河南省',
+      420000: '湖北省',
+      430000: '湖南省',
+      440000: '广东省',
+      450000: '广西壮族自治区',
+      460000: '海南省',
+      500000: '重庆市',
+      510000: '四川省',
+      520000: '贵州省',
+      530000: '云南省',
+      540000: '西藏自治区',
+      610000: '陕西省',
+      620000: '甘肃省',
+      630000: '青海省',
+      640000: '宁夏回族自治区',
+      650000: '新疆维吾尔自治区',
+      710000: '台湾省',
+      810000: '香港特别行政区',
+      820000: '澳门特别行政区'
+    };
+    </script>
+    <script type="text/javascript">
+    	var formSelects = layui.formSelects;
+		layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage', 'upload'], function() {
+			var form = layui.form(),
+				$ = layui.jquery;
+            form.render();
+            for(var key in city) {
+                var now_city = city[key];
+				$(".city").append("<option value='" + now_city + "'>" + now_city + "</option>");
+            }
+            formSelects.render();
+            	// TODO商品规格变化
+			form.on('radio(guige)', function(data) {
+				var checkval = data.value;
+				if(checkval == 0) {
+					$(".general").removeClass("noshow");
+					$(".special").addClass("noshow");
+				} else {
+					$(".special").removeClass("noshow");
+					$(".general ").addClass("noshow");
+				}
+
+			});
+			
+		});
+	</script>
+
+	{/block}
 
 </body>
+
 </html>

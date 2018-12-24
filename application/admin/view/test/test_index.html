@@ -7,7 +7,6 @@
 <style type="text/css">
 	body {
 		background: #fff;
-		padding: 40px 60px;
 	}
 	
 	#page {
@@ -18,212 +17,6 @@
 		padding-left: 50px;
 		background: #FDFDFE;
 	}
-	
-	.on {
-		font-size: 20px;
-		font-weight: bold;
-	}
-	
-	.distribution_list {
-		margin-bottom: 10px;
-		border-bottom: solid 1px #D7D7D7;
-	}
-	
-	.distribution_list ul {
-		display: flex;
-		width: 600px;
-		justify-content: center;
-		align-items: center;
-		margin: 10px auto;
-	}
-	
-	.distribution_list ul li {
-		color: #333;
-	}
-	.table {margin-top: 20px;
-	}
-	.table table {
-		width: 100%;
-		border: 0;
-	}
-	
-	.table table  th{
-		background: #F2F2F2;
-		height: 60px;
-		border: 0;
-	}
-	
-	.table table td{
-		width: 100%;
-		padding: 10px;
-		border-top: 0;
-		border-right: 0;
-		border-left: 0;
-	}
-	.table table td .img{
-		display: inline-block;
-		width: 80px;
-		height: 80px;
-		text-align: center;
-		line-height: 80px;
-		color: #fff;
-		background: #DD9522;
-	}
-	table td .input{
-		text-align: center;
-		display: inline-block;
-		width: 30px;
-		height: 30px;
-	}
-	td span{
-		display: inline-block;
-		
-	}
-	.noshow{
-		display: none;
-	}
-	.bind_phone input{
-		width: 200px;
-		height: 30px;
-		margin-top: 10px;
-	}
-	.information_box{
-		background: #F8F8F8;
-		text-align: right;
-		overflow: hidden;
-	}
-	.information_box>div{
-     margin-top: 10px
-	}
-	.combined_box{
-		font-size: 14px;
-		color: #333;
-	}
-	.combined_title{
-		display: inline-block;
-	}
-	.preferential{
-		color: #999;
-	}
-	.accounts_payable{
-      color: #FF4444;
-	  font-size: 16px;
-	}
-	.pay{
-		width: 150px;
-		height: 30px;
-		line-height: 30px;
-		color: #fff;
-		border-radius:6px; 
-		background: #FF4444; 
-		text-align: center;
-		float: right
-	}
-	/*
-     * 弹窗
-     */
-	
-	 .popup {
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		background: rgba(0, 0, 0, 0.5);
-		z-index: 99999;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border: solid 1px #D7D7D7;
-		box-sizing: border-box;
-	}
-	
-	.submit_btns {
-		width: 100px;
-		height: 38px;
-		color: #fff;
-		background: #169BD5;
-		border-radius:10px ;
-	}
-	.popup_doms{
-		width: 600px;
-		height: 556px;
-		background: #fff;
-	}
-	.popup_content{
-		padding: 20px;
-	}
-	.popup_title{
-		height: 40px;
-		line-height: 40px;
-		color: #66662B;
-		background: #EEF7EA;
-		padding-left: 20px;
-	}
-	.span{
-		display: inline-block;
-		width: 80px;
-		text-align: left;
-	}
-
-	.noshow{
-		display: none !important;
-	}
-	.popup_title{
-		position: relative;
-	}
-	.popup_x{
-	    width: 25px;
-    position: absolute;
-    right: 12px;
-    top: -4px;
-	}
-   .popup_content{
-	   border-bottom:solid 1px #999; 
-   }
-   .cold_eartext_one{
-	   display: flex;
-	   align-items: center;
-	   justify-content: center;
-	   flex-direction:column;
-	   height: 400px;
-   }
-   .repay_div{
-	   width: 221px;
-	   display: flex;
-	   height: 30px;
-	   line-height: 30px;
-	   justify-content: space-between;
-
-   }
-   .tip_text{
-        font-size: 31px;
-   }
-   .cold_img{
-	   width: 221px;
-   }
-   .remittance_information{
-	   margin: 40px;
-	   border: solid 1px #999;
-	   font-size: 20px;
-	   color: #333;
-	   padding: 20px;
-	   box-sizing: border-box;
-	   border-radius:10px; 
-   }
-
-   .button{
-	   text-align: center;
-	   width: 250px;
-	   border-radius:10px; 
-	   padding: 10px;
-	   color: #fff;
-	   background: #3388FF;
-	   float: right;
-	   margin-right: 30px;
-   }
-	/*
-     * 弹窗end
-     */
-
 </style>
 
 {/block}
@@ -231,129 +24,65 @@
 <body>
 
 	{block name="content"}
- 	<div class="popup popup_two noshow layui-form">
-		<div class="popup_doms">
-			<div class="popup_title">
-				选择付款方式
-					<div class="popup_x">
-				<img src="__STATIC__/admin/index/img/X.png"/>
-			</div>
-			</div>
-			<div class="popup_content">
-				<div class="shopname line">
-					<div class="labers">商家名称：</div>
-					<div class="content">siring</div>
-				</div>
-				<div class="shopname line">
-						<div class="labers">支付金额：</div>
-						<div class="content">￥15800</div>
-					</div>
-					<div class="shopname line">
-							<div class="labers">支付方式：</div>
-							<div>
-								<input type="radio" name="sex" value="男" title="扫码支付" checked="" lay-filter="pay_select">
-								<input type="radio" name="sex" value="女" title="汇款支付" lay-filter="pay_select">
-							</div>
-						</div>
-			
-	     	</div>
-            <div class="cold_eartext_one noshow">
-				 <div class="cold_img weixin_cold"><img src="__STATIC__/admin/index/img/code.png" alt=""></div>
-				 <div class="noshow cold_img zhifubao_cold"><img src="" alt=""></div>
-				 <div class="repay_div">
-					 <div class="weixin"><img src="__STATIC__/admin/index/img/weixin.png" alt=""></div>
-					 <div class="zhifubao"><img src="__STATIC__/admin/index/img/zhifubao.png" alt=""></div>
-				 </div>
-				 <div class="tip_text">扫一扫完成支付</div>
-			</div>
-			<div class="remittance">
-               <div class="remittance_information">
-					<p>你需汇款￥158000至以下账户，汇款成功后上传凭证信息，审核通过后到账</p> 
-					<p>收款方户名：</p>
-					<p>收款开户行：</p>
-					<p>收款方账户：</p>
-			   </div>
-			   <div class="button">
-				  已转账汇款，我要上传凭证
-			   </div>
-			</div>
 
-	</div>
-</div>
 	<div class="childrenBody">
-		<div class="distribution_list">
-			<ul>
-				<li>1.选择服务 </li>
-				<li  class="on">------2.确认订单信息 </li>
-				<li>------3.确认付款</li>
-				<li>------4.完成订购</li>
-			</ul>
+		<blockquote class="layui-elem-quote">
+				<div class="layui-form" action="{:url('admin/User/search')}">
+					<input type="checkbox" name="close" lay-skin="switch" lay-text="ON|OFF">
+					<span style="font-weight: bold;margin-left: 10px;">买家上门自提功能</span>
+					<p style="margin-left: 70px; font-size: 12px;">启用上门自提功能后，买家可以就近选择你预设的自提点，下单后你需要尽快将商品配送至指定自提点</p>
+				</div>
+		</blockquote>
+		
 
-		</div>
-		<div class="service_box">
-			<div class="shop">
-				<span>订购店铺：</span>
-				<span>siring</span>
-			</div>
-			<div class="table">
-				<table border="" cellspacing="" cellpadding="">
+		<a class="layui-btn layui-btn-danger batchDel" href="test_add">添加</a>
+
+		<div class="layui-form news_list">
+			<table class="layui-table">
+				<colgroup>
+					<col width="3%">
+
+				</colgroup>
+				<thead>
 					<tr>
-						<th style="width: 25%;">订购服务</th>
-						<th style="width: 25%;"> 有效期（年）</th>
-						<th style="width: 25%;">金额</th>
-						<th style="width: 25%;">小计（元）</th>
+						<th><input type="checkbox" sname="" lay-skin="primary" lay-filter="allChoose" id="id"></th>
+						<th>自提点名称</th>
+						<th>详细地址</th>
+						<th>联系电话</th>
+						<th>操作</th>
 					</tr>
-			     	<tr>
-						<td style="width: 25%;">
-							<span class="img">万用版</span>
-							<span>小程序</span>
-							<span>万用版</span>
-						</td>
-						<td style="width: 25%;" >
-							<div style="border-radius:3px ; border: solid 1px #AEAEAE;width: 108px;">
-									<input type="text" name="" id="" value="-" readonly="readonly" class="subtract input" style="border: 0;"/>
-									<input type="number" name="" id="" value="1"  class="number input" style="border: 0; border-right: solid 1px #AEAEAE; border-left: solid 1px #AEAEAE;" />
-									<input type="text" name="" id="" value="+" readonly="readonly " class="add input" style="border: 0;"/>
-							</div>
-						</td>
-						<td style="width: 25%;">
-							362.00
-						</td>
-						<td style="width: 25%;">
-							362.00
-						</td>
-					</tr>
+				</thead>
+				<tbody class="news_content">
 					<tr>
-						<td colspan="4">
-							<input type="checkbox"  >
-						   <a href="">《智慧茶仓商家服务协议》</a>
-						 </td>
+						<td><input type="checkbox" sname="" lay-skin="primary" lay-filter="choose" data-id=""></td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>1000001</td>
+						<td>
+							<a class="layui-btn layui-btn-mini edit" href="{:url('admin/Category/edit')}"><i class="iconfont icon-edit"></i> 编辑
+							</a>
+							<a href="{:url('admin/Category/del')}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="undefined"><i class="layui-icon"></i> 删除</a>
+						</td>
 					</tr>
-					<tr>
-					   <td colspan="4">
-						<input type="checkbox" name="" id="invite_code" >
-						   <span>使用邀请码</span>
-						   <span>（填写推荐邀请码，优惠10元）</span>
-						   <div class="noshow bind_phone"><input type="text" placeholder="填写邀请人的会员绑定手机号"></div>
-						 </td>
-					</tr>
-				</table>
-			</div>
-			<div class="information_box">
-				<div class="combined_box">
-					<span class="combined_title">合计：</span>
-					<span class="combined_content">￥15800</span>
+				</tbody>
+			</table>
+			<div id="page">
+				<div class="opation" style="width: 200px; float: left;">
+					<select name="" style="color: #C1A5A5; border-color: #E4E4E4;height: 30px;">
+						<option check="" value="0">请选择</option>
+						<option value="1">批量删除</option>
+					</select>
 				</div>
-				<div class="preferential">优惠￥100</div>
-				<div class="accounts_payable">
-				   <span>应付款：</span>	
-				   <span>￥15800</span>
+				<div style="float: left; height: 52px;line-height: 52px; margin-left: 20px;">
+					<button type="button" id="opration_btu" style="width: 60px; background: #fff; color: #333333;border:#CCCCCC solid 1px;height: 38px;line-height: 38px;">确定
+					</button>
 				</div>
-               <div class="pay">立即付款</div>
 			</div>
+
 		</div>
 
 	</div>
+
 	{/block}
 
 	<!--_footer 作为公共模版分离出去-->
@@ -446,15 +175,7 @@
 				}
 				form.render('checkbox');
 			})
-            $("#invite_code").change(function(data){
-				if($(this).is(':checked')){
-					$(".bind_phone").removeClass("noshow");
-				}
-				else{
-					$(".bind_phone").addClass("noshow");
-				}
-                
-			});
+
 			form.on('switch(isShow)', function(data) {
 				if($(this).val() == 0) {
 					$(this).val(1);
@@ -479,26 +200,7 @@
 					}
 				});
 
-			});
-			form.on('radio(pay_select)', function(data) {
-			console.log(data);
-
-			});
-			
-			$(".pay").click(function(){
-			$(".popup_two").removeClass("noshow");
-		});
-			$(".popup_x").click(function(){
-			$(".popup_two").addClass("noshow");
-		});
-		$(".weixin").click(function(){
-              $(".weixin_cold").removeClass("noshow");
-			  $(".zhifubao_code").addClass("noshow")
-		});
-		$(".zhifubao").click(function(){
-              $(".zhifubao_code").removeClass("noshow");
-			  $(".weixin_cold").addClass("noshow")
-		});
+			})
 		})
 	</script>
 
