@@ -200,6 +200,26 @@
    .cold_img{
 	   width: 221px;
    }
+   .remittance_information{
+	   margin: 40px;
+	   border: solid 1px #999;
+	   font-size: 20px;
+	   color: #333;
+	   padding: 20px;
+	   box-sizing: border-box;
+	   border-radius:10px; 
+   }
+
+   .button{
+	   text-align: center;
+	   width: 250px;
+	   border-radius:10px; 
+	   padding: 10px;
+	   color: #fff;
+	   background: #3388FF;
+	   float: right;
+	   margin-right: 30px;
+   }
 	/*
      * 弹窗end
      */
@@ -231,8 +251,8 @@
 					<div class="shopname line">
 							<div class="labers">支付方式：</div>
 							<div>
-								<input type="radio" name="sex" value="男" title="扫码支付" checked="">
-								<input type="radio" name="sex" value="女" title="汇款支付">
+								<input type="radio" name="sex" value="男" title="扫码支付" checked="" lay-filter="pay_select">
+								<input type="radio" name="sex" value="女" title="汇款支付" lay-filter="pay_select">
 							</div>
 						</div>
 			
@@ -249,7 +269,12 @@
 			<div class="remittance">
                <div class="remittance_information">
 					<p>你需汇款￥158000至以下账户，汇款成功后上传凭证信息，审核通过后到账</p> 
-					
+					<p>收款方户名：</p>
+					<p>收款开户行：</p>
+					<p>收款方账户：</p>
+			   </div>
+			   <div class="button">
+				  已转账汇款，我要上传凭证
 			   </div>
 			</div>
 
@@ -455,6 +480,11 @@
 				});
 
 			});
+			form.on('radio(pay_select)', function(data) {
+			console.log(data);
+
+			});
+			
 			$(".pay").click(function(){
 			$(".popup_two").removeClass("noshow");
 		});
