@@ -69,7 +69,7 @@
 		color: #fff;
 		background: #DD9522;
 	}
-	table td input{
+	table td .input{
 		text-align: center;
 		display: inline-block;
 		width: 30px;
@@ -79,7 +79,131 @@
 		display: inline-block;
 		
 	}
+	.noshow{
+		display: none;
+	}
+	.bind_phone input{
+		width: 200px;
+		height: 30px;
+		margin-top: 10px;
+	}
+	.information_box{
+		background: #F8F8F8;
+		text-align: right;
+		overflow: hidden;
+	}
+	.information_box>div{
+     margin-top: 10px
+	}
+	.combined_box{
+		font-size: 14px;
+		color: #333;
+	}
+	.combined_title{
+		display: inline-block;
+	}
+	.preferential{
+		color: #999;
+	}
+	.accounts_payable{
+      color: #FF4444;
+	  font-size: 16px;
+	}
+	.pay{
+		width: 150px;
+		height: 30px;
+		line-height: 30px;
+		color: #fff;
+		border-radius:6px; 
+		background: #FF4444; 
+		text-align: center;
+		float: right
+	}
+	/*
+     * 弹窗
+     */
 	
+	 .popup {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 99999;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: solid 1px #D7D7D7;
+		box-sizing: border-box;
+	}
+	
+	.submit_btns {
+		width: 100px;
+		height: 38px;
+		color: #fff;
+		background: #169BD5;
+		border-radius:10px ;
+	}
+	.popup_doms{
+		width: 600px;
+		height: 556px;
+		background: #fff;
+	}
+	.popup_content{
+		padding: 20px;
+	}
+	.popup_title{
+		height: 40px;
+		line-height: 40px;
+		color: #66662B;
+		background: #EEF7EA;
+		padding-left: 20px;
+	}
+	.span{
+		display: inline-block;
+		width: 80px;
+		text-align: left;
+	}
+
+	.noshow{
+		display: none !important;
+	}
+	.popup_title{
+		position: relative;
+	}
+	.popup_x{
+	    width: 25px;
+    position: absolute;
+    right: 12px;
+    top: -4px;
+	}
+   .popup_content{
+	   border-bottom:solid 1px #999; 
+   }
+   .cold_eartext_one{
+	   display: flex;
+	   align-items: center;
+	   justify-content: center;
+	   flex-direction:column;
+	   height: 400px;
+   }
+   .repay_div{
+	   width: 221px;
+	   display: flex;
+	   height: 30px;
+	   line-height: 30px;
+	   justify-content: space-between;
+
+   }
+   .tip_text{
+        font-size: 31px;
+   }
+   .cold_img{
+	   width: 221px;
+   }
+	/*
+     * 弹窗end
+     */
+
 </style>
 
 {/block}
@@ -87,12 +211,55 @@
 <body>
 
 	{block name="content"}
+ 	<div class="popup popup_two noshow layui-form">
+		<div class="popup_doms">
+			<div class="popup_title">
+				选择付款方式
+					<div class="popup_x">
+				<img src="__STATIC__/admin/index/img/X.png"/>
+			</div>
+			</div>
+			<div class="popup_content">
+				<div class="shopname line">
+					<div class="labers">商家名称：</div>
+					<div class="content">siring</div>
+				</div>
+				<div class="shopname line">
+						<div class="labers">支付金额：</div>
+						<div class="content">￥15800</div>
+					</div>
+					<div class="shopname line">
+							<div class="labers">支付方式：</div>
+							<div>
+								<input type="radio" name="sex" value="男" title="扫码支付" checked="">
+								<input type="radio" name="sex" value="女" title="汇款支付">
+							</div>
+						</div>
+			
+	     	</div>
+            <div class="cold_eartext_one noshow">
+				 <div class="cold_img weixin_cold"><img src="__STATIC__/admin/index/img/code.png" alt=""></div>
+				 <div class="noshow cold_img zhifubao_cold"><img src="" alt=""></div>
+				 <div class="repay_div">
+					 <div class="weixin"><img src="__STATIC__/admin/index/img/weixin.png" alt=""></div>
+					 <div class="zhifubao"><img src="__STATIC__/admin/index/img/zhifubao.png" alt=""></div>
+				 </div>
+				 <div class="tip_text">扫一扫完成支付</div>
+			</div>
+			<div class="remittance">
+               <div class="remittance_information">
+					<p>你需汇款￥158000至以下账户，汇款成功后上传凭证信息，审核通过后到账</p> 
+					
+			   </div>
+			</div>
 
+	</div>
+</div>
 	<div class="childrenBody">
 		<div class="distribution_list">
 			<ul>
-				<li class="on">1.选择服务 </li>
-				<li>------2.确认订单信息 </li>
+				<li>1.选择服务 </li>
+				<li  class="on">------2.确认订单信息 </li>
 				<li>------3.确认付款</li>
 				<li>------4.完成订购</li>
 			</ul>
@@ -119,9 +286,9 @@
 						</td>
 						<td style="width: 25%;" >
 							<div style="border-radius:3px ; border: solid 1px #AEAEAE;width: 108px;">
-									<input type="text" name="" id="" value="-" readonly="readonly" class="subtract" style="border: 0;"/>
-									<input type="number" name="" id="" value="1"  class="number" style="border: 0; border-right: solid 1px #AEAEAE; border-left: solid 1px #AEAEAE;" />
-									<input type="text" name="" id="" value="+" readonly="readonly" class="add" style="border: 0;"/>
+									<input type="text" name="" id="" value="-" readonly="readonly" class="subtract input" style="border: 0;"/>
+									<input type="number" name="" id="" value="1"  class="number input" style="border: 0; border-right: solid 1px #AEAEAE; border-left: solid 1px #AEAEAE;" />
+									<input type="text" name="" id="" value="+" readonly="readonly " class="add input" style="border: 0;"/>
 							</div>
 						</td>
 						<td style="width: 25%;">
@@ -133,11 +300,31 @@
 					</tr>
 					<tr>
 						<td colspan="4">
-						   <input type="checkbox"  title="我已阅读并同意" >
+							<input type="checkbox"  >
 						   <a href="">《智慧茶仓商家服务协议》</a>
 						 </td>
 					</tr>
+					<tr>
+					   <td colspan="4">
+						<input type="checkbox" name="" id="invite_code" >
+						   <span>使用邀请码</span>
+						   <span>（填写推荐邀请码，优惠10元）</span>
+						   <div class="noshow bind_phone"><input type="text" placeholder="填写邀请人的会员绑定手机号"></div>
+						 </td>
+					</tr>
 				</table>
+			</div>
+			<div class="information_box">
+				<div class="combined_box">
+					<span class="combined_title">合计：</span>
+					<span class="combined_content">￥15800</span>
+				</div>
+				<div class="preferential">优惠￥100</div>
+				<div class="accounts_payable">
+				   <span>应付款：</span>	
+				   <span>￥15800</span>
+				</div>
+               <div class="pay">立即付款</div>
 			</div>
 		</div>
 
@@ -234,7 +421,15 @@
 				}
 				form.render('checkbox');
 			})
-
+            $("#invite_code").change(function(data){
+				if($(this).is(':checked')){
+					$(".bind_phone").removeClass("noshow");
+				}
+				else{
+					$(".bind_phone").addClass("noshow");
+				}
+                
+			});
 			form.on('switch(isShow)', function(data) {
 				if($(this).val() == 0) {
 					$(this).val(1);
@@ -259,7 +454,21 @@
 					}
 				});
 
-			})
+			});
+			$(".pay").click(function(){
+			$(".popup_two").removeClass("noshow");
+		});
+			$(".popup_x").click(function(){
+			$(".popup_two").addClass("noshow");
+		});
+		$(".weixin").click(function(){
+              $(".weixin_cold").removeClass("noshow");
+			  $(".zhifubao_code").addClass("noshow")
+		});
+		$(".zhifubao").click(function(){
+              $(".zhifubao_code").removeClass("noshow");
+			  $(".weixin_cold").addClass("noshow")
+		});
 		})
 	</script>
 

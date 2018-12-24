@@ -3,6 +3,35 @@
 	body {
 		background: #fff;
 	}
+	#hot {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+	}
+	
+	.list {
+		margin-right: 10px;
+		margin-bottom: 6px;
+		display: flex;
+	}
+	
+	.list img {
+		margin-left: 4px;
+		height: 20px;
+	}
+	
+	.list .texts {
+		margin-left: 4px;
+		width: 78px;
+		height: 20px;
+		display: inline-block;
+		text-align: center;
+		line-height: 20px;
+		color: #669900;
+		border: solid 1px #669900;
+		border-radius: 6px;
+	}
+	
 	
 	.layui-form label {
 		width: 14%;
@@ -121,28 +150,36 @@
 
 			</div>
 		</div>
-		<div class="layui-form-item" class="biaoji">
-			<label class="layui-form-label">活动标记</label>
-			<div class="layui-input-block" style="overflow: hidden;">
-				<div id="hot" style="overflow: hidden; float: left;">
-					<div class="list" style="width: 70px; float: left;">
-						<input type="checkbox" name="marker" lay-skin="primary" title="hot" checked="">
+		<div class="form-item">
+			<label class="form-label">卖点标签</label>
+			<div class="form-input" style="display: flex; align-items: center;">
+				<div id="hot">
+					<div class="list">
+						<input type="checkbox" name="marker" lay-skin="primary" title="" checked="">
+						<img src="__STATIC__/admin/index/img/kecun.png" />
 					</div>
-					<div class="list" style="width: 70px; float: left;">
-						<input type="checkbox" name="marker" lay-skin="primary" title="aaa">
+					<div class="list">
+						<input type="checkbox" name="marker" lay-skin="primary" title="">
+						<img src="__STATIC__/admin/index/img/hot.png" />
 					</div>
-					<div class="list" style="width: 134px; float: left;">
-						<input type="checkbox" name="marker" lay-skin="primary" title="特色活动">
-						<span style="margin-top: 10px;vertical-align: -6px; color: #0EA9E3;" class="change_text">修改</span>
+					<div class="list">
+						<input type="checkbox" name="marker" lay-skin="primary" title="">
+						<img src="__STATIC__/admin/index/img/chuxiao.png" />
 					</div>
-				</div>
-				<div class="add_biao" style="float: left;margin-top: 6px; margin-left: 10px;">
-					+添加文字标签
+					<div class="list">
+						<input type="checkbox" name="marker" lay-skin="primary" title="">
+						<img src="__STATIC__/admin/index/img/qingchang.png" />
+					</div>
+					<div class="list">
+						<input type="checkbox" name="marker" lay-skin="primary" title="">
+						<span class="texts">古色生香</span>
+						<span style="color: #0EA9E3;font-size: 12px; line-height: 20px;" class="change_text">修改</span>
+					</div>
 				</div>
 
 			</div>
-			<div class="tips" style="padding-left: 101px;;">
-				*在活动名称前添加，文字标签可编辑多选和添加，文字最长10个一个标签
+			<div class="add_biao">
+				+添加文字标签
 			</div>
 		</div>
 
@@ -315,28 +352,27 @@
 				$ = layui.jquery;
 			layedit.build('demo');
 			form.render('select');
-			$(".add_biao").click(function() {
-				var dhtml = "";
-				dhtml =
-					'<div class="list" style="width: 134px; float: left;"><input type="checkbox" name="" lay-skin="primary" title="特色活动"><span style="margin-top: 10px;vertical-align: -6px; color: #0EA9E3;"  class="change_text">修改</span></div>'
-				$("#hot").append(dhtml);
-				form.render();
-			});
-
 			$("#hot").on('click', ".change_text", function() {
-				var texts = $(this).siblings('input');
+				var texts = $(this).siblings('.texts');
 				layer.prompt({
 						title: '请输入修改的文字',
 						formType: 2
 					},
 					function(text, index) {
-						texts.attr("title", text);
+						texts.html(text);
 						layer.close(index);
-						form.render();
+
 					});
 
-			})
-
+			});
+			$(".add_biao").click(function() {
+				var dhtml = "";
+				dhtml =
+					'<div class="list"> <input type="checkbox" name="goods_sign" lay-skin="primary" title=""> <span class="texts">古色生香</span> <span style="color: #0EA9E3;font-size: 12px; line-height: 20px;" class="change_text">修改</span> </div>'
+				$("#hot").append(dhtml);
+				form.render();
+			});
+	
 		})
 	</script>
 
