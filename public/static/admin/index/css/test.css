@@ -1,0 +1,68 @@
+img{
+    width: 100%;
+}
+.edit_box{
+    width: 24%;
+    overflow: hidden;
+    border: solid #FF99FF 1px;
+    text-align: center;
+    min-height: 600px;
+}
+.edit_title{
+    font-weight: bold;
+    font-size: 16px;
+    margin: 3px;
+    border-bottom: #FF99FF 1px solid;
+    padding-bottom: 4px;
+}
+.add_buton{
+   color: #218CD7; 
+   cursor: pointer;
+}
+.tip{
+    color: #FF99FF;
+    padding: 10px;
+    font-size: 10px;
+}
+.list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.list_title{
+    color: #000;
+}
+.liat_oprtion {
+   display: flex;
+   align-items:center;
+  
+}
+.liat_oprtion div {
+    color: #218CD7;
+    cursor: pointer;
+   margin-left: 10px;
+ }
+ .on{
+     color:red;
+ }
+ .list_title input{
+     display: inline-block;
+     width: 80px;
+     font-size: 12px;
+ }
+::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: 10px;
+  }
+  .show_content{
+       width: 30%;
+  }
+  .phone_show{
+     display: flex;
+  }
+  .childrenBody{
+      display: flex;
+  }
+  .bluetooth{
+      width: 6px;
+  }
