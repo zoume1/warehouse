@@ -2,6 +2,7 @@
 <title></title>
 </head>
 <link rel="stylesheet" type="text/css" href="__STATIC__/admin/index/css/test.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/index/css/swiper.min.css"/>
 {block name="css"}
 
 <style type="text/css">
@@ -18,9 +19,9 @@
 
 	{block name="content"}
 
-	<div class="childrenBody">
-		<div class="edit_box">
-			<div class="edit_title">1.选择要编辑的页面</div>
+	<div class="childrenBody layui-form">
+		<div class="edit_box noshow" >
+			<div class="edit_title"><span class="steps">1</span>选择要编辑的页面</div>
 			<div class="edit_content">
                <div class="list">
 				<div class="list_title on"> <input type="text" value="首页"></div>
@@ -59,20 +60,292 @@
 			<div class="tip">您的当前版本上限为 5个页面，需要更多页面请升级您的套餐</div>
 		</div>
 		<div class="show_content">
-			 <div class="phone_show">
-                 <div class="phone_show_left">
-					<div class="bluetooth"><img src="__STATIC__/admin/index/img/u401.png" alt=""></div>
-					<div class="wifi">siring</div>
-				 </div>
-				 <div class="phone_show_center">
-					 10.20
-				 </div>
-				 <div class="phone_show_right">
-						<div class="bluetooth"><img src="__STATIC__/admin/index/img/u395.png" alt=""></div>
-						<div class="wifi"><img src="__STATIC__/admin/index/img/u397.png" alt=""></div>
-				 </div>
-			 </div>
+			<div class="style_boder">
+				<div class="phone_show">
+					<div class="phone_show_left">
+						<div class="bluetooth"><img src="__STATIC__/admin/index/img/u401.png" alt=""></div>
+						<div class="wifi">siring</div>
+					</div>
+					<div class="phone_show_center">
+						10.20
+					</div>
+					<div class="phone_show_right">
+							<div class="electricity"><img src="__STATIC__/admin/index/img/u397.png" alt=""></div>
+							<div class="message"><img src="__STATIC__/admin/index/img/u395.png" alt=""></div>
+						
+					</div>
+				</div>
+				<div class="title_tag">
+					<div class="page_title">智慧茶仓</div>
+					<div class="page_more_box">
+						<div class="dian"></div>
+						<div class="dian"></div>
+						<div class="dian"></div>
+					</div>
+				</div> 	
+				<div class="seach_box">
+					<div class="seach_box_left">
+						<div class="nfc">
+							<img src="__STATIC__/admin/index/img/u428.png" alt="">
+						</div>
+						<div class="seach_box_text">防伪溯源</div>
+					</div>
+					<div class="seach_box_center">
+						<input type="text">
+					</div>
+					<div class="seach_box_right">
+						<div class="cold"><img src="__STATIC__/admin/index/img/u426.png" alt=""></div>
+						<div class="seach_box_text">会员码</div>
+					</div>
+				</div> 	
+				<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
+							<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
+							<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
+						</div>
+						
+				</div>
+				<div class="classification">
+	                <ul>
+	                	<li>
+	                		<a href="#" >
+	                			<div class="classification_ico"><img src="__STATIC__/admin/index/img/u827.png" alt="" /></div>
+	                			<div class="classification_text">商品分类</div>
+	                		</a>
+						</li>
+						<li>
+	                		<a href="#" >
+	                			<div class="classification_ico"><img src="__STATIC__/admin/index/img/u837.png" alt="" /></div>
+	                			<div class="classification_text">我的消息</div>
+	                		</a>
+						</li>
+						<li>
+	                		<a href="#" >
+	                			<div class="classification_ico"><img src="__STATIC__/admin/index/img/u829.png" alt="" /></div>
+	                			<div class="classification_text">买茶入仓</div>
+	                		</a>
+						</li>
+						<li>
+	                		<a href="#" >
+	                			<div class="classification_ico"><img src="__STATIC__/admin/index/img/u831.png" alt="" /></div>
+	                			<div class="classification_text">出仓提货</div>
+	                		</a>
+						</li>
+						<li>
+	                		<a href="#" >
+	                			<div class="classification_ico"><img src="__STATIC__/admin/index/img/u835.png" alt="" /></div>
+	                			<div class="classification_text">茶山走势</div>
+	                		</a>
+	                	</li>
+	                </ul>
+				</div>
+				<div class="news_box">
+					<div class="news_ico"><img src="__STATIC__/admin/index/img/u1377.png" alt=""></div>
+					<div class="new_text">通知：</div>
+					<div class="new_delect"><img src="__STATIC__/admin/index/img/close.png" alt=""></div>
+				</div>
+				<div class="good_box">
+					<div class="good_title">
+						<div class="good_title_text">商品</div>
+						<div class="good_title_more">
+							<div class="good_title_more_text">更多</div>
+							<div class="good_title_more_ico"><img src="__STATIC__/admin/index/img/more.png" alt=""></div>
+						</div>
+					</div>
+					<div class="good_content">
+						<div class="good_list">
+							<div class="listimg"><img src="__STATIC__/admin/index/img/u983.png" alt=""></div>
+							<div class="listnames">
+							  <span  class="good_name">双骄双骄双骄双骄双骄双骄</span>
+							  <span  class="good_inventory">库存213片</span>
+							</div>
+							<div class="sellpoint">新益号 商品茶 熟茶</div>
+							<div class="price_box">
+								<div class="level_ico"><img src="__STATIC__/admin/index/img/u973.png" alt=""></div>
+								<div class="price">￥120.0/片</div>
+							</div>
+						</div>
+						<div class="good_list">
+								<div class="listimg"><img src="__STATIC__/admin/index/img/u983.png" alt=""></div>
+								<div class="listnames">
+								  <span  class="good_name">双骄双骄双骄双骄双骄双骄</span>
+								  <span  class="good_inventory">库存213片</span>
+								</div>
+								<div class="sellpoint">新益号 商品茶 熟茶</div>
+								<div class="price_box">
+									<div class="level_ico"><img src="__STATIC__/admin/index/img/u973.png" alt=""></div>
+									<div class="price">￥120.0/片</div>
+								</div>
+						</div>
+						<div class="good_list">
+								<div class="listimg"><img src="__STATIC__/admin/index/img/u983.png" alt=""></div>
+								<div class="listnames">
+								  <span  class="good_name">双骄双骄双骄双骄双骄双骄</span>
+								  <span  class="good_inventory">库存213片</span>
+								</div>
+								<div class="sellpoint">新益号 商品茶 熟茶</div>
+								<div class="price_box">
+									<div class="level_ico"><img src="__STATIC__/admin/index/img/u973.png" alt=""></div>
+									<div class="price">￥120.0/片</div>
+								</div>
+						</div>
+						<div class="good_list">
+								<div class="listimg"><img src="__STATIC__/admin/index/img/u983.png" alt=""></div>
+								<div class="listnames">
+								  <span  class="good_name">双骄双骄双骄双骄双骄双骄</span>
+								  <span  class="good_inventory">库存213片</span>
+								</div>
+								<div class="sellpoint">新益号 商品茶 熟茶</div>
+								<div class="price_box">
+									<div class="level_ico"><img src="__STATIC__/admin/index/img/u973.png" alt=""></div>
+									<div class="price">￥120.0/片</div>
+								</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="technical_support">
+					思锐信息www.siring.com.cn技术支持
+				</div>
+			</div>
+			<div class="bottom_nav">
+					<div class="nav_list">
+						<div class="nav_ico"><img src="__STATIC__/admin/index/img/u513.png" alt=""></div>
+						<div class="nav_text">首页</div>
+					</div>
+					<div class="nav_list">
+							<div class="nav_ico"><img src="__STATIC__/admin/index/img/u1516.png" alt=""></div>
+							<div class="nav_text">首页</div>
+						</div>
+						<div class="nav_list">
+								<div class="nav_ico"><img src="__STATIC__/admin/index/img/u1520.png" alt=""></div>
+								<div class="nav_text">首页</div>
+						</div>
+						<div class="nav_list">
+								<div class="nav_ico"><img src="__STATIC__/admin/index/img/u1522.png" alt=""></div>
+								<div class="nav_text">首页</div>
+						</div>
+						
+			</div>
 		</div>
+		<div class="show_edit_box">
+			<!-- 页面标题 -->
+			<div class="page_title_edit noshow">
+				<div class="page_input">
+					<span  class="input_laber">页面标题：</span>
+					<input type="text" placeholder="智慧茶仓" class="page_input_input" />
+				</div>
+				<div class="page_input">
+						<span  class="input_laber">页面名称：</span>
+						<input type="text" placeholder=" 首页（不超过5个字）" class="page_input_input" />
+				 <div class="tips">注意：页面名称是便于后台查找。</div>
+				</div>
+				<div class="page_input">
+						<span  class="input_laber">页面描述：</span>
+						<input type="text" placeholder="  用户通过微信分享给朋友时，会自动显示页面描述" class="page_input_input" />
+				</div>
+				<div class="page_input_line">
+					<div class="page_input">
+							<span  class="input_laber">栏目背景色：</span>
+							<input type="color" placeholder="" class="page_input_color" />
+					</div>
+					<div class="page_input">
+							<span  class="input_laber">背景色：</span>
+							<input type="color" placeholder="" class="page_input_color" />
+					</div>
+					<div class="page_input">
+							<span  class="input_laber">标题栏文字色：</span>
+							<input type="color" placeholder="" class="page_input_color" />
+					</div>
+			    </div>
+			</div>
+			
+			<!-- 搜索框 -->
+			<div class="page_seach_edit">
+					<div class="page_input">
+							<span  class="input_laber">背景颜色：</span>
+							<input type="color" placeholder="" class="page_input_color" />
+					</div>
+					<div class="page_input" style="display: flex;">
+							<span  class="input_laber">透明度：</span>
+							<div id="slider"></div>
+							<div id="amount">1</div>
+							<div style="font-size:12px;">（最大是1）</div>
+						</div>
+				
+					<div class="page_input">
+						<span  class="input_laber">左侧按钮：</span>
+						<input type="radio" name="sex" value="不显示" title="不显示" checked="">
+						<input type="radio" name="sex" value="图标" title="图标">
+					</div>
+					<div class="page_input" style="display:flex; align-items: center;">
+						<span  class="input_laber">左侧按钮：</span>
+						<div class="border">
+								<div class="ico_show">
+									<img src="__STATIC__/admin/index/img/u428.png" alt="">
+								</div>
+								<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
+									<div class="file_sty">选择图标</div>
+									<input type="file" class="files">
+								</div>
+								<div class="input_file_color">
+									<span>图标颜色</span>
+									<input type="color">
+								</div>
+								<div class="input_file_text">
+									<input type="text" placeholder="最多4个字">
+								</div>
+				     	</div>
+					</div>
+					<div class="page_input">
+							<span  class="input_laber">页面描述：</span>
+							<input type="text" placeholder="  用户通过微信分享给朋友时，会自动显示页面描述" class="page_input_input" />
+					</div>
+					<div class="page_input_line">
+						<div class="page_input">
+								<span  class="input_laber">栏目背景色：</span>
+								<input type="color" placeholder="" class="page_input_color" />
+						</div>
+						<div class="page_input">
+								<span  class="input_laber">背景色：</span>
+								<input type="color" placeholder="" class="page_input_color" />
+						</div>
+						<div class="page_input">
+								<span  class="input_laber">标题栏文字色：</span>
+								<input type="color" placeholder="" class="page_input_color" />
+						</div>
+					</div>
+				</div>
+		</div>
+	
+		<div class="component_box">
+		   <div class="component_box_title"> <span class="steps">2</span>选择需要使用的组件 </div>
+		   <p class="component_list_title">基础组件</p>
+		   <div class="component_box_comtent">
+				<div class="component_list">底部导航</div>
+				<div class="component_list">顶部固定搜索框</div>
+				<div class="component_list">图文导航</div>
+				<div class="component_list">轮播图</div>
+				<div class="component_list">标题</div>
+				<div class="component_list">公告</div>
+				<div class="component_list">商品</div>
+				<div class="component_list">商品分组</div>
+				<div class="component_list">辅助空白</div>
+				<div class="component_list">辅助线</div>
+				<div class="component_list">富文本</div>
+			</div>
+			<p class="component_list_title">营销组件</p>
+			<div class="component_box_comtent">
+					<div class="component_list">积分商城</div>	
+			</div>
+			<p class="component_list_title"><span class="steps">3</span>全部编辑完成，点击操作</p>
+			<div class="button_box">
+				<button type="button" class="sumit">保存</button>
+				<button type="button" class="preview">预览发布</button>
+			</div>
+		</div>
+		
 	</div>
 	{/block}
 
@@ -83,7 +356,41 @@
 	<!--请在下方写此页面业务相关的脚本-->
 	{block name="bottom"}
 	<script type="text/javascript" src="__STATIC__/admin/index/js/test.js"></script>
-   
+   <script type="text/javascript" src="__STATIC__/admin/index/js/swiper.min.js"></script>
+   <script type="text/javascript" src="__STATIC__/admin/index/js/swiper.min.js"></script>
+   <script>
+		var mySwiper = new Swiper ('.swiper-container', {
+			// direction: 'horizontal', // 垂直切换选项
+			loop: true, // 循环模式选项
+	
+			// 如果需要分页器
+			pagination: {
+			el: '.swiper-pagination',
+			},
+	
+		 })        
+		//  拖动条
+	    $( "#slider" ).slider({
+			range: "min",
+			value: 1,
+			min: 1,
+			max: 10,
+		slide: function( event, ui ) {
+           $( "#amount" ).html( ui.value/10 );
+          }
+		});
+		layui.use(['form', 'layedit', 'laydate'], function(){
+				var form = layui.form
+				,layer = layui.layer
+				,layedit = layui.layedit
+				,laydate = layui.laydate;
+		});
+	
+		
+	
+		
+  
+   </script>
 	{/block}
 
 </body>

@@ -1,8 +1,12 @@
+/* 编辑页面区域 */
 img{
     width: 100%;
 }
+.noshow{
+    display: none;
+}
 .edit_box{
-    width: 24%;
+    width: 300px;
     overflow: hidden;
     border: solid #FF99FF 1px;
     text-align: center;
@@ -54,15 +58,447 @@ img{
 ::-webkit-input-placeholder { /* WebKit browsers */
     font-size: 10px;
   }
+  /* 中间手机区域 */
   .show_content{
-       width: 30%;
+       width: 370px;
+       border: solid #333 1px;
+       margin-left: 20px;
+       border-radius:10px; 
   }
   .phone_show{
      display: flex;
+     justify-content: space-between;
+     padding: 6px;
   }
   .childrenBody{
       display: flex;
   }
+  .phone_show_left{
+    display: flex;
+    align-items: center;
+  }
   .bluetooth{
       width: 6px;
   }
+  .wifi{
+      font-size: 10px;
+      font-weight: bold;
+  }
+  .phone_show_right{
+      display: flex;
+  }
+  .electricity{
+      width: 10px;
+  }
+  .message{
+      width: 18px;
+      margin-left: 4px;
+  }
+  .phone_show_center{
+      font-size: 14px;
+
+  }
+  .style_boder{
+      margin: 10px;
+      border: #D7D7D7 solid 1px;
+      min-height: 900px;
+      padding: 10px 0;
+      background: #F9F9F9;
+  }
+  .title_tag{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      /* margin-top: 10px; */
+      padding: 6px;
+  }
+
+  .page_more_box{
+     display: flex;
+  }
+  .dian{
+      width: 5px;
+      height: 5px;
+      border-radius:50%;
+      background: #3E3E3E;
+      margin-left: 4px;
+  }
+  .seach_box{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px;
+  }
+  .seach_box_left{
+      text-align: center;
+  }
+  .nfc{
+      width: 24px;
+      margin: 0 auto;
+  }
+  .seach_box_text{
+      font-size: 10px;
+}
+.cold{
+    width: 24px;
+    margin: 0 auto;
+}
+.seach_box_center{
+    width: 220px;
+    height: 32px;
+    display: flex;
+    align-items: center
+  
+}
+.seach_box_center input{
+ width: 100%;
+ height: 100%;
+ border-radius:5px; 
+ overflow: hidden;
+ border: 1px solid #868686;
+}
+.swiper-container {
+    width: 100%;
+    height: 200px !important;
+}  
+.classification ul{
+	display: flex;
+    align-items: center;
+    background: #fff;
+}
+.classification_ico{
+	width: 30px;
+	margin: 0 auto;
+}
+.classification_text{
+    font-size: 10px;
+    text-align: center;
+    color: #74777C;
+}
+.classification ul li{
+    flex: 1;
+}
+.news_box{
+    display: flex;
+    height: 26px;
+    align-items: center;
+    justify-content: space-between;
+    background: #F67F7A;
+    padding-left: 6px;
+    padding-right: 6px;
+    
+}
+.new_text{
+    width: 300px;
+    color: #fff;
+    font-size: 12px;
+}
+.news_ico{
+    width: 20px;
+    display: flex;
+    align-items: center;
+}
+.new_delect{
+    width: 10px;
+}
+.good_title{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.good_box{
+ background: #fff;
+ padding: 6px;
+}
+.good_title_more{
+    display: flex;
+    align-items: center;
+}
+.good_title_more_ico{
+    width: 14px;
+}
+.good_title_text{
+    font-weight: bold;
+}
+.good_title_more_text{
+  color: #F67F7A;
+}
+.good_title_more_ico{
+    display: flex;
+    align-items: center;
+}
+.good_content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+.good_list{
+    flex-basis: 50%;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.listnames{
+    display: flex;
+    justify-content: space-between;
+}
+.good_name{
+    width: 94px;
+    font-size: 12px;
+    font-weight: bold;
+    overflow: hidden;/*超出部分隐藏*/
+    white-space: nowrap;/*不换行*/
+    text-overflow:ellipsis;/*超出部分文字以...显示*/
+}
+
+.good_inventory{
+    color: #B9B9B9;
+    font-size: 10px;
+}
+.sellpoint{
+    width: 168px;
+    font-size: 10px;
+    color: #A7A3A3;
+    overflow: hidden;/*超出部分隐藏*/
+    white-space: nowrap;/*不换行*/
+    text-overflow:ellipsis;/*超出部分文字以...显示*/
+}
+.price_box{
+    display: flex;
+    align-items: center;
+}
+.level_ico{
+    width: 16px;
+    display: flex;
+    align-items: center;
+}
+.price{
+    color: #FF2A00;
+}
+.good_list:nth-of-type(odd){
+    padding-right:6px; 
+}
+.good_list:nth-of-type(even){
+    padding-left:6px; 
+}
+.bottom_nav{
+    display: flex;
+}
+.nav_list{
+    flex: 1;
+    text-align: center;
+}
+.nav_ico{
+    width: 30px;
+    margin: 0 auto;
+}
+.technical_support{
+    color:  #A1A1A1;
+    background: #fff;
+    height: 80px;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 60px;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+/* 组件详情 */
+.component_box{
+    border:1px solid #FF99FF;
+    min-height: 600px;
+    margin-left:6px;
+    width: 240px; 
+}
+.component_list_title{
+    padding: 6px;
+}
+.component_box_title{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 6px;
+    border-bottom:solid 1px #FF99FF;
+    padding: 6px;
+
+}
+.component_box_comtent{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 6px;
+    
+}
+.component_list{
+ box-sizing: border-box; 
+ flex-basis:29%;
+ margin: 4px;
+ padding: 3px;
+ height: 50px;
+display: flex;
+align-items: center;
+ border: dashed 1px #797979;
+ justify-content: center;
+}
+.button_box{
+    border-radius:10px; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.sumit{
+    width: 120px;
+    height: 40px;
+    color: #fff;
+    background: #218CD7;
+}
+.preview{
+    width: 100px;
+    height: 40px;
+    color: #fff;
+    background: #FF0000;
+}
+.steps{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #ff0000;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    border-radius:50%; 
+    margin-right: 20px;
+}
+
+.page_title_edit{
+    position: relative;
+    width: 300px;
+    border: 2px solid #D7D7D7;
+    background-color: #F9F8F7;
+    left: 10px;
+    top: 30px;
+    margin-right: 20px;
+    border-radius:10px; 
+}
+.page_title_edit:before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -10px;
+    top: 30px;
+    border-right: 10px solid #D7D7D7;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+   
+}
+.page_title_edit:after{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -6px;
+    top: 33px;
+    border-right: 7px solid #F9F8F7;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+/* 页面编辑 */
+.page_title_edit{
+    padding: 6px;
+}
+.input_laber{
+    display: inline-block;
+    width: 100px;
+    font-size: 10px;
+    text-align: right;
+}
+.page_input_input{
+    width: 350px;
+    padding: 4px;
+    font-size: 12px;
+}
+.tips{
+    margin-left: 110px;
+    font-size: 10px;
+}
+.page_input_line{
+    display: flex;
+    flex-wrap: wrap;
+}
+.page_seach_edit{
+    padding: 6px;
+}
+.page_seach_edit{
+    position: relative;
+    width: 500px;
+    border: 2px solid #D7D7D7;
+    background-color: #F9F8F7;
+    left: 10px;
+    top: 70px;
+    margin-right: 20px;
+    border-radius:10px; 
+}
+.page_seach_edit:before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -10px;
+    top: 30px;
+    border-right: 10px solid #D7D7D7;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+   
+}
+.page_seach_edit:after{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -6px;
+    top: 33px;
+    border-right: 7px solid #F9F8F7;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+.page_input_line .page_input{
+   flex-basis: 50%;
+}
+.page_input{
+    margin-top: 10px;
+}
+
+#slider{
+    width: 260px;
+    margin-left: 12px;
+    margin-right: 12px;
+    font-size: 12px;
+}
+.ui-widget-header{
+    background: #0099FF !important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    background: #fff !important;
+}
+.ico_show{
+    width: 20px;
+}
+.input_file{
+  width: 74px;
+  overflow: hidden;
+ 
+}
+.border{
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+.files{
+    background: #fff;
+    opacity: 0;
+    
+}
+.file_sty{
+ position: absolute;
+ text-align: center;
+ 
+}
