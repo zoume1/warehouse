@@ -1,10 +1,104 @@
 /* 编辑页面区域 */
+	/*
+     * 弹窗
+     */
+	
+     .popup {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 99999;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: solid 1px #D7D7D7;
+		box-sizing: border-box;
+	}
+	
+	.submit_btns {
+		width: 100px;
+		height: 38px;
+		color: #fff;
+		background: #169BD5;
+		border-radius:10px ;
+	}
+	.popup_doms{
+		width: 765px;
+		min-height: 367px;
+		background: #fff;
+	}
+	.popup_content{
+		padding: 20px;
+	}
+	.popup_title{
+		height: 40px;
+		line-height: 40px;
+		color: #66662B;
+		background: #EEF7EA;
+		padding-left: 20px;
+	}
+	.span{
+		display: inline-block;
+		width: 80px;
+		text-align: left;
+	}
+	.repany .layui-input{
+		width: 620px;
+	}
+	.repany{
+		margin-bottom: 10px;
+	}
+	.operation{
+		display: flex;
+		align-items: center;
+	}
+	.chat{
+		height: 210px;
+	}
+	.danhao{
+		width: 200px;
+		margin-right: 10px;
+	}
+	.operation select{
+		width: 130px;
+		height: 40px;
+		border-color:#ABADB3 ;
+		color: #000;
+	}
+	.operation div{
+		margin-right: 10px;
+	}
+	.noshow{
+		display: none;
+	}
+	.popup_title{
+		position: relative;
+	}
+	.popup_x{
+	    width: 25px;
+    position: absolute;
+    right: 12px;
+    top: -4px;
+    }
+    #page{
+        display: flex;
+        align-items: center; 
+    }
+	/*
+     * 弹窗end
+     */
 img{
     width: 100%;
 }
 .noshow{
     display: none;
 }
+.show_edit_box select{
+	 width: 357px;
+    height: 38px;
+}
+   
 .edit_box{
     width: 300px;
     overflow: hidden;
@@ -370,7 +464,7 @@ align-items: center;
 
 .page_title_edit{
     position: relative;
-    width: 300px;
+    width: 500px;
     border: 2px solid #D7D7D7;
     background-color: #F9F8F7;
     left: 10px;
@@ -481,6 +575,7 @@ align-items: center;
 }
 .ico_show{
     width: 20px;
+    margin-left: 6px;
 }
 .input_file{
   width: 74px;
@@ -491,6 +586,7 @@ align-items: center;
     background: #fff;
     display: flex;
     align-items: center;
+    border:solid 1px #A9A9A9;
 }
 .files{
     background: #fff;
@@ -499,6 +595,211 @@ align-items: center;
 }
 .file_sty{
  position: absolute;
+    height: 24px;
+    line-height: 24px;
+    border-right:solid 1px #A9A9A9;
+     border-left:solid 1px #A9A9A9;
+     padding-left: 2px;
+      padding-right: 2px;
+}
+.link{
+	 width: 360px;
+}
+.page_slideshow_edit{
+    position: relative;
+    width: 500px;
+    border: 2px solid #D7D7D7;
+    background-color: #F9F8F7;
+    left: 10px;
+    top: 197px;
+    margin-right: 20px;
+    border-radius:10px; 
+    padding-bottom: 10px;
+}
+.page_slideshow_edit:before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -10px;
+    top: 30px;
+    border-right: 10px solid #D7D7D7;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+   
+}
+.page_slideshow_edit:after{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -6px;
+    top: 33px;
+    border-right: 7px solid #F9F8F7;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+.page_slideshow_edit .layui-form-radio i{
+	    font-size: 22px;
+}
+.page_slideshow_edit .layui-form-radio span{
+  font-size: 12px;	
+}
 
- 
+.page_slideshow_edit .layui-form-radio{
+	display: flex;
+	align-items: center;
+}
+.slideshow_box_list_img img{
+	height: 100%;
+}
+.slideshow_select_show input{
+	width: 270px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+}	
+.slideshow_box_input .link{
+	
+	margin-left: 10px;
+	margin-top: 6px;
+}
+.slideshow_select_show{
+	
+}
+.slideshow_box_list_img{
+	width: 100px;
+	height: 80px;
+}
+.slideshow_box_list{
+    display: flex;
+    align-items: center;
+    border: solid 1px #bbb;
+    margin: 11px;
+    padding: 10px;
+}
+.slideshow_select_show span{
+	border:  1px solid #bbb;
+	width: 77px;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	text-align: center;
+}
+.add_slideshow{
+	text-align: center;
+	background: #fff;
+	line-height: 26px;
+	cursor: pointer;
+}
+.page_navigation_edit{
+    position: relative;
+    width: 500px;
+    border: 2px solid #D7D7D7;
+    background-color: #F9F8F7;
+    left: 10px;
+    top: 330px;
+    margin-right: 20px;
+    border-radius:10px; 
+    padding-bottom: 10px;
+}
+.page_navigation_edit:before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -10px;
+    top: 30px;
+    border-right: 10px solid #D7D7D7;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+   
+}
+.page_navigation_edit:after{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -6px;
+    top: 33px;
+    border-right: 7px solid #F9F8F7;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}
+.navigation_box_list img{
+	height: 100%;
+}
+.slideshow_select_show input{
+	width: 270px;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+}	
+.navigation_box_input .link{
+	
+	margin-left: 10px;
+	margin-top: 6px;
+}
+
+.navigation_box_list_img{
+	width: 100px;
+	height: 80px;
+}
+.navigation_box_list{
+    display: flex;
+    align-items: center;
+    border: solid 1px #bbb;
+    margin: 11px;
+    padding: 10px;
+}
+
+.wenzi{
+	margin-left: 10px;
+}
+.add_navigationshow{
+	text-align: center;
+	background: #fff;
+	line-height: 26px;
+	cursor: pointer;
+}
+.slider{
+    width: 270px;
+    margin-left: 10px;
+}
+.amount{
+    margin-left: 16px
+}
+.page_titles_edit{
+    position: relative;
+    width: 500px;
+    border: 2px solid #D7D7D7;
+    background-color: #F9F8F7;
+    left: 10px;
+    top: 400px;
+    margin-right: 20px;
+    border-radius:10px; 
+    padding-bottom: 10px;
+}
+.page_titles_edit:before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -10px;
+    top: 30px;
+    border-right: 10px solid #D7D7D7;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+   
+}
+.page_titles_edit:after{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    left: -6px;
+    top: 33px;
+    border-right: 7px solid #F9F8F7;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
 }

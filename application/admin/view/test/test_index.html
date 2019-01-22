@@ -1,15 +1,14 @@
 {include file="template/_meta" /}
 <title></title>
-</head>
+
+
+{block name="css"}
 <link rel="stylesheet" type="text/css" href="__STATIC__/admin/index/css/test.css"/>
 <link rel="stylesheet" type="text/css" href="__STATIC__/admin/index/css/swiper.min.css"/>
-{block name="css"}
-
 <style type="text/css">
 	body {
 		background: #fff;
 	}
-	
 
 </style>
 
@@ -19,7 +18,80 @@
 
 	{block name="content"}
 
-	<div class="childrenBody layui-form">
+	<div class="childrenBody">
+			<div class="popup popup_one">
+					<div class="popup_doms">
+					
+						<div class="popup_title">
+								选择商品
+								<div class="popup_x">
+							<img src="__STATIC__/admin/index/img/X.png"/>
+						</div>
+						</div>
+						<div class="popup_content">
+								<div class="childrenBodys">
+										<div class="layui-elem-quote news_search">
+											<div class="layui-form">
+												<div class="seach">
+													<div class="seach_list">
+														<div class="seach_laber">输入搜索：</div>
+														<div class="seach_input">
+															<input type="text" name="" lay-verify="title" autocomplete="off" placeholder="请输入商品编码/商品名称" class="layui-input seach"  id="seach_val">
+														</div>
+													</div>
+													<button class="layui-btn" type="button" id="seach_button">立即搜索</button>
+												</div>
+									
+											</div>
+										</div>
+									
+										<div class="layui-form news_list">
+											<table class="layui-table">
+												<colgroup>
+													<col width="3%">
+									
+												</colgroup>
+												<thead>
+													<tr>
+														<th><input type="checkbox" sname="" lay-skin="primary" lay-filter="allChoose" id="id"></th>
+														<th>商品编号</th>
+														<th>商品图片</th>
+														<th>商品名称</th>
+														<th>库存</th>
+														<th>操作</th>
+													</tr>
+												</thead>
+												<tbody class="news_content">
+													<tr>
+														<td><input type="checkbox" sname="" lay-skin="primary" lay-filter="choose" data-id=""></td>
+														<td>1000001</td>
+														<td class="">
+															<div class="tdimg"><img src="11" /></div>
+														</td>
+														
+														<td>1000001</td>
+														<td>1000001</td>
+														<td>
+															<a class="layui-btn layui-btn-mini edit" href="bonus_edit"><i class="iconfont icon-edit"></i> 参加活动
+															</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+											<div id="page">
+													
+													<div style="float: left; height: 52px;line-height: 52px; margin-left: 20px;">
+														<button class="" type="button" id="opration_btu" style="width: 60px; background: #19A093; color: #fff;border:#CCCCCC solid 1px;height: 38px;line-height: 38px;">确定
+														</button>
+													</div>
+												</div>
+									
+									   </div>
+									</div>
+						</div>
+					</div>
+				</div>
+
 		<div class="edit_box noshow" >
 			<div class="edit_title"><span class="steps">1</span>选择要编辑的页面</div>
 			<div class="edit_content">
@@ -248,36 +320,40 @@
 				<div class="page_input_line">
 					<div class="page_input">
 							<span  class="input_laber">栏目背景色：</span>
-							<input type="color" placeholder="" class="page_input_color" />
+							<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
 					</div>
 					<div class="page_input">
 							<span  class="input_laber">背景色：</span>
-							<input type="color" placeholder="" class="page_input_color" />
+							<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
 					</div>
 					<div class="page_input">
 							<span  class="input_laber">标题栏文字色：</span>
-							<input type="color" placeholder="" class="page_input_color" />
+									<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
 					</div>
 			    </div>
 			</div>
 			
 			<!-- 搜索框 -->
-			<div class="page_seach_edit">
+			<div class="page_seach_edit noshow">
 					<div class="page_input">
 							<span  class="input_laber">背景颜色：</span>
-							<input type="color" placeholder="" class="page_input_color" />
+							<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
 					</div>
 					<div class="page_input" style="display: flex;">
 							<span  class="input_laber">透明度：</span>
 							<div id="slider"></div>
 							<div id="amount">1</div>
 							<div style="font-size:12px;">（最大是1）</div>
-						</div>
+					</div>
 				
 					<div class="page_input">
 						<span  class="input_laber">左侧按钮：</span>
-						<input type="radio" name="sex" value="不显示" title="不显示" checked="">
-						<input type="radio" name="sex" value="图标" title="图标">
+						<input type="radio" name="sex" value="不显示" title="不显示" checked="">不显示
+						<input type="radio" name="sex" value="图标" title="图标">图标
 					</div>
 					<div class="page_input" style="display:flex; align-items: center;">
 						<span  class="input_laber">左侧按钮：</span>
@@ -287,36 +363,236 @@
 								</div>
 								<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
 									<div class="file_sty">选择图标</div>
-									<input type="file" class="files">
+									<input type="file" class="files" id="file_0">
 								</div>
 								<div class="input_file_color">
 									<span>图标颜色</span>
 									<input type="color">
 								</div>
-								<div class="input_file_text">
-									<input type="text" placeholder="最多4个字">
+								<div class="input_file_text"  style="box-sizing: border-box;">
+									<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
 								</div>
 				     	</div>
 					</div>
-					<div class="page_input">
-							<span  class="input_laber">页面描述：</span>
-							<input type="text" placeholder="  用户通过微信分享给朋友时，会自动显示页面描述" class="page_input_input" />
+					<div class="page_input" style="display: flex;align-items: center;">
+						<span  class="input_laber">链接：</span>
+						<div class="link">
+						  <select name="" >
+							  <option value="0">首页</option>
+						  </select>
+						</div>  
 					</div>
-					<div class="page_input_line">
-						<div class="page_input">
-								<span  class="input_laber">栏目背景色：</span>
-								<input type="color" placeholder="" class="page_input_color" />
+					<div class="page_input">
+						<span  class="input_laber">右侧按钮：</span>
+						<input type="radio" name="right" value="不显示" title="不显示" checked="">不显示
+						<input type="radio" name="right" value="图标" title="图标">图标
+					</div>
+					<div class="page_input" style="display:flex; align-items: center;">
+						<span  class="input_laber">右侧按钮：</span>
+						<div class="border">
+								<div class="ico_show">
+									<img src="__STATIC__/admin/index/img/u428.png" alt="">
+								</div>
+								<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
+									<div class="file_sty">选择图标</div>
+									<input type="file" class="files" id="file_0">
+								</div>
+								<div class="input_file_color">
+									<span>图标颜色</span>
+									<input type="color">
+								</div>
+								<div class="input_file_text"  style="box-sizing: border-box;">
+									<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
+								</div>
+				     	</div>
+					</div>
+					<div class="page_input" style="display: flex;align-items: center;">
+						<span  class="input_laber">链接：</span>
+						<div class="link">
+							<select name="" >
+							<option value="0">首页</option>
+						</select>
+						</div>  
+					</div>
+				
+				</div>
+			<!--轮播图-->
+			<div class="page_slideshow_edit noshow">
+					
+					<div class="page_input" style="display: flex; align-items: center;">
+						<span  class="input_laber">选择宽度：</span>
+						<input type="radio" name="weight" value="100px（像素）" title="100px（像素）" checked="">100px（像素）
+						<input type="radio" name="weight" value="200px（像素）" title="200px（像素）" >200px（像素）
+						<input type="radio" name="weight" value="300px（像素）" title="300px（像素）" >300px（像素）
+					</div>
+					
+					<div class="slideshow_box">
+						<div class="slideshow_box_list">
+							<div class="slideshow_box_list_img"> <img src="__STATIC__/admin/index/img/u430.png" alt="" /></div>
+							<div class="slideshow_box_input">
+							  <div class="slideshow_select_show">
+							  	<input type="text" name="" id="" value="" />
+							  	<span>选择图片</span>
+							  </div>
+							  <div class="link">
+								<select name="" >
+									<option value="0">首页</option>
+								</select>
+							</div>  
+							</div>
 						</div>
-						<div class="page_input">
-								<span  class="input_laber">背景色：</span>
-								<input type="color" placeholder="" class="page_input_color" />
-						</div>
-						<div class="page_input">
-								<span  class="input_laber">标题栏文字色：</span>
-								<input type="color" placeholder="" class="page_input_color" />
+					</div>
+					<div class="add_slideshow">+添加一个（最多5个）</div>
+				
+				</div>
+	        <!--图文导航-->
+	        <div class="page_navigation_edit noshow">
+	        	<div class="page_input">
+							<span  class="input_laber">背景颜色：</span>
+							<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+					</div>
+				<div class="page_input" style="display: flex; align-items: center;">
+					<span  class="input_laber">按钮形状：</span>
+					<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
+						<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="正方形" title="正方形" checked="">正方形</div>
+						<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="圆角" title="圆角" >圆角</div>
+						<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="圆形" title="圆形" >圆形</div>
+					</div>
+				</div>
+					<div class="page_input" style="display: flex; align-items: center;">
+					<span  class="input_laber">每行数量：</span>
+					<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
+						<div style="display: flex; align-items: center;"><input type="radio" name="num" value="3个"  checked="">3个</div>
+						<div style="display: flex; align-items: center;"><input type="radio" name="num" value="4个"  >4个</div>
+						<div style="display: flex; align-items: center;"><input type="radio" name="num" value="5个"  >5个</div>
+					</div>
+				</div>
+				<div class="navigation_box">
+					<div class="navigation_box_list">
+						<div><img src="" alt=""></div>
+						<div class="navigation_box_list_img"> <img src="__STATIC__/admin/index/img/u430.png" alt="" /></div>
+						<div class="navigation_box_input">
+						  <div class="wenzi">
+						  	<span>文字</span>
+						  	<input type="text" placeholder="最多5个字"/>
+						  	<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+							<span style="color: #30B6F8; cursor: pointer;" class="recolor">字体颜色重置</span>
+						  </div>
+						  <div class="link">
+							<select name="" >
+								<option value="0">首页</option>
+							</select>
+						</div>  
 						</div>
 					</div>
 				</div>
+				<div class="add_navigationshow">+添加一个（最多5个）</div>
+				
+			</div>
+			<!-- 商品 -->
+			<div class="page_navigation_edit noshow">
+					<div class="page_input">
+								<span  class="input_laber">背景颜色：</span>
+								<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+								<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+						</div>
+					<div class="page_input" style="display: flex; align-items: center;">
+						<span  class="input_laber">按钮形状：</span>
+						<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
+							<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="正方形" title="正方形" checked="">正方形</div>
+							<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="圆角" title="圆角" >圆角</div>
+							<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="圆形" title="圆形" >圆形</div>
+						</div>
+					</div>
+						<div class="page_input" style="display: flex; align-items: center;">
+						<span  class="input_laber">每行数量：</span>
+						<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
+							<div style="display: flex; align-items: center;"><input type="radio" name="num" value="3个"  checked="">3个</div>
+							<div style="display: flex; align-items: center;"><input type="radio" name="num" value="4个"  >4个</div>
+							<div style="display: flex; align-items: center;"><input type="radio" name="num" value="5个"  >5个</div>
+						</div>
+					</div>
+					<div class="navigation_box">
+						<div class="navigation_box_list">
+							<div><img src="" alt=""></div>
+							<div class="navigation_box_list_img"> <img src="__STATIC__/admin/index/img/u430.png" alt="" /></div>
+							<div class="navigation_box_input">
+							  <div class="wenzi">
+								  <span>文字</span>
+								  <input type="text" placeholder="最多5个字"/>
+								  <input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+								<span style="color: #30B6F8; cursor: pointer;" class="recolor">字体颜色重置</span>
+							  </div>
+							  <div class="link">
+								<select name="" >
+									<option value="0">首页</option>
+								</select>
+							</div>  
+							</div>
+						</div>
+					</div>
+					<div class="add_navigationshow">+添加一个（最多5个）</div>
+					
+			</div>
+			<!-- 标题组件 -->
+			<div class="page_titles_edit">
+					<div class="page_input_line">
+							<div class="page_input">
+									<span  class="input_laber">栏目背景色：</span>
+									<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+							<div class="page_input">
+									<span  class="input_laber">背景色：</span>
+									<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+							<div class="page_input">
+									<span  class="input_laber">标题栏文字色：</span>
+											<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+						</div>
+						<div class="page_input">
+								<span  class="input_laber">标题文字：</span>
+								<input type="text" placeholder=" 首页（不超过5个字）" class="page_input_input" />
+						
+						</div>
+						<div class="page_input">
+								<span  class="input_laber">链接文字：</span>
+								<input type="text" placeholder="链接文字" class="page_input_input" />
+						</div>
+						<div class="page_input" style="display: flex;align-items: center;">
+								<span  class="input_laber">标题链接：</span>
+								<div class="link">
+									<select name="" >
+									<option value="0">首页</option>
+								</select>
+								</div>  
+							</div>
+						
+						<div class="page_input" style="display: flex;">
+								<span  class="input_laber">文字大小：</span>
+								<div id="slider1" class="slider"></div>
+								<div id="amount1" class="amount">1</div>
+								<div style="font-size:12px;">（像素）</div>
+						</div>
+						<div class="page_input" style="display: flex;">
+								<span  class="input_laber">上下边距：</span>
+								<div id="slider2" class="slider"></div>
+								<div id="amount2" class="amount">1</div>
+								<div style="font-size:12px;">（像素）</div>
+						</div>
+						<div class="page_input" style="display: flex;">
+								<span  class="input_laber">左右边距：</span>
+								<div id="slider3" class="slider"></div>
+								<div id="amount3" class="amount">1</div>
+								<div style="font-size:12px;">（像素）</div>
+						</div>
+					
+			
+			</div>
 		</div>
 	
 		<div class="component_box">
@@ -357,7 +633,6 @@
 	{block name="bottom"}
 	<script type="text/javascript" src="__STATIC__/admin/index/js/test.js"></script>
    <script type="text/javascript" src="__STATIC__/admin/index/js/swiper.min.js"></script>
-   <script type="text/javascript" src="__STATIC__/admin/index/js/swiper.min.js"></script>
    <script>
 		var mySwiper = new Swiper ('.swiper-container', {
 			// direction: 'horizontal', // 垂直切换选项
@@ -369,25 +644,14 @@
 			},
 	
 		 })        
-		//  拖动条
-	    $( "#slider" ).slider({
-			range: "min",
-			value: 1,
-			min: 1,
-			max: 10,
-		slide: function( event, ui ) {
-           $( "#amount" ).html( ui.value/10 );
-          }
+		 layui.config({
+			base: "js/"
+		}).use(['form', 'layer', 'jquery', 'laypage'], function() {
+			var form = layui.form(),
+				layer = parent.layer === undefined ? layui.layer : parent.layer,
+				laypage = layui.laypage,
+				$ = layui.jquery;
 		});
-		layui.use(['form', 'layedit', 'laydate'], function(){
-				var form = layui.form
-				,layer = layui.layer
-				,layedit = layui.layedit
-				,laydate = layui.laydate;
-		});
-	
-		
-	
 		
   
    </script>
@@ -395,4 +659,3 @@
 
 </body>
 
-</html>
