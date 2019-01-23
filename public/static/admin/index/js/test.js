@@ -68,6 +68,54 @@ function getObjectURL(file) {
            $( "#amount3" ).html( ui.value );
           }
 		});
+		$( "#slider4" ).slider({
+			range: "min",
+			value: 1,
+			min: 1,
+			max: 5,
+		slide: function( event, ui ) {
+           $( "#amount4" ).html( ui.value );
+          }
+		})
+		$( "#slider5" ).slider({
+			range: "min",
+			value: 1,
+			min: 1,
+			max: 5,
+		slide: function( event, ui ) {
+           $( "#amount5" ).html( ui.value );
+          }
+		});
+	
+		$( "#slider6" ).slider({
+			range: "min",
+			value: 1,
+			min: 1,
+			max: 5,
+		slide: function( event, ui ) {
+           $( "#amount6" ).html( ui.value );
+          }
+		});
+	
+		$( "#slider7" ).slider({
+			range: "min",
+			value: 1,
+			min: 1,
+			max: 5,
+		slide: function( event, ui ) {
+           $( "#amount7" ).html( ui.value );
+          }
+		});
+		$( "#slider8" ).slider({
+			range: "min",
+			value: 1,
+			min: 1,
+			max: 5,
+		slide: function( event, ui ) {
+           $( "#amount8" ).html( ui.value );
+          }
+		});
+	
 	
 		var dhtml1="";
 		dhtml1+='<div class="slideshow_box_list">';
@@ -167,6 +215,8 @@ function getObjectURL(file) {
 			  });
 		  });
 		  $(".popup_x").click(function(){
-			  $(".popup popup_one").addClass("noshow")
+			  $(".popup_one").addClass("noshow")
 		  })
+	
+
 		  
