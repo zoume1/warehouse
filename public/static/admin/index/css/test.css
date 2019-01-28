@@ -206,6 +206,7 @@ img{
       align-items: center;
       /* margin-top: 10px; */
       padding: 6px;
+      position: relative;
   }
 
   .page_more_box{
@@ -223,6 +224,7 @@ img{
       align-items: center;
       justify-content: space-between;
       padding: 6px;
+      position: relative;
   }
   .seach_box_left{
       text-align: center;
@@ -464,14 +466,14 @@ align-items: center;
 }
 
 .page_title_edit{
-    position: relative;
+    position: absolute;
     width: 500px;
     border: 2px solid #D7D7D7;
     background-color: #F9F8F7;
-    left: 10px;
-    top: 30px;
+    left: 373px;
+    top: -27px;
     margin-right: 20px;
-    border-radius:10px; 
+    border-radius: 10px;
 }
 .page_title_edit:before{
     position: absolute;
@@ -523,14 +525,14 @@ align-items: center;
     padding: 6px;
 }
 .page_seach_edit{
-    position: relative;
+    position: absolute;
     width: 500px;
     border: 2px solid #D7D7D7;
     background-color: #F9F8F7;
-    left: 10px;
-    top: 70px;
+    left: 367px;
+    top: -19px;
     margin-right: 20px;
-    border-radius:10px; 
+    border-radius: 10px;
 }
 .page_seach_edit:before{
     position: absolute;

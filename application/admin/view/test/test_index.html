@@ -145,12 +145,46 @@
 					</div>
 				</div>
 				<div class="title_tag">
-					<div class="page_title">智慧茶仓</div>
+					<div class="page_title" id="page_title">智慧茶仓</div>
 					<div class="page_more_box">
 						<div class="dian"></div>
 						<div class="dian"></div>
 						<div class="dian"></div>
 					</div>
+						<!-- 页面标题 -->
+					<div class="page_title_edit noshow page_edit">
+						<div class="page_input">
+							<span  class="input_laber">页面标题：</span>
+							<input type="text" placeholder="智慧茶仓" class="page_input_input"  id="page_title_edit" data-id="page_title" data-value="智慧茶仓" />
+						</div>
+						<div class="page_input">
+								<span  class="input_laber">页面名称：</span>
+								<input type="text" placeholder=" 首页（不超过5个字）" class="page_input_input" />
+						<div class="tips">注意：页面名称是便于后台查找。</div>
+						</div>
+						<div class="page_input">
+								<span  class="input_laber">页面描述：</span>
+								<input type="text" placeholder="  用户通过微信分享给朋友时，会自动显示页面描述" class="page_input_input" />
+						</div>
+						<div class="page_input_line">
+							<div class="page_input">
+									<span  class="input_laber">栏目背景色：</span>
+									<input type="color" placeholder="" class="page_input_color lm_bg" value="#E4E4E4" data-id ="#E4E4E4" />
+									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+							<div class="page_input">
+									<span  class="input_laber">页面背景色：</span>
+									<input type="color" placeholder="" class="page_input_color pg_bg" value="#C9C9C9" data-id = "#C9C9C9"/>
+									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+							<div class="page_input">
+									<span  class="input_laber">标题栏文字色：</span>
+											<input type="color" placeholder="" class="page_input_color wz_bg" value="#000000" data-id = "#000000"/>
+									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+						</div>
+					</div>
+
 				</div> 	
 				<div class="seach_box">
 					<div class="seach_box_left">
@@ -166,6 +200,86 @@
 						<div class="cold"><img src="__STATIC__/admin/index/img/u426.png" alt=""></div>
 						<div class="seach_box_text">会员码</div>
 					</div>
+						<!-- 搜索框 -->
+			<div class="page_seach_edit">
+				<div class="page_input">
+						<span  class="input_laber">背景颜色：</span>
+						<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+						<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+				</div>
+				<div class="page_input" style="display: flex;">
+						<span  class="input_laber">透明度：</span>
+						<div id="slider"></div>
+						<div id="amount">1</div>
+						<div style="font-size:12px;">（最大是1）</div>
+				</div>
+			
+				<div class="page_input">
+					<span  class="input_laber">左侧按钮：</span>
+					<input type="radio" name="sex" value="不显示" title="不显示" checked="">不显示
+					<input type="radio" name="sex" value="图标" title="图标">图标
+				</div>
+				<div class="page_input" style="display:flex; align-items: center;">
+					<span  class="input_laber">左侧按钮：</span>
+					<div class="border">
+							<div class="ico_show">
+								<img src="__STATIC__/admin/index/img/u428.png" alt="">
+							</div>
+							<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
+								<div class="file_sty">选择图标</div>
+								<input type="file" class="files" id="file_0">
+							</div>
+							<div class="input_file_color">
+								<span>图标颜色</span>
+								<input type="color">
+							</div>
+							<div class="input_file_text"  style="box-sizing: border-box;">
+								<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
+							</div>
+					 </div>
+				</div>
+				<div class="page_input" style="display: flex;align-items: center;">
+					<span  class="input_laber">链接：</span>
+					<div class="link">
+					  <select name="" >
+						  <option value="0">首页</option>
+					  </select>
+					</div>  
+				</div>
+					<div class="page_input">
+						<span  class="input_laber">右侧按钮：</span>
+						<input type="radio" name="right" value="不显示" title="不显示" checked="">不显示
+						<input type="radio" name="right" value="图标" title="图标">图标
+					</div>
+					<div class="page_input" style="display:flex; align-items: center;">
+						<span  class="input_laber">右侧按钮：</span>
+						<div class="border">
+								<div class="ico_show">
+									<img src="__STATIC__/admin/index/img/u428.png" alt="">
+								</div>
+								<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
+									<div class="file_sty">选择图标</div>
+									<input type="file" class="files" id="file_0">
+								</div>
+								<div class="input_file_color">
+									<span>图标颜色</span>
+									<input type="color">
+								</div>
+								<div class="input_file_text"  style="box-sizing: border-box;">
+									<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
+								</div>
+						</div>
+					</div>
+					<div class="page_input" style="display: flex;align-items: center;">
+						<span  class="input_laber">链接：</span>
+						<div class="link">
+							<select name="" >
+							<option value="0">首页</option>
+						</select>
+						</div>  
+					</div>
+				
+				</div>
 				</div> 	
 				<div class="swiper-container">
 						<div class="swiper-wrapper">
@@ -299,120 +413,9 @@
 			</div>
 		</div>
 		<div class="show_edit_box">
-			<!-- 页面标题 -->
-			<div class="page_title_edit noshow">
-				<div class="page_input">
-					<span  class="input_laber">页面标题：</span>
-					<input type="text" placeholder="智慧茶仓" class="page_input_input" />
-				</div>
-				<div class="page_input">
-						<span  class="input_laber">页面名称：</span>
-						<input type="text" placeholder=" 首页（不超过5个字）" class="page_input_input" />
-				 <div class="tips">注意：页面名称是便于后台查找。</div>
-				</div>
-				<div class="page_input">
-						<span  class="input_laber">页面描述：</span>
-						<input type="text" placeholder="  用户通过微信分享给朋友时，会自动显示页面描述" class="page_input_input" />
-				</div>
-				<div class="page_input_line">
-					<div class="page_input">
-							<span  class="input_laber">栏目背景色：</span>
-							<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-					</div>
-					<div class="page_input">
-							<span  class="input_laber">背景色：</span>
-							<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-					</div>
-					<div class="page_input">
-							<span  class="input_laber">标题栏文字色：</span>
-									<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-					</div>
-			    </div>
-			</div>
+		
 			
-			<!-- 搜索框 -->
-			<div class="page_seach_edit noshow">
-					<div class="page_input">
-							<span  class="input_laber">背景颜色：</span>
-							<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-					</div>
-					<div class="page_input" style="display: flex;">
-							<span  class="input_laber">透明度：</span>
-							<div id="slider"></div>
-							<div id="amount">1</div>
-							<div style="font-size:12px;">（最大是1）</div>
-					</div>
-				
-					<div class="page_input">
-						<span  class="input_laber">左侧按钮：</span>
-						<input type="radio" name="sex" value="不显示" title="不显示" checked="">不显示
-						<input type="radio" name="sex" value="图标" title="图标">图标
-					</div>
-					<div class="page_input" style="display:flex; align-items: center;">
-						<span  class="input_laber">左侧按钮：</span>
-						<div class="border">
-								<div class="ico_show">
-									<img src="__STATIC__/admin/index/img/u428.png" alt="">
-								</div>
-								<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
-									<div class="file_sty">选择图标</div>
-									<input type="file" class="files" id="file_0">
-								</div>
-								<div class="input_file_color">
-									<span>图标颜色</span>
-									<input type="color">
-								</div>
-								<div class="input_file_text"  style="box-sizing: border-box;">
-									<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
-								</div>
-				     	</div>
-					</div>
-					<div class="page_input" style="display: flex;align-items: center;">
-						<span  class="input_laber">链接：</span>
-						<div class="link">
-						  <select name="" >
-							  <option value="0">首页</option>
-						  </select>
-						</div>  
-					</div>
-					<div class="page_input">
-						<span  class="input_laber">右侧按钮：</span>
-						<input type="radio" name="right" value="不显示" title="不显示" checked="">不显示
-						<input type="radio" name="right" value="图标" title="图标">图标
-					</div>
-					<div class="page_input" style="display:flex; align-items: center;">
-						<span  class="input_laber">右侧按钮：</span>
-						<div class="border">
-								<div class="ico_show">
-									<img src="__STATIC__/admin/index/img/u428.png" alt="">
-								</div>
-								<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
-									<div class="file_sty">选择图标</div>
-									<input type="file" class="files" id="file_0">
-								</div>
-								<div class="input_file_color">
-									<span>图标颜色</span>
-									<input type="color">
-								</div>
-								<div class="input_file_text"  style="box-sizing: border-box;">
-									<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
-								</div>
-				     	</div>
-					</div>
-					<div class="page_input" style="display: flex;align-items: center;">
-						<span  class="input_laber">链接：</span>
-						<div class="link">
-							<select name="" >
-							<option value="0">首页</option>
-						</select>
-						</div>  
-					</div>
-				
-				</div>
+		
 			<!--轮播图-->
 			<div class="page_slideshow_edit noshow">
 					
@@ -752,6 +755,53 @@
 		
 		$( ".style_boder").sortable();
 		$( ".style_boder").disableSelection();
+
+
+            
+		// 页面标题
+		$(".style_boder").on("click",".title_tag",function(){
+           $(this).children(".page_edit").removeClass("noshow");
+		});
+		$(".page_input_input").keyup(function(){
+			console.log();
+			var vals=$(this).data("value");
+			var id=$(this).data("id");
+			var val=$(this).val();
+			if(val==''){
+				$(this).parent().parent().siblings(".page_title").html(vals);
+			}
+		    else{
+				$(this).parent().parent().siblings(".page_title").html(val);
+			}
+		})
+		$(".page_input_input").blur(function(){
+			var vals=$(this).data("value");
+			var id=$(this).data("id");
+			var val=$(this).val();
+			if(val==''){
+				$(this).parent().parent().siblings(".page_title").html(vals);
+			}
+		    else{
+				$(this).parent().parent().siblings(".page_title").html(val);
+			}
+			
+		})
+		$(".lm_bg").change(function(){
+			var id=$(this).data("id");
+			var val=$(this).val();
+			 $(this).parent().parent().parent().parent(".title_tag").css({'background':val});
+		})
+		$(".pg_bg").change(function(){
+			var id=$(this).data("id");
+			var val=$(this).val();
+			$(".style_boder").css({'background':val});
+		})
+		$(".wz_bg").change(function(){
+			var id=$(this).data("id");
+			var val=$(this).val();
+			 $(this).parent().parent().parent().siblings(".page_title").css({'color':val});
+		})
+		
    </script>
 	{/block}
 
