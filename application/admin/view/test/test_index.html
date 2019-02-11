@@ -2,8 +2,9 @@
 <title></title>
 
 {block name="css"}
-<link rel="stylesheet" type="text/css" href="__STATIC__/admin/index/css/test.css"/>
+
 <link rel="stylesheet" type="text/css" href="__STATIC__/admin/index/css/swiper.min.css"/>
+<link rel="stylesheet" type="text/css" href="__STATIC__/admin/index/css/test.css"/>
 <style type="text/css">
 
 
@@ -144,7 +145,9 @@
 						
 					</div>
 				</div>
-				<div class="title_tag">
+				<!-- 抬头区域 -->
+				<div class="title_tag click">
+					<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
 					<div class="page_title" id="page_title">智慧茶仓</div>
 					<div class="page_more_box">
 						<div class="dian"></div>
@@ -152,7 +155,7 @@
 						<div class="dian"></div>
 					</div>
 						<!-- 页面标题 -->
-					<div class="page_title_edit noshow page_edit">
+					<div class="page_title_edit  page_edit click_content noshow">
 						<div class="page_input">
 							<span  class="input_laber">页面标题：</span>
 							<input type="text" placeholder="智慧茶仓" class="page_input_input"  id="page_title_edit" data-id="page_title" data-value="智慧茶仓" />
@@ -186,110 +189,147 @@
 					</div>
 
 				</div> 	
-				<div class="seach_box">
-					<div class="seach_box_left">
-						<div class="nfc">
-							<img src="__STATIC__/admin/index/img/u428.png" alt="">
-						</div>
-						<div class="seach_box_text">防伪溯源</div>
-					</div>
-					<div class="seach_box_center">
-						<input type="text">
-					</div>
-					<div class="seach_box_right">
-						<div class="cold"><img src="__STATIC__/admin/index/img/u426.png" alt=""></div>
-						<div class="seach_box_text">会员码</div>
-					</div>
-						<!-- 搜索框 -->
-			<div class="page_seach_edit">
-				<div class="page_input">
-						<span  class="input_laber">背景颜色：</span>
-						<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-						<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-				</div>
-				<div class="page_input" style="display: flex;">
-						<span  class="input_laber">透明度：</span>
-						<div id="slider"></div>
-						<div id="amount">1</div>
-						<div style="font-size:12px;">（最大是1）</div>
-				</div>
-			
-				<div class="page_input">
-					<span  class="input_laber">左侧按钮：</span>
-					<input type="radio" name="sex" value="不显示" title="不显示" checked="">不显示
-					<input type="radio" name="sex" value="图标" title="图标">图标
-				</div>
-				<div class="page_input" style="display:flex; align-items: center;">
-					<span  class="input_laber">左侧按钮：</span>
-					<div class="border">
-							<div class="ico_show">
+				<!-- 搜索框区域 -->
+				<div class="seach_box click">
+						<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
+					<div  class="page_seach_edit_contentss">
+						<div class="seach_box_left">
+							<div class="nfc">
 								<img src="__STATIC__/admin/index/img/u428.png" alt="">
 							</div>
-							<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
-								<div class="file_sty">选择图标</div>
-								<input type="file" class="files" id="file_0">
-							</div>
-							<div class="input_file_color">
-								<span>图标颜色</span>
-								<input type="color">
-							</div>
-							<div class="input_file_text"  style="box-sizing: border-box;">
-								<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
-							</div>
-					 </div>
-				</div>
-				<div class="page_input" style="display: flex;align-items: center;">
-					<span  class="input_laber">链接：</span>
-					<div class="link">
-					  <select name="" >
-						  <option value="0">首页</option>
-					  </select>
-					</div>  
-				</div>
-					<div class="page_input">
-						<span  class="input_laber">右侧按钮：</span>
-						<input type="radio" name="right" value="不显示" title="不显示" checked="">不显示
-						<input type="radio" name="right" value="图标" title="图标">图标
-					</div>
-					<div class="page_input" style="display:flex; align-items: center;">
-						<span  class="input_laber">右侧按钮：</span>
-						<div class="border">
-								<div class="ico_show">
-									<img src="__STATIC__/admin/index/img/u428.png" alt="">
-								</div>
-								<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
-									<div class="file_sty">选择图标</div>
-									<input type="file" class="files" id="file_0">
-								</div>
-								<div class="input_file_color">
-									<span>图标颜色</span>
-									<input type="color">
-								</div>
-								<div class="input_file_text"  style="box-sizing: border-box;">
-									<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
-								</div>
+							<div class="seach_box_text">防伪溯源</div>
+						</div>
+						<div class="seach_box_center">
+							<input type="text">
+						</div>
+						<div class="seach_box_right">
+							<div class="cold"><img src="__STATIC__/admin/index/img/u426.png" alt=""></div>
+							<div class="seach_box_text">会员码</div>
 						</div>
 					</div>
-					<div class="page_input" style="display: flex;align-items: center;">
-						<span  class="input_laber">链接：</span>
-						<div class="link">
+						<!-- 搜索框 -->
+					<div class="page_seach_edit noshow click_content">
+						<div class="page_input">
+								<span  class="input_laber">背景颜色：</span>
+								<input type="color" placeholder="" class="page_input_color seach_bg_color" value="#821006" data-id = "#821006"/>
+								<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+						</div>
+						<div class="page_input" style="display: flex;">
+								<span  class="input_laber">透明度：</span>
+								<div id="slider"></div>
+								<div id="amount">1</div>
+								<div style="font-size:12px;">（最大是1）</div>
+						</div>
+					
+						<div class="page_input">
+							<span  class="input_laber">左侧按钮：</span>
+							<input type="radio" name="seach_right_button" value="0" title="不显示" checked="">不显示
+							<input type="radio" name="seach_right_button" value="1" title="图标" checked="">图标
+						</div>
+						<div class="page_input" style="display:flex; align-items: center;">
+							<span  class="input_laber">左侧按钮：</span>
+							<div class="border">
+									<div class="ico_show">
+										<img src="__STATIC__/admin/index/img/u428.png" alt="">
+									</div>
+									<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
+										<div class="file_sty">选择图标</div>
+										<input type="file" class="files" id="file_0">
+									</div>
+									<div class="input_file_color">
+										<span>图标颜色</span>
+										<input type="color">
+									</div>
+									<div class="input_file_text"  style="box-sizing: border-box;">
+										<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
+									</div>
+							</div>
+						</div>
+						<div class="page_input" style="display: flex;align-items: center;">
+							<span  class="input_laber">链接：</span>
+							<div class="link">
 							<select name="" >
-							<option value="0">首页</option>
-						</select>
-						</div>  
+								<option value="0">首页</option>
+							</select>
+							</div>  
+						</div>
+							<div class="page_input">
+								<span  class="input_laber">右侧按钮：</span>
+								<input type="radio" name="right" value="0" title="不显示" >不显示
+								<input type="radio" name="right" value="1" title="图标" checked="">图标
+							</div>
+							<div class="page_input" style="display:flex; align-items: center;">
+								<span  class="input_laber">右侧按钮：</span>
+								<div class="border">
+										<div class="ico_show">
+											<img src="__STATIC__/admin/index/img/u428.png" alt="">
+										</div>
+										<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">
+											<div class="file_sty">选择图标</div>
+											<input type="file" class="files" id="file_0">
+										</div>
+										<div class="input_file_color">
+											<span>图标颜色</span>
+											<input type="color">
+										</div>
+										<div class="input_file_text"  style="box-sizing: border-box;">
+											<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">
+										</div>
+								</div>
+							</div>
+							<div class="page_input" style="display: flex;align-items: center;">
+								<span  class="input_laber">链接：</span>
+								<div class="link">
+									<select name="" >
+									<option value="0">首页</option>
+								</select>
+								</div>  
+							</div>
+						
+						</div>
+				</div> 
+				<!-- 轮播图区域	 -->
+				<div class="click">
+			     <i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
+					<div class="swiper-container ">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
+								<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
+								<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
+							</div>
 					</div>
-				
-				</div>
-				</div> 	
-				<div class="swiper-container">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
-							<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
-							<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
+						<!--轮播图-->
+					<div class="page_slideshow_edit noshow click_content">
+						<div class="page_input" style="display: flex; align-items: center;">
+							<span  class="input_laber">选择高度：</span>
+							<input type="radio" name="weight" value="100" title="100px（像素）" >100px（像素）
+							<input type="radio" name="weight" value="200" title="200px（像素）" checked="">200px（像素）
+							<input type="radio" name="weight" value="300" title="300px（像素）" >300px（像素）
 						</div>
 						
+						<div class="slideshow_box">
+							<div class="slideshow_box_list">
+								<div class="slideshow_box_list_img"> <img src="__STATIC__/admin/index/img/u430.png" alt="" /></div>
+								<div class="slideshow_box_input">
+								<div class="slideshow_select_show">
+									<input type="text" name="" id="" value="" />
+									<span>选择图片</span>
+								</div>
+								<div class="link">
+									<select name="" >
+										<option value="0">首页</option>
+									</select>
+								</div>  
+								</div>
+							</div>
+						</div>
+						<div class="add_slideshow">+添加一个（最多5个）</div>
+					
+					</div>
 				</div>
-				<div class="classification">
+                 <!-- 图文导航区域 -->
+				<div class="classification click">
+						<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
 	                <ul>
 	                	<li>
 	                		<a href="#" >
@@ -321,14 +361,91 @@
 	                			<div class="classification_text">茶山走势</div>
 	                		</a>
 	                	</li>
-	                </ul>
+					</ul>
+					<!--图文导航-->
+					<div class="page_navigation_edit click_content noshow">
+							<div class="page_input">
+								<span  class="input_laber">背景颜色：</span>
+								<input type="color" placeholder="" class="page_input_color page_navigation_bg" value="#821006" data-id = "#821006"/>
+								<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+							<div class="page_input" style="display: flex; align-items: center;">
+								<span  class="input_laber">按钮形状：</span>
+								<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
+									<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="正方形" title="正方形" checked="">正方形</div>
+									<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="圆角" title="圆角" >圆角</div>
+									<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="圆形" title="圆形" >圆形</div>
+								</div>
+							</div>
+							<div class="page_input" style="display: flex; align-items: center;">
+								<span  class="input_laber">每行数量：</span>
+								<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
+									<div style="display: flex; align-items: center;"><input type="radio" name="num" value="3个"  >3个</div>
+									<div style="display: flex; align-items: center;"><input type="radio" name="num" value="4个"  >4个</div>
+									<div style="display: flex; align-items: center;"><input type="radio" name="num" value="5个"  checked="">5个</div>
+								</div>
+							</div>
+							<div class="navigation_box">
+								<div class="navigation_box_list">
+									<div><img src="" alt=""></div>
+									<div class="navigation_box_list_img"> <img src="__STATIC__/admin/index/img/u430.png" alt="" /></div>
+									<div class="navigation_box_input">
+									  <div class="wenzi">
+										  <span>文字</span>
+										  <input type="text" placeholder="最多5个字"/>
+										  <input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+										<span style="color: #30B6F8; cursor: pointer;" class="recolor">字体颜色重置</span>
+									  </div>
+									  <div class="link">
+										<select name="" >
+											<option value="0">首页</option>
+										</select>
+									</div>  
+									</div>
+								</div>
+							</div>
+							<div class="add_navigationshow">+添加一个（最多5个）</div>
+							
+						</div>
 				</div>
-				<div class="news_box">
-					<div class="news_ico"><img src="__STATIC__/admin/index/img/u1377.png" alt=""></div>
-					<div class="new_text">通知：</div>
-					<div class="new_delect"><img src="__STATIC__/admin/index/img/close.png" alt=""></div>
-				</div>
-				<div class="good_box">
+				<div class="click news_box1">
+					<div class="news_box">
+						<div class="news_ico"><img src="__STATIC__/admin/index/img/u1377.png" alt=""></div>
+						<div class="new_text">通知：</div>
+						<div class="new_delect"><img src="__STATIC__/admin/index/img/close.png" alt=""></div>
+					</div>
+						<!-- 公告组件 -->
+			     <div class="page_announcement_edit  click_content noshow ">
+						<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
+					<div class="page_input_line">
+							<div class="page_input">
+									<span  class="input_laber">栏目背景色：</span>
+									<input type="color" placeholder="" class="page_input_color announcement_bg" value="#821006" data-id = "#821006"/>
+									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+						
+							<div class="page_input">
+									<span  class="input_laber">标题栏文字色：</span>
+											<input type="color" placeholder="" class="page_input_color announcement_text_color" value="#821006" data-id = "#821006"/>
+									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+							</div>
+						</div>
+						<div class="page_input" style="display: flex;">
+								<span  class="input_laber">滚动速度：</span>
+								<div id="slider1" class="slider"></div>
+								<div id="amount1" class="amount">1</div>
+								<div style="font-size:12px;">（秒）</div>
+						</div>
+						<div class="page_input">
+								<span  class="input_laber">公告标题 ：</span>
+								<input type="text" placeholder="链接文字" class="page_input_input announcement_text_content" />
+						</div>
+						
+						
+				</div>		
+				</div> 
+				<div class="good_box click">
+						<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
 					<div class="good_title">
 						<div class="good_title_text">商品</div>
 						<div class="good_title_more">
@@ -386,9 +503,50 @@
 								</div>
 						</div>
 					</div>
-
+                   <!-- 商品 -->
+			<div class="page_good_edit click_content">
+					<div class="good_add_content">
+					 <span  class="span_laber">商品:</span>
+					 <div class="good_contents">
+						 <div class="good_lists">
+							 <div class="good_lists_show">
+								  <img src="__STATIC__/admin/index/img/u983.png" alt="">
+							 </div>
+							 <div class="good_lists_x">
+									 <img src="__STATIC__/admin/index/img/x2.png" alt="">
+								</div>
+						 </div>
+						 <div class="select_good">
+							 +
+						 </div>
+					 </div>
+					</div>
+					 <div class="page_input" style="display: flex; align-items: center;">
+						 <span  class="input_laber">列表样式:</span>
+						 <div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
+							 <div style="display: flex; align-items: center;"><input type="radio" name="list_style" value="单列显示"  >单列显示</div>
+							 <div style="display: flex; align-items: center;"><input type="radio" name="list_style" value="双列显示"  checked="">双列显示</div>
+							 <div style="display: flex; align-items: center;"><input type="radio" name="list_style" value="三列显示"  >三列显示</div>
+						 </div>
+					 </div>
+						 <div class="page_input" style="display: flex; align-items: center;">
+						 <span  class="input_laber">显示内容：</span>
+						 <div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px; flex-wrap: wrap;">
+							 <div style="display: flex; align-items: center;"><input type="checkbox" name="display_content" value="0"  checked="">商品名称</div>
+							 <div style="display: flex; align-items: center;"><input type="checkbox" name="display_content" value="1"  checked="">库存</div>
+							 <div style="display: flex; align-items: center;"><input type="checkbox" name="display_content" value="2"  checked="">卖点</div>
+							 <div style="display: flex; align-items: center;"><input type="checkbox" name="display_content" value="3" checked="" >会员标签</div>
+							 <div style="display: flex; align-items: center;"><input type="checkbox" name="display_content" value="4"  checked="">价格</div>
+							 <div style="display: flex; align-items: center;"><input type="checkbox" name="display_content" value="5"  checked="">划线价</div>
+		 
+						 </div>
+					 </div>
+		 
+					 
+			 </div>
 				</div>
-				<div class="technical_support">
+				<div class="technical_support click">
+						<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
 					思锐信息www.siring.com.cn技术支持
 				</div>
 			</div>
@@ -413,127 +571,6 @@
 			</div>
 		</div>
 		<div class="show_edit_box">
-		
-			
-		
-			<!--轮播图-->
-			<div class="page_slideshow_edit noshow">
-					
-					<div class="page_input" style="display: flex; align-items: center;">
-						<span  class="input_laber">选择宽度：</span>
-						<input type="radio" name="weight" value="100px（像素）" title="100px（像素）" checked="">100px（像素）
-						<input type="radio" name="weight" value="200px（像素）" title="200px（像素）" >200px（像素）
-						<input type="radio" name="weight" value="300px（像素）" title="300px（像素）" >300px（像素）
-					</div>
-					
-					<div class="slideshow_box">
-						<div class="slideshow_box_list">
-							<div class="slideshow_box_list_img"> <img src="__STATIC__/admin/index/img/u430.png" alt="" /></div>
-							<div class="slideshow_box_input">
-							  <div class="slideshow_select_show">
-							  	<input type="text" name="" id="" value="" />
-							  	<span>选择图片</span>
-							  </div>
-							  <div class="link">
-								<select name="" >
-									<option value="0">首页</option>
-								</select>
-							</div>  
-							</div>
-						</div>
-					</div>
-					<div class="add_slideshow">+添加一个（最多5个）</div>
-				
-				</div>
-	        <!--图文导航-->
-	        <div class="page_navigation_edit noshow">
-	        	<div class="page_input">
-							<span  class="input_laber">背景颜色：</span>
-							<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-							<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-					</div>
-				<div class="page_input" style="display: flex; align-items: center;">
-					<span  class="input_laber">按钮形状：</span>
-					<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
-						<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="正方形" title="正方形" checked="">正方形</div>
-						<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="圆角" title="圆角" >圆角</div>
-						<div style="display: flex; align-items: center;"><input type="radio" name="shape" value="圆形" title="圆形" >圆形</div>
-					</div>
-				</div>
-				<div class="page_input" style="display: flex; align-items: center;">
-					<span  class="input_laber">每行数量：</span>
-					<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
-						<div style="display: flex; align-items: center;"><input type="radio" name="num" value="3个"  checked="">3个</div>
-						<div style="display: flex; align-items: center;"><input type="radio" name="num" value="4个"  >4个</div>
-						<div style="display: flex; align-items: center;"><input type="radio" name="num" value="5个"  >5个</div>
-					</div>
-				</div>
-				<div class="navigation_box">
-					<div class="navigation_box_list">
-						<div><img src="" alt=""></div>
-						<div class="navigation_box_list_img"> <img src="__STATIC__/admin/index/img/u430.png" alt="" /></div>
-						<div class="navigation_box_input">
-						  <div class="wenzi">
-						  	<span>文字</span>
-						  	<input type="text" placeholder="最多5个字"/>
-						  	<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-							<span style="color: #30B6F8; cursor: pointer;" class="recolor">字体颜色重置</span>
-						  </div>
-						  <div class="link">
-							<select name="" >
-								<option value="0">首页</option>
-							</select>
-						</div>  
-						</div>
-					</div>
-				</div>
-				<div class="add_navigationshow">+添加一个（最多5个）</div>
-				
-			</div>
-			<!-- 公告组件 -->
-			<div class="page_announcement_edit noshow">
-				<div class="page_input_line">
-						
-						<div class="page_input">
-								<span  class="input_laber">栏目背景色：</span>
-								<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-								<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-						</div>
-						<div class="page_input">
-								<span  class="input_laber">背景色：</span>
-								<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-								<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-						</div>
-						<div class="page_input">
-								<span  class="input_laber">标题栏文字色：</span>
-										<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-								<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-						</div>
-					</div>
-					<div class="page_input" style="display: flex;">
-							<span  class="input_laber">滚动速度：</span>
-							<div id="slider1" class="slider"></div>
-							<div id="amount1" class="amount">1</div>
-							<div style="font-size:12px;">（秒）</div>
-					</div>
-					<div class="page_input">
-							<span  class="input_laber">公告标题 ：</span>
-							<input type="text" placeholder="链接文字" class="page_input_input" />
-					</div>
-					<div class="page_input" style="display: flex;align-items: center;">
-							<span  class="input_laber">公告内容：</span>
-							<div class="link">
-								<select name="" >
-								<option value="0">首页</option>
-							</select>
-							</div>  
-					</div>
-					<div class="page_input" style="display: flex;align-items: center;">
-							<span  class="input_laber">公告内容：</span>
-							<script id="editor" type="text/plain" name="commodity" style="width:400px;height:400px;"></script>
-							</div>  
-			</div>		
-			
 			<!-- 标题组件 -->
 			<div class="page_titles_edit noshow">
 					<div class="page_input_line">
@@ -592,47 +629,7 @@
 					
 			
 			</div>
-			<!-- 商品 -->
-			<div class="page_good_edit noshow">
-				   <div class="good_add_content">
-					<span  class="span_laber">商品:</span>
-					<div class="good_contents">
-						<div class="good_lists">
-							<div class="good_lists_show">
-							     <img src="__STATIC__/admin/index/img/u983.png" alt="">
-							</div>
-							<div class="good_lists_x">
-									<img src="__STATIC__/admin/index/img/x2.png" alt="">
-							   </div>
-						</div>
-						<div class="select_good">
-							+
-						</div>
-					</div>
-				   </div>
-					<div class="page_input" style="display: flex; align-items: center;">
-						<span  class="input_laber">列表样式:</span>
-						<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
-							<div style="display: flex; align-items: center;"><input type="radio" name="list_style " value="单列显示" title="单列显示" checked="">单列显示</div>
-							<div style="display: flex; align-items: center;"><input type="radio" name="list_style" value="双列显示" title="双列显示" >双列显示</div>
-							<div style="display: flex; align-items: center;"><input type="radio" name="list_style" value="三列显示" title="三列显示" >三列显示</div>
-						</div>
-					</div>
-						<div class="page_input" style="display: flex; align-items: center;">
-						<span  class="input_laber">显示内容：</span>
-						<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px; flex-wrap: wrap;">
-							<div style="display: flex; align-items: center;"><input type="radio" name="display_content" value="商品名称"  checked="">商品名称</div>
-							<div style="display: flex; align-items: center;"><input type="radio" name="display_content" value="库存"  >库存</div>
-							<div style="display: flex; align-items: center;"><input type="radio" name="display_content" value="卖点"  >卖点</div>
-							<div style="display: flex; align-items: center;"><input type="radio" name="display_content" value="会员标签"  >会员标签</div>
-							<div style="display: flex; align-items: center;"><input type="radio" name="display_content" value="价格"  >价格</div>
-							<div style="display: flex; align-items: center;"><input type="radio" name="display_content" value="划线价"  >划线价</div>
-		
-						</div>
-					</div>
-		
-					
-			</div>
+			
 			<!-- 辅助线组件 -->
 			<div class="page_line_edit noshow">
 					<div class="page_input_line">
@@ -652,9 +649,9 @@
 						<div class="page_input" style="display: flex; align-items: center;">
 								<span  class="input_laber">线条样式：</span>
 								<div style="display: flex; align-items: center;justify-content: space-between;width: 300px;margin-left: 10px;">
-									<div style="display: flex; align-items: center;"><input type="radio" name="num" value="实线"  checked="">实线</div>
-									<div style="display: flex; align-items: center;"><input type="radio" name="num" value="虚线（长方形)"  >虚线（长方形)</div>
-									<div style="display: flex; align-items: center;"><input type="radio" name="num" value="虚线（正方形）"  >虚线（正方形）</div>
+									<div style="display: flex; align-items: center;"><input type="radio" name="num1" value="实线"  checked="">实线</div>
+									<div style="display: flex; align-items: center;"><input type="radio" name="num1" value="虚线（长方形)"  >虚线（长方形)</div>
+									<div style="display: flex; align-items: center;"><input type="radio" name="num1" value="虚线（正方形）"  >虚线（正方形）</div>
 								</div>
 							</div>
 						<div class="page_input" style="display: flex;">
@@ -692,7 +689,7 @@
 						
 			</div>	
 		</div>
-		<div class="component_box noshow">
+		<div class="component_box">
 		   <div class="component_box_title"> <span class="steps">2</span>选择需要使用的组件 </div>
 		   <p class="component_list_title">基础组件</p>
 		   <div class="component_box_comtent">
@@ -732,7 +729,7 @@
    <script type="text/javascript" src="__STATIC__/admin/index/js/swiper.min.js"></script>
    <script type="text/javascript" src="__STATIC__/admin/common/js/jquery.sortable.js"></script>
    <script>
-	   var ue = UE.getEditor('editor');
+	  
 		var mySwiper = new Swiper ('.swiper-container', {
 			// direction: 'horizontal', // 垂直切换选项
 			loop: true, // 循环模式选项
@@ -751,57 +748,7 @@
 				laypage = layui.laypage,
 				$ = layui.jquery;
 		});
-		
-		
-		$( ".style_boder").sortable();
-		$( ".style_boder").disableSelection();
-
-
-            
-		// 页面标题
-		$(".style_boder").on("click",".title_tag",function(){
-           $(this).children(".page_edit").removeClass("noshow");
-		});
-		$(".page_input_input").keyup(function(){
-			console.log();
-			var vals=$(this).data("value");
-			var id=$(this).data("id");
-			var val=$(this).val();
-			if(val==''){
-				$(this).parent().parent().siblings(".page_title").html(vals);
-			}
-		    else{
-				$(this).parent().parent().siblings(".page_title").html(val);
-			}
-		})
-		$(".page_input_input").blur(function(){
-			var vals=$(this).data("value");
-			var id=$(this).data("id");
-			var val=$(this).val();
-			if(val==''){
-				$(this).parent().parent().siblings(".page_title").html(vals);
-			}
-		    else{
-				$(this).parent().parent().siblings(".page_title").html(val);
-			}
-			
-		})
-		$(".lm_bg").change(function(){
-			var id=$(this).data("id");
-			var val=$(this).val();
-			 $(this).parent().parent().parent().parent(".title_tag").css({'background':val});
-		})
-		$(".pg_bg").change(function(){
-			var id=$(this).data("id");
-			var val=$(this).val();
-			$(".style_boder").css({'background':val});
-		})
-		$(".wz_bg").change(function(){
-			var id=$(this).data("id");
-			var val=$(this).val();
-			 $(this).parent().parent().parent().siblings(".page_title").css({'color':val});
-		})
-		
+	
    </script>
 	{/block}
 

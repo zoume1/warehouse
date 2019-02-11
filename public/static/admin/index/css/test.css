@@ -2,7 +2,17 @@
 	/*
      * 弹窗
      */
-	
+    
+     .delect_ico{
+        position: absolute;
+        width: 16px;
+        z-index: 899999;
+        right: -7px;
+        top: -10px;
+    }
+     input[type=checkbox], input[type=radio] {
+        margin: 0 0;
+    }
      .popup {
 		width: 100%;
 		height: 100%;
@@ -15,7 +25,9 @@
 		border: solid 1px #D7D7D7;
 		box-sizing: border-box;
 	}
-	
+	/* .click {
+        border: dashed 1px #00A0E9;
+    } */
 	.submit_btns {
 		width: 100px;
 		height: 38px;
@@ -167,6 +179,7 @@ img{
   }
   .childrenBody{
       display: flex;
+      justify-content: space-between;
   }
   .phone_show_left{
     display: flex;
@@ -220,15 +233,23 @@ img{
       margin-left: 4px;
   }
   .seach_box{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 6px;
-      position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+    position: relative;
   }
   .seach_box_left{
       text-align: center;
   }
+  .page_seach_edit_contentss{
+	width: 348px;
+	 display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px;
+      position: relative;
+}
   .nfc{
       width: 24px;
       margin: 0 auto;
@@ -256,16 +277,23 @@ img{
 }
 .swiper-container {
     width: 100%;
-    height: 200px !important;
+    height: 200px;
+    position: relative;
 }  
+.classification {
+    position: relative;
+}
 .classification ul{
-	display: flex;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     background: #fff;
 }
 .classification_ico{
 	width: 30px;
-	margin: 0 auto;
+    margin: 0 auto;
+  
+
 }
 .classification_text{
     font-size: 10px;
@@ -273,7 +301,10 @@ img{
     color: #74777C;
 }
 .classification ul li{
-    flex: 1;
+ flex-basis: 20%;
+}
+.news_box1{
+    position: relative;
 }
 .news_box{
     display: flex;
@@ -330,7 +361,7 @@ img{
     flex-wrap:wrap;
 }
 .good_list{
-    flex-basis: 50%;
+    flex-basis: 48%;
     box-sizing: border-box;
     overflow: hidden;
     margin-top: 6px;
@@ -372,12 +403,12 @@ img{
 .price{
     color: #FF2A00;
 }
-.good_list:nth-of-type(odd){
+/* .good_list:nth-of-type(odd){
     padding-right:6px; 
 }
 .good_list:nth-of-type(even){
     padding-left:6px; 
-}
+} */
 .bottom_nav{
     display: flex;
 }
@@ -521,6 +552,9 @@ align-items: center;
     display: flex;
     flex-wrap: wrap;
 }
+.page_seach_edit_contentss{
+    display: flex;
+}
 .page_seach_edit{
     padding: 6px;
 }
@@ -609,15 +643,16 @@ align-items: center;
 	 width: 360px;
 }
 .page_slideshow_edit{
-    position: relative;
+    position: absolute;
     width: 500px;
     border: 2px solid #D7D7D7;
     background-color: #F9F8F7;
-    left: 10px;
-    top: 197px;
+    left: 407px;
+    top: 200px;
     margin-right: 20px;
     border-radius:10px; 
     padding-bottom: 10px;
+    z-index: 99999;
 }
 .page_slideshow_edit:before{
     position: absolute;
@@ -696,12 +731,12 @@ align-items: center;
 	cursor: pointer;
 }
 .page_navigation_edit{
-    position: relative;
+    position: absolute;
     width: 500px;
     border: 2px solid #D7D7D7;
     background-color: #F9F8F7;
-    left: 10px;
-    top: 330px;
+    left: 368px;
+    top: -22px;
     margin-right: 20px;
     border-radius:10px; 
     padding-bottom: 10px;
@@ -806,13 +841,16 @@ align-items: center;
     border-top: 7px solid transparent;
     border-bottom: 7px solid transparent;
 }
+.good_box{
+    position: relative
+}
 .page_good_edit{
-    position: relative;
+    position: absolute;
     width: 500px;
     border: 2px solid #D7D7D7;
     background-color: #F9F8F7;
-    left: 10px;
-    top: 370px;
+    left: 370px;
+    top: 30px;
     margin-right: 20px;
     border-radius:10px; 
     padding-bottom: 10px;
@@ -883,12 +921,12 @@ body {
     background: #fff;
 }
 .page_announcement_edit{
-    position: relative;
+    position: absolute;
     width: 500px;
     border: 2px solid #D7D7D7;
     background-color: #F9F8F7;
-    left: 10px;
-    top: 370px;
+    left: 380px;
+    top: -30px;
     margin-right: 20px;
     border-radius:10px; 
     padding-bottom: 10px;

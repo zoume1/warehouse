@@ -11,6 +11,10 @@ dhtml+='</div>';
 $(".add_buton").click(function(){
     $(".edit_content").append(dhtml);
 });
+$(".delect_ico").click(function(){
+	$(this).parent().remove();
+});
+
 $(".edit_content").on("click",".delect",function(){
      $(this).parent().parent().remove();
 });
@@ -38,7 +42,8 @@ function getObjectURL(file) {
 			min: 1,
 			max: 10,
 		slide: function( event, ui ) {
-           $( "#amount" ).html( ui.value/10 );
+		   $( "#amount" ).html( ui.value/10 );
+		   $(this).parent().parent().siblings(".page_seach_edit_contentss").css("opacity",ui.value/10)
           }
 		});
 	   $( "#slider1" ).slider({
@@ -115,6 +120,14 @@ function getObjectURL(file) {
            $( "#amount8" ).html( ui.value );
           }
 		});
+			
+		$( ".style_boder").sortable();
+		$( ".style_boder").disableSelection();
+
+
+            
+	
+		
 	
 	
 		var dhtml1="";
@@ -217,6 +230,192 @@ function getObjectURL(file) {
 		  $(".popup_x").click(function(){
 			  $(".popup_one").addClass("noshow")
 		  })
+		  	// 页面标题
+		$(".style_boder").on("click",".title_tag",function(){
+			$(this).children(".page_edit").removeClass("noshow");
+		 });
+		 $(".page_input_input").keyup(function(){
+			 console.log();
+			 var vals=$(this).data("value");
+			 var id=$(this).data("id");
+			 var val=$(this).val();
+			 if(val==''){
+				 $(this).parent().parent().siblings(".page_title").html(vals);
+			 }
+			 else{
+				 $(this).parent().parent().siblings(".page_title").html(val);
+			 }
+		 })
+		 $(".page_input_input").blur(function(){
+			 var vals=$(this).data("value");
+			 var id=$(this).data("id");
+			 var val=$(this).val();
+			 if(val==''){
+				 $(this).parent().parent().siblings(".page_title").html(vals);
+			 }
+			 else{
+				 $(this).parent().parent().siblings(".page_title").html(val);
+			 }
+			 
+		 })
+		 $(".lm_bg").change(function(){
+			 var id=$(this).data("id");
+			 var val=$(this).val();
+			  $(this).parent().parent().parent().parent(".title_tag").css({'background':val});
+		 })
+		 $(".pg_bg").change(function(){
+			 var id=$(this).data("id");
+			 var val=$(this).val();
+			 $(".style_boder").css({'background':val});
+		 })
+		 $(".wz_bg").change(function(){
+			 var id=$(this).data("id");
+			 var val=$(this).val();
+			  $(this).parent().parent().parent().siblings(".page_title").css({'color':val});
+		 })
+		 // 搜索框
+	    $(".seach_bg_color").change(function(){
+			var val=$(this).val();
+			$(this).parent().parent().parent().css("background-color",val);
+		})
+		$('input[type=radio][name=seach_right_button]').change(function() {
+			if($(this).val()==0){
+			   $(".seach_box_left").css("display","none"); 
+			   console.log();
+			   $(".seach_box_center").width($(".seach_box_center").outerWidth()+50);
+			   $(".page_seach_edit_contentss").css("justify-content","center"); 
+		   }
+		   else{
+			   $(".seach_box_left").css("display","block"); 
+			   $(".seach_box_center").width($(".seach_box_center").outerWidth()-50);
+			   $(".page_seach_edit_contentss").css("justify-content","space-between"); 
+		   }
+		});
+		
+		$('input[type=radio][name=right]').change(function() {
+			if($(this).val()==0){
+			   $(".seach_box_right").css("display","none"); 
+			   console.log();
+			   $(".seach_box_center").width($(".seach_box_center").outerWidth()+50);
+			   $(".page_seach_edit_contentss").css("justify-content","center"); 
+		   }
+		   else{
+			   $(".seach_box_right").css("display","block"); 
+			   $(".seach_box_center").width($(".seach_box_center").outerWidth()-50);
+			   $(".page_seach_edit_contentss").css("justify-content","space-between"); 
+		   }
+		});
+		$(".click").click(function(){
+			$(".click").css({'border':'0'}); 
+			$(".delect_ico").addClass("noshow")
+			$(".click_content").addClass("noshow")
+		   $(this).children(".click_content").removeClass("noshow");
+		   $(this).css({'border':'dashed 1px #00A0E9'}); 
+		   $(this).children(".delect_ico").removeClass("noshow");
+		})
+		// 轮播图
+		$('input[type=radio][name=weight]').change(function() {
+		   
+			   $(".swiper-container").height($(this).val());
+		});
+			// 图文导航
+			$(".page_navigation_bg").change(function(){
+				var val=$(this).val();
+				$(this).parent().parent().siblings("ul").css("background-color",val)
+				})
+				$(".page_navigation_bg").change(function(){
+				var val=$(this).val();
+				$(this).parent().parent().siblings("ul").css("background-color",val)
+				})
+				$('input[type=radio][name=shape]').change(function() {
+					if($(this).val()=="正方形"){
+					  $(".classification_ico").css("border-radius","0")
+				   }
+				   else if($(this).val()=="圆角"){
+					$(".classification_ico").css("border-radius","20%")
+				   }
+				   else{
+					$(".classification_ico").css("border-radius","50%")
+				   }
+				});
+				$('input[type=radio][name=num]').change(function() {
+					if($(this).val()=="3个"){
+				
+					  $(".classification ul li").css("flex-basis","33.33%")
+				   }
+				   else if($(this).val()=="4个"){
+					$(".classification ul li").css("flex-basis","25%")
+				   }
+				   else{
+					
+					$(".classification ul li").css("flex-basis","20%")
+				   }
+				});
+				// 通知
+		$(".announcement_bg").change(function(){
+			var val=$(this).val();	
+			$(this).parent().parent().parent().siblings().css("background-color",val);
+		})
+		$(".announcement_text_color").change(function(){
+			var val=$(this).val();	
+			$(this).parent().parent().parent().siblings().children(".new_text").css("color",val);
+		})
+		$(".announcement_text_content").blur(function(){
+			var val=$(this).val();
+			$(this).parent().parent().siblings().children(".new_text").html(val);
+		})
 	
-
+	//  商品
+	$('input[type=radio][name=list_style]').change(function() {
+			if($(this).val()=="单列显示"){
+				$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").css({'flex-basis':'100%'});
+			 }
+		   else if($(this).val()=="双列显示"){
+			$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").css({'flex-basis':'48%'});
+	
+		   }
+		   else{
+			$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").css({'flex-basis':'33%'});
+	
+		   }
+		});
+		$('input[type=checkbox][name=display_content]').change(function() {
+			if($(this)[0].checked){
+				if($(this).val()==0){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".listnames").children(".good_name").css('display','block');;	
+				}
+				else if($(this).val()==1){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".listnames").children(".good_inventory").css('display','block');;
+				}
+				else if($(this).val()==2){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".sellpoint").css('display','block');;
+				}
+				else if($(this).val()==3){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".price_box").children(".level_ico").css('display','block');;
+				}
+				else if($(this).val()==4){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".price_box").children(".price").css('display','block');;
+				}
+			
+				
+			}
+			else{
+				if($(this).val()==0){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".listnames").children(".good_name").css('display','none');	
+				}
+				else if($(this).val()==1){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".listnames").children(".good_inventory").css('display','none');
+				}
+				else if($(this).val()==2){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".sellpoint").css('display','none');
+				}
+				else if($(this).val()==3){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".price_box").children(".level_ico").css('display','none');
+				}
+				else if($(this).val()==4){
+					$(this).parent().parent().parent().parent().siblings(".good_content").children(".good_list").children(".price_box").children(".price").css('display','none');
+				}
+			}
+		});
+	
 		  
