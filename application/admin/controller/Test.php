@@ -43,5 +43,11 @@ class Test extends  Controller{
     public function test_edit(){
         return view("test_edit");
     }
+ public function test_list(){
+        return view("test_list");
+    }
+ public function test_cart(){
+        return view("test_cart");
+    }
 
 }
