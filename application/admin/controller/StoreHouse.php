@@ -17,7 +17,7 @@ class StoreHouse extends Controller{
      * 郭杨
      */    
     public function stores_control(){     
-        return view("stores_control");
+        return view("store_house");
     }
 
 

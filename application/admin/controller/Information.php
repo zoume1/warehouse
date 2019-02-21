@@ -10,7 +10,7 @@ use think\Controller;
 use think\Db;
 use think\paginator\driver\Bootstrap;
 
-class InforMation extends Controller{
+class Information extends Controller{
     
     /**
      * [数据概况]

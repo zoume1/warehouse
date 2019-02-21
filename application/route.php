@@ -200,7 +200,7 @@ Route::group("admin",[
     "custom_made"=>"admin/Made/custom_made",  //专属定制
 
     /*仓储*/
-    "stores_control" =>"admin/StoreHouse/stores_control",      //仓库管理
+    "store_house" =>"admin/StoreHouse/store_house",      //仓库管理
     "stores_divergence" =>"admin/StoreHouse/stores_divergence",//出入仓
 
     /*资产*/
@@ -212,8 +212,8 @@ Route::group("admin",[
     "interaction_index" =>"admin/Property/interaction_index", //温湿感应
 
     /*数据*/
-    "data_index" =>"admin/InforMation/data_index",                //数据概况
-    "analytical_index" =>"admin/InforMation/analytical_index",    //溯源分析
+    "data_index" =>"admin/Information/data_index",                //数据概况
+    "analytical_index" =>"admin/Information/analytical_index",    //溯源分析
 
     /*设置*/
     "module_index" =>"admin/InterCalate/module_index",              //通用模块
