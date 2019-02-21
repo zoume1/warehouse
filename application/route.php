@@ -87,6 +87,10 @@ Route::group("admin",[
     "role_updata"=>"admin/role/updata",
     "role_status"=>"admin/role/status",
 
+    /*店铺*/
+    "general_index"=>"admin/General/general_index", //店铺信息
+    "small_routine_index"=>"admin/General/small_routine_index", //小程序设置
+    "decoration_routine_index"=>"admin/General/decoration_routine_index", //小程序装修
 
 
 
@@ -171,7 +175,7 @@ Route::group("admin",[
      "active_order_index"=>"admin/ActiveOrder/index",   //活动订单显示
      "active_order_search"=>"admin/ActiveOrder/search", //评论管理组模糊搜索
 
-    /*商品列表*/
+    /*普通商品列表*/
     "goods_index"=>"admin/Goods/index",      //商品列表显示
     "goods_add"=>"admin/Goods/add",          //商品列表组添加
     "goods_save"=>"admin/Goods/save",        //商品列表组保存入库
@@ -184,8 +188,41 @@ Route::group("admin",[
     "goods_images"=>"admin/Goods/images",    //商品列表组图片删除
     "goods_photos"=>"admin/Goods/photos",    //商品列表规格图片删除
     "goods_value"=>"admin/Goods/value",      //商品列表规格值修改
-    "goods_switches"=>"admin/Goods/switches",  //商品列表规格开关
+    "goods_switches"=>"admin/Goods/switches",//商品列表规格开关
     "goods_addphoto"=>"admin/Goods/addphoto",//商品列表规格图片添加
+
+
+
+    /*众筹商品*/
+    "crowd_index"=>"admin/Crowd/crowd_index",  //众筹商品显示
+
+    /*专属定制*/
+    "custom_made"=>"admin/Made/custom_made",  //专属定制
+
+    /*仓储*/
+    "stores_control" =>"admin/StoreHouse/stores_control",      //仓库管理
+    "stores_divergence" =>"admin/StoreHouse/stores_divergence",//出入仓
+
+    /*资产*/
+    "property_index" =>"admin/Property/property_index",
+
+    /*物联*/
+    "anti_fake" =>"admin/Property/anti_fake",                 //防伪溯源
+    "direct_seeding" =>"admin/Property/direct_seeding",       //视频直播
+    "interaction_index" =>"admin/Property/interaction_index", //温湿感应
+
+    /*数据*/
+    "data_index" =>"admin/InforMation/data_index",                //数据概况
+    "analytical_index" =>"admin/InforMation/analytical_index",    //溯源分析
+
+    /*设置*/
+    "module_index" =>"admin/InterCalate/module_index",              //通用模块
+    "business_index" =>"admin/InterCalate/business_index",          //运营模块
+    "dispatching_index" =>"admin/InterCalate/dispatching_index",    //配送设置
+
+
+
+
 
 
     /*商品分类*/
@@ -208,7 +245,7 @@ Route::group("admin",[
     "distribution_goods_edit"=>"admin/Distribution/goods_edit",        //分销商品编辑
     "distribution_goods_save"=>"admin/Distribution/goods_save",        //分销商品添加入库
     "distribution_goods_update"=>"admin/Distribution/goods_update",    //分销商品编辑更新
-    "distribution_goods_delete"=>"admin/Distribution/goods_delete",      //分销商品组删除
+    "distribution_goods_delete"=>"admin/Distribution/goods_delete",    //分销商品组删除
     "distribution_record_index"=>"admin/Distribution/record_index",    //分销记录页面
     "distribution_member_index"=>"admin/Distribution/member_index",    //分销成员页面
     "distribution_member_edit"=>"admin/Distribution/member_edit",      //分销成员页面编辑
