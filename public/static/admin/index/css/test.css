@@ -334,9 +334,10 @@ img{
  align-items: center;
  justify-content: space-between;
 }
+
 .good_box{
- background: #fff;
- padding: 6px;
+    background: #fff;
+    padding: 6px;
 }
 .good_title_more{
     display: flex;
@@ -808,12 +809,12 @@ align-items: center;
     margin-left: 16px
 }
 .page_titles_edit{
-    position: relative;
+    position: absolute;
     width: 500px;
     border: 2px solid #D7D7D7;
     background-color: #F9F8F7;
-    left: 10px;
-    top: 400px;
+    left: 377px;
+    top: -25px;
     margin-right: 20px;
     border-radius:10px; 
     padding-bottom: 10px;
@@ -843,6 +844,11 @@ align-items: center;
 }
 .good_box{
     position: relative
+}
+.title_box{
+    background: #fff;
+	padding: 6px 6px  0 6px ;
+	position: relative;
 }
 .page_good_edit{
     position: absolute;

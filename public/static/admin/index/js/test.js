@@ -36,16 +36,17 @@ function getObjectURL(file) {
     return url ;  
 }
 //  拖动条
-	$( "#slider" ).slider({
-			range: "min",
-			value: 1,
-			min: 1,
-			max: 10,
-		slide: function( event, ui ) {
-		   $( "#amount" ).html( ui.value/10 );
-		   $(this).parent().parent().siblings(".page_seach_edit_contentss").css("opacity",ui.value/10)
-          }
-		});
+
+	// $( "#slider" ).slider({
+	// 		range: "min",
+	// 		value: 10,
+	// 		min: 1,
+	// 		max: 10,
+	// 	slide: function( event, ui ) {
+	// 	   $( "#amount" ).html( ui.value/10 );
+	// 	   $(this).parent().parent().siblings(".page_seach_edit_contentss").css("opacity",ui.value/10)
+    //       }
+	// 	});
 	   $( "#slider1" ).slider({
 			range: "min",
 			value: 1,
@@ -123,13 +124,6 @@ function getObjectURL(file) {
 			
 		$( ".style_boder").sortable();
 		$( ".style_boder").disableSelection();
-
-
-            
-	
-		
-	
-	
 		var dhtml1="";
 		dhtml1+='<div class="slideshow_box_list">';
 		dhtml1+='<div class="slideshow_box_list_img"> <img src="http://teahouse.siring.com.cn/upload/20181128/31d02b855e58a946d5c8dddbb278376b.jpg" alt="" /></div>';
@@ -145,8 +139,6 @@ function getObjectURL(file) {
 		dhtml1+='</div>';
 		dhtml1+='</div>';
 	    dhtml1+='</div>';
-	
-	
 		$(".add_slideshow").click(function(){
 	  	  $(".slideshow_box").append(dhtml1);
 	  	   
@@ -305,7 +297,30 @@ function getObjectURL(file) {
 			   $(".page_seach_edit_contentss").css("justify-content","space-between"); 
 		   }
 		});
+		$(".slider_erae").click(function(){
+			var slider=$(this).parent().children(".click_content").find(".slider");
+			var amount=$(this).parent().children(".click_content").find(".amount");
+			for(var i=0;i<slider.length;i++){
+				var id=slider[i].id;
+				var id1=amount[i].id
+				var min=parseInt(slider[i].dataset.min);
+				var max=parseInt(slider[i].dataset.max);
+				var value=parseInt(slider[i].dataset.value);
+				$( "#"+id ).slider({
+							range: "min",
+							value: value,
+							min: min,
+							max: max,
+						slide: function( event, ui ) {
+							$( "#"+id1 ).html( ui.value/10 );
+						   $(this).parent().parent().siblings(".page_seach_edit_contentss").css("opacity",ui.value/10)
+						  }
+				});
+			}
+		})
 		$(".click").click(function(){
+			
+			
 			$(".click").css({'border':'0'}); 
 			$(".delect_ico").addClass("noshow")
 			$(".click_content").addClass("noshow")
@@ -417,5 +432,101 @@ function getObjectURL(file) {
 				}
 			}
 		});
-	
-		  
+	// 组件添加
+	// 添加顶部固定搜索框
+	var dhtm3="";
+	dhtm3+='<div class="seach_box click">';
+	dhtm3+='<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>';
+	dhtm3+='<div  class="page_seach_edit_contentss">';
+	dhtm3+='<div class="seach_box_left">';
+	dhtm3+='<div class="nfc">';
+	dhtm3+='<img src="__STATIC__/admin/index/img/u428.png" alt="">';
+	dhtm3+='</div>';
+	dhtm3+='<div class="seach_box_text">防伪溯源</div>';
+	dhtm3+='</div>';
+	dhtm3+='<div class="seach_box_center">';
+	dhtm3+='<input type="text">';
+	dhtm3+='</div>';
+	dhtm3+='<div class="seach_box_right">';
+	dhtm3+='<div class="cold"><img src="__STATIC__/admin/index/img/u426.png" alt=""></div>';
+	dhtm3+='<div class="page_input">';
+	dhtm3+='</div>';
+	dhtm3+='</div>';
+	dhtm3+='<div class="page_seach_edit noshow click_content">';
+	dhtm3+='<div class="page_input">';
+	dhtm3+='<span  class="input_laber">背景颜色：</span>';
+	dhtm3+='<input type="color" placeholder="" class="page_input_color seach_bg_color" value="#821006" data-id = "#821006"/>';
+	dhtm3+='<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>';
+	dhtm3+='</div>';
+	dhtm3+='<div class="page_input" style="display: flex;">';
+	dhtm3+='<span  class="input_laber">透明度：</span>';
+	dhtm3+='<div id="slider"></div>';
+	dhtm3+='<div id="amount">1</div>';
+	dhtm3+='<div style="font-size:12px;">（最大是1）</div>';
+	dhtm3+='</div>';			
+	dhtm3+='<div class="page_input">';
+	dhtm3+='<span  class="input_laber">左侧按钮：</span>';
+	dhtm3+='<input type="radio" name="seach_right_button" value="0" title="不显示" checked="">不显示';
+	dhtm3+='<input type="radio" name="seach_right_button" value="1" title="图标" checked="">图标';
+	dhtm3+='</div>';
+	dhtm3+='<div class="page_input" style="display:flex; align-items: center;">';
+	dhtm3+='<span  class="input_laber">左侧按钮：</span>';
+	dhtm3+='<div class="border">';
+	dhtm3+='<div class="ico_show">';
+	dhtm3+='<img src="__STATIC__/admin/index/img/u428.png" alt="">';
+	dhtm3+='</div>';
+	dhtm3+='<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">';
+	dhtm3+='<div class="file_sty">选择图标</div>';
+	dhtm3+='<input type="file" class="files" id="file_0">';
+	dhtm3+='</div>';
+	dhtm3+='<div class="input_file_color">';
+	dhtm3+='<span>图标颜色</span>';
+	dhtm3+='<input type="color">';
+	dhtm3+='</div>';
+	dhtm3+='<div class="input_file_text"  style="box-sizing: border-box;">';
+	dhtm3+='<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">';
+	dhtm3+='</div>';
+	dhtm3+='</div>';
+	dhtm3+='</div>';
+	dhtm3+='<div class="page_input" style="display: flex;align-items: center;">';
+	dhtm3+='<span  class="input_laber">链接：</span>';
+	dhtm3+='<div class="link">';
+	dhtm3+='<select name="" >';
+	dhtm3+='<option value="0">首页</option>';
+	dhtm3+='</select>';
+	dhtm3+='</div>  ';
+	dhtm3+='</div>';
+	dhtm3+='<div class="page_input">';
+	dhtm3+='<span  class="input_laber">右侧按钮：</span>';
+	dhtm3+='<input type="radio" name="right" value="0" title="不显示" >不显示';
+	dhtm3+='<input type="radio" name="right" value="1" title="图标" checked="">图标';
+	dhtm3+='</div>';
+	dhtm3+='<div class="page_input" style="display:flex; align-items: center;">';
+	dhtm3+='<span  class="input_laber">右侧按钮：</span>';
+	dhtm3+='<div class="border">';
+	dhtm3+='<div class="ico_show">';
+	dhtm3+='<img src="__STATIC__/admin/index/img/u428.png" alt="">';
+	dhtm3+='</div>';
+	dhtm3+='<div class="input_file" style="position: relative; display: flex; align-items: center;justify-content: center;">';
+	dhtm3+='<div class="file_sty">选择图标</div>';
+	dhtm3+='<input type="file" class="files" id="file_0">';
+	dhtm3+='</div>';
+	dhtm3+='<div class="input_file_color">';
+	dhtm3+='<span>图标颜色</span>';
+	dhtm3+='<input type="color">';
+	dhtm3+='</div>';
+	dhtm3+='<div class="input_file_text"  style="box-sizing: border-box;">';
+	dhtm3+='<input type="text" placeholder="最多4个字" style="border: 0;padding-left: 4px;box-sizing: border-box;">';
+	dhtm3+='</div>';
+	dhtm3+='</div>';
+	dhtm3+='</div>';
+	dhtm3+='<div class="page_input" style="display: flex;align-items: center;">';
+	dhtm3+='<span  class="input_laber">链接：</span>';
+	dhtm3+='<div class="link">';
+	dhtm3+='<select name="" >';
+	dhtm3+='<option value="0">首页</option>';
+	dhtm3+='</select>';
+	dhtm3+='</div>  ';
+	dhtm3+='</div>';			
+	dhtm3+='</div>';
+	dhtm3+='</div>';  

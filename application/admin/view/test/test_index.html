@@ -192,7 +192,7 @@
 				<!-- 搜索框区域 -->
 				<div class="seach_box click">
 						<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
-					<div  class="page_seach_edit_contentss">
+					<div  class="page_seach_edit_contentss slider_erae">
 						<div class="seach_box_left">
 							<div class="nfc">
 								<img src="__STATIC__/admin/index/img/u428.png" alt="">
@@ -216,8 +216,8 @@
 						</div>
 						<div class="page_input" style="display: flex;">
 								<span  class="input_laber">透明度：</span>
-								<div id="slider"></div>
-								<div id="amount">1</div>
+								<div  id="slider"   data-min="1" data-max="10" data-value="10" class="slider"></div>
+								<div  id="amount" class="amount">1</div>
 								<div style="font-size:12px;">（最大是1）</div>
 						</div>
 					
@@ -291,7 +291,7 @@
 				<!-- 轮播图区域	 -->
 				<div class="click">
 			     <i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
-					<div class="swiper-container ">
+					<div class="swiper-container slider_erae">
 							<div class="swiper-wrapper">
 								<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
 								<div class="swiper-slide"><img src="__STATIC__/admin/index/img/u430.png" alt=""></div>
@@ -443,16 +443,74 @@
 						
 						
 				</div>		
-				</div> 
-				<div class="good_box click">
-						<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
+				</div>
+				<div class="title_box click">
+					<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
 					<div class="good_title">
-						<div class="good_title_text">商品</div>
+							<div class="good_title_text">商品</div>
 						<div class="good_title_more">
 							<div class="good_title_more_text">更多</div>
 							<div class="good_title_more_ico"><img src="__STATIC__/admin/index/img/more.png" alt=""></div>
 						</div>
 					</div>
+					<!-- 标题组件 -->
+					<div class="page_titles_edit click_content">
+							<div class="page_input_line">
+									<div class="page_input">
+											<span  class="input_laber">栏目背景色：</span>
+											<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+											<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+									</div>
+		
+									<div class="page_input">
+											<span  class="input_laber">标题栏文字色：</span>
+													<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
+											<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
+									</div>
+								</div>
+								<div class="page_input">
+										<span  class="input_laber">标题文字：</span>
+										<input type="text" placeholder=" 首页（不超过5个字）" class="page_input_input" />
+								
+								</div>
+								<div class="page_input">
+										<span  class="input_laber">链接文字：</span>
+										<input type="text" placeholder="链接文字" class="page_input_input" />
+								</div>
+								<div class="page_input" style="display: flex;align-items: center;">
+										<span  class="input_laber">标题链接：</span>
+										<div class="link">
+											<select name="" >
+											<option value="0">首页</option>
+										</select>
+										</div>  
+								</div>
+								
+								<div class="page_input" style="display: flex;">
+										<span  class="input_laber">文字大小：</span>
+										<div id="slider2" class="slider"></div>
+										<div id="amount2" class="amount">1</div>
+										<div style="font-size:12px;">（像素）</div>
+								</div>
+								<div class="page_input" style="display: flex;">
+										<span  class="input_laber">上下边距：</span>
+										<div id="slider3" class="slider"></div>
+										<div id="amount3" class="amount">1</div>
+										<div style="font-size:12px;">（像素）</div>
+								</div>
+								<div class="page_input" style="display: flex;">
+										<span  class="input_laber">左右边距：</span>
+										<div id="slider4" class="slider"></div>
+										<div id="amount4" class="amount">1</div>
+										<div style="font-size:12px;">（像素）</div>
+								</div>
+							
+
+					</div>
+				</div> 
+				<div class="good_box click">
+						<i class="delect_ico noshow"><img src="__STATIC__/admin/index/img/close1.png" alt=""></i>
+					
 					<div class="good_content">
 						<div class="good_list">
 							<div class="listimg"><img src="__STATIC__/admin/index/img/u983.png" alt=""></div>
@@ -504,7 +562,7 @@
 						</div>
 					</div>
                    <!-- 商品 -->
-			<div class="page_good_edit click_content">
+			<div class="page_good_edit click_content noshow">
 					<div class="good_add_content">
 					 <span  class="span_laber">商品:</span>
 					 <div class="good_contents">
@@ -550,7 +608,7 @@
 					思锐信息www.siring.com.cn技术支持
 				</div>
 			</div>
-			<div class="bottom_nav">
+			<div class="bottom_nav click">
 					<div class="nav_list">
 						<div class="nav_ico"><img src="__STATIC__/admin/index/img/u513.png" alt=""></div>
 						<div class="nav_text">首页</div>
@@ -571,65 +629,6 @@
 			</div>
 		</div>
 		<div class="show_edit_box">
-			<!-- 标题组件 -->
-			<div class="page_titles_edit noshow">
-					<div class="page_input_line">
-							<div class="page_input">
-									<span  class="input_laber">栏目背景色：</span>
-									<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-							</div>
-							<div class="page_input">
-									<span  class="input_laber">背景色：</span>
-									<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-							</div>
-							<div class="page_input">
-									<span  class="input_laber">标题栏文字色：</span>
-											<input type="color" placeholder="" class="page_input_color" value="#821006" data-id = "#821006"/>
-									<span style="color: #30B6F8; cursor: pointer;" class="recolor">重置</span>
-							</div>
-						</div>
-						<div class="page_input">
-								<span  class="input_laber">标题文字：</span>
-								<input type="text" placeholder=" 首页（不超过5个字）" class="page_input_input" />
-						
-						</div>
-						<div class="page_input">
-								<span  class="input_laber">链接文字：</span>
-								<input type="text" placeholder="链接文字" class="page_input_input" />
-						</div>
-						<div class="page_input" style="display: flex;align-items: center;">
-								<span  class="input_laber">标题链接：</span>
-								<div class="link">
-									<select name="" >
-									<option value="0">首页</option>
-								</select>
-								</div>  
-							</div>
-						
-						<div class="page_input" style="display: flex;">
-								<span  class="input_laber">文字大小：</span>
-								<div id="slider2" class="slider"></div>
-								<div id="amount2" class="amount">1</div>
-								<div style="font-size:12px;">（像素）</div>
-						</div>
-						<div class="page_input" style="display: flex;">
-								<span  class="input_laber">上下边距：</span>
-								<div id="slider3" class="slider"></div>
-								<div id="amount3" class="amount">1</div>
-								<div style="font-size:12px;">（像素）</div>
-						</div>
-						<div class="page_input" style="display: flex;">
-								<span  class="input_laber">左右边距：</span>
-								<div id="slider4" class="slider"></div>
-								<div id="amount4" class="amount">1</div>
-								<div style="font-size:12px;">（像素）</div>
-						</div>
-					
-			
-			</div>
-			
 			<!-- 辅助线组件 -->
 			<div class="page_line_edit noshow">
 					<div class="page_input_line">
