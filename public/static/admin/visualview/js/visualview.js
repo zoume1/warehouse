@@ -185,8 +185,8 @@ var allTabImg = [{
 	// allTabImg.concat();
 })();
 
-// http://127.0.0.1:88__STATIC__/admin/visualview/images/tabbar/#0099CC/default/#0099CC (9).png
-// http://127.0.0.1:88__STATIC__/admin/visualview/images/tabbar/FF6666/default/FF6666%20(14).png
+// http://127.0.0.1:88../static/admin/visualview/images/tabbar/#0099CC/default/#0099CC (9).png
+// http://127.0.0.1:88../static/admin/visualview/images/tabbar/FF6666/default/FF6666%20(14).png
 
 // 获取所有商品函数
 function getAllGoods() {
@@ -371,7 +371,7 @@ function getAllNews() {
                 ele.main_img = ele.image;
                 if (!ele.digest) ele.digest = "（无）";
 				console.log(ele);
-                if (!ele.main_img) ele.main_img = "__STATIC__/admin/visualview/images/noImage.png";
+                if (!ele.main_img) ele.main_img = "../static/admin/visualview/images/noImage.png";
             });
 
             app.modalproduct.productlist = newsList;
@@ -398,7 +398,7 @@ function getAllBook() {
             bookList.forEach(function(ele) {
             	ele.isProductselect = false;
             	ele.price = parseFloat(ele.price/100).toFixed(2);
-                if (!ele.main_img) ele.main_img = "__STATIC__/admin/visualview/images/noImage.png";
+                if (!ele.main_img) ele.main_img = "../static/admin/visualview/images/noImage.png";
             });
 
             app.modalproduct.productlist = bookList;
@@ -540,7 +540,7 @@ var app = new Vue({
 		contactInfo: {
 			show: false,
 			imgUrl: "",
-			defaultImgUrl: "__STATIC__/admin/visualview/images/contact.jpg",
+			defaultImgUrl: "../static/admin/visualview/images/contact.jpg",
 			link: ""
 		},
 		editedNode: null,
