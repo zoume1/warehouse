@@ -44,4 +44,26 @@ class Test extends  Controller{
         return view("test_edit");
     }
 
+    /**
+     **************李火生*******************
+     * @param Request $request
+     * Notes:测试分类
+     **************************************
+     * @return \think\response\View
+     */
+ public function test_list(){
+        return view("test_list");
+    }
+
+    /**
+     **************李火生*******************
+     * @param Request $request
+     * Notes:测试购物
+     **************************************
+     * @return \think\response\View
+     */
+ public function test_cart(){
+        return view("test_cart");
+    }
+
 }
