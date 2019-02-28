@@ -644,7 +644,7 @@ var app = new Vue({
 
 				$.ajax({
 					//TODO:文件上传
-	                url: '/?_a=upload&_u=index.upload',
+	                url: '?_a=upload&_u=index.upload',
 	                type: 'POST',
 	                dataType: 'json',
 	                cache: false,
