@@ -13,7 +13,7 @@ $(function(){
 
 });
 
-// 请求链接
+// 请求链接（获取小程序页面）
 var requestUrl = "?_easy=sp.api.get_xcxpage";
 // 定义保存/读取方法
 function GetQueryString(name) {
@@ -58,7 +58,7 @@ var nodeStorage = {
 			}
 		});
 
-		// 获取tabbar保存数据
+		// 获取tabbar保存数据（获取小程序自定义菜单等）
 		$.post("?_u=xiaochengxu.get_ext_json", {
 			uid: requestId
 		}, function(ret) {
@@ -78,11 +78,12 @@ var nodeStorage = {
 		});
 	},
 	save: function(type, allData) {
-
+		//增加编辑小程序页面
 		var postUrl = "?_easy=sp.api.add_xcxpage";
 		var xcxtitle = allData.basicInfo.xcxname ||  allData.basicInfo.pageTitle;
 
 		if (type === "online") {
+            //增加编辑小程序页面
 			postUrl = "?_easy=sp.api.add_xcxpage&sort=999999";
 		}
 
@@ -109,7 +110,7 @@ var nodeStorage = {
 		console.log("save tabData >>>>>>", tabData);
 		// console.log("save tabDataString >>>>>>", tabDataString);
 
-		// 保存tabbar数据
+		// 保存tabbar数据(设置小程序底部菜单 等json 为app.json中的格式, 想覆盖哪个就传哪个)
 		$.post("?_u=xiaochengxu.set_ext_json", {
 			json: tabDataString,
 			// uid: pageId
@@ -133,6 +134,16 @@ var nodeStorage = {
 // 获取所有图片函数
 var allImg = [];
 function getAllImage() {
+	//TODO:zhu已上传的路径
+	/*
+	 获取服务商图片列表
+	 参数             必要       说明
+	 page            是         分页输出所需参数
+	 limit           否         分页输出所需参数
+	 no_in_weixin    否         仅在上传到微信上时使用
+	 public_imge     否         存在时返回公共图片
+	 file_group      否         存在时返回此分组下图片
+	 */
 	var requestImgUrl = "/?_a=upload&_u=index.sp_img_list";
 	$.post(requestImgUrl, {
 		limit: -1,
@@ -156,7 +167,7 @@ function getAllImage() {
 }
 getAllImage();
 
-// 获取tabbar图片
+// 获取tabbar图片（TODO:此处需要换地址）
 var allTabImg = [{
 	url: 'page/resources/pic/tab/new/home.jpg',
 	isImgselect: false
@@ -176,7 +187,6 @@ var allTabImg = [{
 			var color = ele.color.replace("#", "");
 			var imgUrl = "page/resources/pic/tab/" + color + "/default/" + color + " (" + i + ").png";
 			var selectedImgUrl = "page/resources/pic/tab/" + color + "/fill/" + color + "FILL (" + i + ").png";
-
 			allTabImg.push({url: imgUrl, isImgselect: false});
 			allTabImg.push({url: selectedImgUrl, isImgselect: false});
 		}
@@ -190,6 +200,7 @@ var allTabImg = [{
 
 // 获取所有商品函数
 function getAllGoods() {
+	//TODO:获取商品列表
 	var requestImgUrl = "/?_a=shop&_u=api.products";
 	$.post(requestImgUrl, {
 		limit: -1,
@@ -216,6 +227,7 @@ function getAllGoods() {
 // 获取所有砍价商品函数
 var allGetBargain = [];
 function getAllBargainGoods() {
+		//TODO:砍价商品表api代表api.ctl  get_bsrgsins表示里面的方法，bargain表示bargain
 	var requestImgUrl = "/?_a=bargain&_u=api.get_bargains";
 	$.post(requestImgUrl, {
 		limit: -1,
@@ -244,7 +256,8 @@ function getAllBargainGoods() {
 // 获取所有拼团商品函数
 // var allGetGoods = [];
 function getAllGroupGoods() {
-	var requestImgUrl = "/?_a=shop&_u=api.products";
+	//TODO:获取商品列表
+    var requestImgUrl = "/?_a=shop&_u=api.products";
 	$.post(requestImgUrl, {
 		limit: -1,
 		is_group: 1
@@ -271,6 +284,7 @@ function getAllGroupGoods() {
 // 获取所有秒杀商品函数
 // var allGetGoods = [];
 function getAllKillGoods() {
+	//TODO:目录shop文件，ajax控制器下product方法带参数info=32，获取商品列表
 	var requestImgUrl = "/?_a=shop&_u=ajax.products&info=32";
 	$.post(requestImgUrl, {
 		limit: -1
@@ -298,6 +312,7 @@ function getAllKillGoods() {
 // 获取所有公告函数
 // var allGetGoods = [];
 function getAllNotice() {
+	//TODO：shop文件ajax控制器里面的radio_list（广播例表）
 	var requestImgUrl = "/?_a=shop&_u=ajax.radio_list";
 	$.post(requestImgUrl, {
 		limit: -1
@@ -325,6 +340,7 @@ function getAllNotice() {
 // 获取所有活动函数
 var allGetExers = [];
 function getAllExers() {
+	//TODO：form文件里面的api控制器里面的formlist方法（活动）
 	var requestImgUrl = "/?_a=form&_u=api.formlist";
 	$.post(requestImgUrl, {
 		type: "activity",
@@ -355,7 +371,7 @@ function getAllExers() {
 // 获取所有新闻函数
 var allGetNews = [];
 function getAllNews() {
-
+	//TODO:文章列表(site文件下的api控制器下的单article_list方法)
 	var requestImgUrl = "/?_easy=site.api.article_list";
 	$.post(requestImgUrl, {
 		type: "activity",
@@ -387,6 +403,7 @@ function getAllNews() {
 // 获取所有预约函数
 var allBookList = [];
 function getAllBook() {
+	//TODO:book文件下api控制器book_item_list方法
 	var requestImgUrl = "/?_a=book&_u=api.book_item_list";
 	$.post(requestImgUrl, {
 		limit: -1,
@@ -446,6 +463,7 @@ var app = new Vue({
 		}],
 		rightnav: [{
 				name: '页面管理',
+			//TODO:小程序页面列表
 				url: '?_a=sp&_u=index.xcxpagelist',
 				icon: " ",
 			}
@@ -625,6 +643,7 @@ var app = new Vue({
 				formData.append("file", imgFile[i]);
 
 				$.ajax({
+					//TODO:文件上传
 	                url: '/?_a=upload&_u=index.upload',
 	                type: 'POST',
 	                dataType: 'json',
