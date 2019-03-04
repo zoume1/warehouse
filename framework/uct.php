@@ -6,7 +6,6 @@ require UCT_PATH . 'framework/function.php';
 */
 function uct_run() {
 	spl_autoload_register('uct_autoload');
-	
 	date_default_timezone_set('Asia/Shanghai');
 	if(!isset($_SERVER['REQUEST_TIME'])) $_SERVER['REQUEST_TIME'] = time();
 	if(!isset($_SERVER['HTTP_USER_AGENT'])) $_SERVER['HTTP_USER_AGENT'] = 'unknown';

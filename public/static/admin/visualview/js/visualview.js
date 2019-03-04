@@ -78,7 +78,7 @@ var nodeStorage = {
 		});
 	},
 	save: function(type, allData) {
-		//增加编辑小程序页面
+		//TODO：增加编辑小程序页面
 		var postUrl = "?_easy=sp.api.add_xcxpage";
 		var xcxtitle = allData.basicInfo.xcxname ||  allData.basicInfo.pageTitle;
 
