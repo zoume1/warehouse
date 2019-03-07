@@ -33,8 +33,13 @@ class  General extends  Controller{
     /**
      * [小程序装修]
      * 郭杨
-     */    
+     */
     public function decoration_routine_index(){     
-        return view("decoration_routine_index");
+        $list = Db::name('pages')->paginate(10);
+        return view("decoration_routine_index",['list'=>$list,'page'=>'']);
+    }
+
+    public function decoration_routine_details(){
+        return view("decoration_routine_details");
     }
  }
