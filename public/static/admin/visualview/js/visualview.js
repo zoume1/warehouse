@@ -11,7 +11,6 @@ $(function(){
 			return "确定离开当前页面吗？？";
 		}
 	};
-	alert(111);
 
 });
 
@@ -91,7 +90,7 @@ var nodeStorage = {
 
 		console.log("save allData >>>>>>", allData);
 		var dataString = JSON.stringify(allData);
-		$.post(postUrl, {content: dataString,title: xcxtitle,public_uid: 1111,uid: pageId}, function(ret) {
+		$.post(postUrl, {content: dataString,title: xcxtitle,public_uid: 1111,id:14 }, function(ret) {
 			ret = $.parseJSON(ret);
 			if(ret.data && ret.data != 0) {
 				if(ret.data != pageId) {
