@@ -40,4 +40,9 @@ class Pages extends Controller
         echo json_encode(['errno'=>'','errstr'=>'','data'=>$Pages->data]);
         exit;
     }
+
+    public function delOne(){
+        $id=input('id');
+        Db::name('pages')->where(['id'=>$id])->delete();
+    }
 }

@@ -42,4 +42,8 @@ class  General extends  Controller{
     public function decoration_routine_details(){
         return view("decoration_routine_details");
     }
+
+    public function delPages(){
+        return view("decoration_routine_details");
+    }
  }
