@@ -91,6 +91,7 @@ Route::group("admin",[
     "general_index"=>"admin/General/general_index", //店铺信息
     "small_routine_index"=>"admin/General/small_routine_index", //小程序设置
     "decoration_routine_index"=>"admin/General/decoration_routine_index", //小程序装修
+    "decoration_routine_details"=>"admin/General/decoration_routine_details", //小程序装修
 
 
 

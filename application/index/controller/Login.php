@@ -72,7 +72,4 @@ class Login extends Controller{
             return ajax_error('获取session_key失败',['status'=>0]);
         }
     }
-
-
-
 }
