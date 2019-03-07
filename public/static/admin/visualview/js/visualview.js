@@ -68,6 +68,7 @@ var nodeStorage = {
 			console.log("get tabData ret >>>>>>", ret);
 			if(ret.data && ret.data.tabBar) {
 				var tabData = ret.data.tabBar;
+
 				console.log("get tabData >>>>>>", tabData);
 				if (tabData) {
 					app.xcxtab = tabData;
@@ -80,7 +81,7 @@ var nodeStorage = {
 	},
 	save: function(type, allData) {
 		//TODO：增加编辑小程序页面
-		var postUrl = "?_easy=sp.api.add_xcxpage";
+		var postUrl = "1111";
 		var xcxtitle = allData.basicInfo.xcxname ||  allData.basicInfo.pageTitle;
 
 		if (type === "online") {
@@ -90,11 +91,10 @@ var nodeStorage = {
 
 		console.log("save allData >>>>>>", allData);
 		var dataString = JSON.stringify(allData);
-		// console.log("save dataString 8888>>>>>>", dataString);
 		$.post(postUrl, {
 			content: dataString,
 			title: xcxtitle,
-			public_uid: g_public_uid,
+			public_uid: 11111,
 			uid: pageId
 		}, function(ret) {
 			ret = $.parseJSON(ret);
@@ -145,7 +145,7 @@ function getAllImage() {
 	 public_imge     否         存在时返回公共图片
 	 file_group      否         存在时返回此分组下图片
 	 */
-	var requestImgUrl = "/?_a=upload&_u=index.sp_img_list";
+	var requestImgUrl = "111";
 	$.post(requestImgUrl, {
 		limit: -1,
 		// file_group: ""
