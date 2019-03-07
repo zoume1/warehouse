@@ -81,22 +81,17 @@ var nodeStorage = {
 	},
 	save: function(type, allData) {
 		//TODO：增加编辑小程序页面
-		var postUrl = "1111";
+		var postUrl = "getOne";
 		var xcxtitle = allData.basicInfo.xcxname ||  allData.basicInfo.pageTitle;
 
 		if (type === "online") {
             //增加编辑小程序页面
-			postUrl = "?_easy=sp.api.add_xcxpage&sort=999999";
+			postUrl = "get";
 		}
 
 		console.log("save allData >>>>>>", allData);
 		var dataString = JSON.stringify(allData);
-		$.post(postUrl, {
-			content: dataString,
-			title: xcxtitle,
-			public_uid: 11111,
-			uid: pageId
-		}, function(ret) {
+		$.post(postUrl, {content: dataString,title: xcxtitle,public_uid: 1111,uid: pageId}, function(ret) {
 			ret = $.parseJSON(ret);
 			if(ret.data && ret.data != 0) {
 				if(ret.data != pageId) {
