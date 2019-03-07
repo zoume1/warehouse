@@ -3,107 +3,107 @@ var componentPlugin = [
 	{
 		component: 'lunBo',
 		name: '轮播图',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0021_swiper.png'
+		src: '../static/admin/visualview/images/lefticon/_0021_swiper.png'
 	},
 	{
 		component: 'tuBiao',
 		name: '图标分类',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0020_icon_class.png'
+		src: '../static/admin/visualview/images/lefticon/_0020_icon_class.png'
 	},
 	{
 		component: 'duoTu',
 		name: '多图片广告',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0018_multi_img_ad.png'
+		src: '../static/admin/visualview/images/lefticon/_0018_multi_img_ad.png'
 	},
 	{
 		component: 'siTu',
 		name: '4幅图广告',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0017_4img.png'
+		src: '../static/admin/visualview/images/lefticon/_0017_4img.png'
 	},
 	{
 		component: 'jiuTu',
 		name: '9幅图广告',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0016_9img.png'
+		src: '../static/admin/visualview/images/lefticon/_0016_9img.png'
 	},
 	/*{
 		component: 'huaDong',
 		name: '相册滑动',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0015_photo_slider.png'
+		src: '../static/admin/visualview/images/lefticon/_0015_photo_slider.png'
 	},*/
 	{
 		component: 'biaoTi',
 		name: '模块标题',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0014_title.png'
+		src: '../static/admin/visualview/images/lefticon/_0014_title.png'
 	},
     {
         component: 'gongGao',
         name: '公告',
-        src: '__STATIC__/admin/visualview/images/lefticon/_0012_goods.png'
+        src: '../static/admin/visualview/images/lefticon/_0012_goods.png'
     },
     {
         component: 'chanPin',
         name: '产品',
-        src: '__STATIC__/admin/visualview/images/lefticon/_0012_goods.png'
+        src: '../static/admin/visualview/images/lefticon/_0012_goods.png'
     },
 	{
 		component: 'souSuo',
 		name: '搜索',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0011_search.png'
+		src: '../static/admin/visualview/images/lefticon/_0011_search.png'
 	},
 	{
 		component: 'xinWen',
 		name: '新闻',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0010_news.png'
+		src: '../static/admin/visualview/images/lefticon/_0010_news.png'
 	},
 	{
 		component: 'danHang',
 		name: '单行图文',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0001_one_line_text.png'
+		src: '../static/admin/visualview/images/lefticon/_0001_one_line_text.png'
 	},
 	{
 		component: 'duoHang',
 		name: '多图文',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0013_multi_text_img.png'
+		src: '../static/admin/visualview/images/lefticon/_0013_multi_text_img.png'
 	},
 	{
 		component: 'fuZa',
 		name: '复杂图文单行',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0000_multi_line_text.png'
+		src: '../static/admin/visualview/images/lefticon/_0000_multi_line_text.png'
 	},
 	{
 		component: 'shiPin',
 		name: '视频',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0005_vedio.png'
+		src: '../static/admin/visualview/images/lefticon/_0005_vedio.png'
 	},
     {
         component: 'anNiu',
         name: '按钮组合',
-        src: '__STATIC__/admin/visualview/images/lefticon/_0008_btns.png'
+        src: '../static/admin/visualview/images/lefticon/_0008_btns.png'
     },
     {
         component: 'yiTuPreview',
         name: '预览图片',
-        src: '__STATIC__/admin/visualview/images/lefticon/_0019_big_img.png'
+        src: '../static/admin/visualview/images/lefticon/_0019_big_img.png'
     },
     {
         component: 'yiTu',
         name: '自由图一',
-        src: '__STATIC__/admin/visualview/images/lefticon/_0019_big_img.png'
+        src: '../static/admin/visualview/images/lefticon/_0019_big_img.png'
     },
     {
         component: 'erTu',
         name: '自由图二',
-        src: '__STATIC__/admin/visualview/images/lefticon/_0019_big_img.png'
+        src: '../static/admin/visualview/images/lefticon/_0019_big_img.png'
     },
     {
         component: 'sanTu',
         name: '自由图三',
-        src: '__STATIC__/admin/visualview/images/lefticon/_0019_big_img.png'
+        src: '../static/admin/visualview/images/lefticon/_0019_big_img.png'
     },
     // {
     //     component: 'contact',
     //     name: '客服按钮',
-    //     src: '__STATIC__/admin/visualview/images/lefticon/contact.png'
+    //     src: '../static/admin/visualview/images/lefticon/contact.png'
     // }
 ];
 
@@ -111,37 +111,37 @@ var marketingPlugin = [
 	{
 		component: 'huoDong',
 		name: '活动',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0009_exercise.png'
+		src: '../static/admin/visualview/images/lefticon/_0009_exercise.png'
 	},
 	{
 		component: 'menDian',
 		name: '门店地址',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0007_address.png'
+		src: '../static/admin/visualview/images/lefticon/_0007_address.png'
 	},
 	{
 		component: 'kanJia',
 		name: '砍价',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0003_bargain.png'
+		src: '../static/admin/visualview/images/lefticon/_0003_bargain.png'
 	},
 	{
 		component: 'pinTuan',
 		name: '拼团',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0002_group.png'
+		src: '../static/admin/visualview/images/lefticon/_0002_group.png'
 	},
 	{
 		component: 'tuanDui',
 		name: '团队',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0006_team.png'
+		src: '../static/admin/visualview/images/lefticon/_0006_team.png'
 	},
 	{
 		component: 'yuYue',
 		name: '预约',
-		src: '__STATIC__/admin/visualview/images/lefticon/_0004_book.png'
+		src: '../static/admin/visualview/images/lefticon/_0004_book.png'
 	},
     {
         component: 'miaoSha',
         name: '秒杀',
-        src: '__STATIC__/admin/visualview/images/lefticon/imgmiaosha.png'
+        src: '../static/admin/visualview/images/lefticon/imgmiaosha.png'
     },
 ];
 
@@ -492,20 +492,20 @@ var initNodeData = function(type) {
         	case "lunBo":
             result.checkeda=true;
             result.list = [{
-                    imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                    imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                     link: ""
                 },
                 {
-                    imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                    imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                     link: ""
                 },
                 {
-                    imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                    imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                     link: ""
                 }
             ];
             result.item = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                 link: ""
             };
             result.swiperOptionA= {
@@ -527,42 +527,42 @@ var initNodeData = function(type) {
             result.checkeda=true;
         	result.list = [
         		{
-        			imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+        			imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
         			title: "标题1",
         			link: ""
         		},
         		{
-        			imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+        			imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
         			title: "标题2",
         			link: ""
         		},
         		{
-        			imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+        			imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
         			title: "标题3",
         			link: ""
         		},
         		{
-        			imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+        			imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
         			title: "标题4",
         			link: ""
         		}
         	];
         	result.item = {
-    			imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+    			imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
     			title: "标题1",
     			link: ""
     		};
             break;
         case "yiTuPreview":
             result = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                 link: "",
                 checkeda:true
             };
             break;
         case "yiTu":
         	result = {
-        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+        		imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
         		link: "",
                 checkeda:true
         	};
@@ -570,26 +570,26 @@ var initNodeData = function(type) {
         case "erTu":
             result.checkeda=true;
             result.list = [{
-                            imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                            imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                             link: ""
                         },
                         {
-                            imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                            imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                             link: ""
                         }];
             break;
         case "sanTu":
             result.checkeda=true;
             result.list = [{
-                            imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                            imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                             link: ""
                         },
                         {
-                            imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                            imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                             link: ""
                         },
                         {
-                            imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-300.png",
+                            imgUrl: "../static/admin/visualview/images/demoimg/750-300.png",
                             link: ""
                         }];
             break;
@@ -597,32 +597,32 @@ var initNodeData = function(type) {
             result.checkeda=true;
         	result.list = [
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-65.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-65.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-65.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-65.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-65.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-65.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-65.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-65.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-65.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-65.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-65.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-65.png",
 	        		link: ""
         		}
         	];
         	result.item = {
-        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-65.png",
+        		imgUrl: "../static/admin/visualview/images/demoimg/125-65.png",
         		link: ""
     		};
             break;
@@ -630,24 +630,24 @@ var initNodeData = function(type) {
             result.checkeda=true;
         	result.list = [
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
 	        		link: ""
         		}
         	];
         	result.item = {
-        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
         		link: ""
     		};
             break;
@@ -655,44 +655,44 @@ var initNodeData = function(type) {
             result.checkeda=true;
         	result.list = [
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		},
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
 	        		link: ""
         		}
         	];
         	result.item = {
-        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/125-100.png",
+        		imgUrl: "../static/admin/visualview/images/demoimg/125-100.png",
         		link: ""
     		};
             break;
@@ -700,20 +700,20 @@ var initNodeData = function(type) {
             result.checkeda=true;
         	result.list = [
         		{
-        			imgUrl: "__STATIC__/admin/visualview/images/demoimg/180-100.png",
+        			imgUrl: "../static/admin/visualview/images/demoimg/180-100.png",
         			link: ""
         		},
         		{
-        			imgUrl: "__STATIC__/admin/visualview/images/demoimg/180-100.png",
+        			imgUrl: "../static/admin/visualview/images/demoimg/180-100.png",
         			link: ""
         		},
         		{
-        			imgUrl: "__STATIC__/admin/visualview/images/demoimg/180-100.png",
+        			imgUrl: "../static/admin/visualview/images/demoimg/180-100.png",
         			link: ""
         		}
         	];
         	result.item = {
-    			imgUrl: "__STATIC__/admin/visualview/images/demoimg/180-100.png",
+    			imgUrl: "../static/admin/visualview/images/demoimg/180-100.png",
     			link: ""
     		};
             result.swiperOptionB= {
@@ -753,13 +753,13 @@ var initNodeData = function(type) {
         		intro: "新闻介绍",
         		catName: "财经",
         		addTime: "2018-01-23",
-        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+        		imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
         		link: ""
         	};
             break;
         case "danHang":
         	result = {
-        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+        		imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
         		title: "单行标题",
         		link: "",
                 checkeda:true
@@ -769,28 +769,28 @@ var initNodeData = function(type) {
         result.checkeda=true;
         	result.list = [
         		{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
 	        		title: "标题1",
 	        		link: ""
 	        	},
 	        	{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
 	        		title: "标题2",
 	        		link: ""
 	        	},
 	        	{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
 	        		title: "标题3",
 	        		link: ""
 	        	},
 	        	{
-	        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+	        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
 	        		title: "标题4",
 	        		link: ""
 	        	},
         	];
         	result.item = {
-        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/187-150.png",
+        		imgUrl: "../static/admin/visualview/images/demoimg/187-150.png",
         		title: "标题4",
         		link: ""
         	};
@@ -798,7 +798,7 @@ var initNodeData = function(type) {
         case "fuZa":
         result.checkeda=true;
         	result = {
-        		imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+        		imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
         		title1: "主标题",
         		title2: "副标题",
         		keyword1: "内容",
@@ -818,7 +818,7 @@ var initNodeData = function(type) {
         result.checkeda=true;
             result.list = [];
             result.item = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                 title: "产品标题",
                 price: "0.00",
                 sellCnt: "0"
@@ -829,25 +829,25 @@ var initNodeData = function(type) {
         result.checkeda=true;
             result.list = [
                 {
-                    imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                    imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                     title: "按钮标题1",
                     link: ""
                 },
                 {
-                    imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                    imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                     title: "按钮标题2",
                     link: ""
                 }
             ];
             result.item = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                 title: "按钮标题",
                 link: ""
             };
             break;
         case "menDian":
             result = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                 title: "市民广场",
                 time: "周一至周日 早5:00-24:00",
                 address: "广东省深圳市福田区福中三路",
@@ -861,7 +861,7 @@ var initNodeData = function(type) {
         result.checkeda=true;
             result.list = [];
             result.item = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                 title: "产品标题",
                 price: "0.00",
                 sellCnt: "0"
@@ -871,7 +871,7 @@ var initNodeData = function(type) {
         result.checkeda=true;
             result.list = [];
             result.item = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                 title: "产品标题",
                 price: "0.00",
                 sellCnt: "0"
@@ -881,7 +881,7 @@ var initNodeData = function(type) {
         result.checkeda=true;
             result.list = [];
             result.item = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                 title: "产品标题",
                 price: "0.00",
                 sellCnt: "0"
@@ -895,7 +895,7 @@ var initNodeData = function(type) {
             result.list = [];
             result.uidsArr = [];
             result.item = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/750-750.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/750-750.png",
                 title: "产品标题",
                 price: "0.00",
                 sellCnt: "0"
@@ -920,7 +920,7 @@ var initNodeData = function(type) {
         result.checkeda=true;
             result.list = [];
             result.item = {
-                main_img: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                main_img: "../static/admin/visualview/images/demoimg/100-100.png",
                 title: "产品标题"
             };
             break;
@@ -928,7 +928,7 @@ var initNodeData = function(type) {
             result.checkeda=true;
             result.list = [];
             result.item = {
-                imgUrl: "__STATIC__/admin/visualview/images/demoimg/100-100.png",
+                imgUrl: "../static/admin/visualview/images/demoimg/100-100.png",
                 title: "",
                 job: "职务",
                 tag1: "标签1",
@@ -944,7 +944,7 @@ var initNodeData = function(type) {
         // case "contact":
         //     result = {
         //         imgUrl: "",
-        //         defaultImgUrl: "__STATIC__/admin/visualview/images/lefticon/contact.png",
+        //         defaultImgUrl: "../static/admin/visualview/images/lefticon/contact.png",
         //         link: "",
         //         show:true
         //     };
