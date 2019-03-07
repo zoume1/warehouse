@@ -1,5 +1,6 @@
 // 隐藏左右侧边栏
 $(function(){
+
 	$('.kzlst').click();
 	$(".kzlst2").click();
 	window.onbeforeunload = function(e){
@@ -10,6 +11,7 @@ $(function(){
 			return "确定离开当前页面吗？？";
 		}
 	};
+	alert(111);
 
 });
 
@@ -62,7 +64,6 @@ var nodeStorage = {
 		$.post("?_u=xiaochengxu.get_ext_json", {
 			uid: requestId
 		}, function(ret) {
-
 			ret = $.parseJSON(ret);
 			console.log("get tabData ret >>>>>>", ret);
 			if(ret.data && ret.data.tabBar) {
