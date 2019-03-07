@@ -15,7 +15,7 @@ $(function(){
 });
 
 // 请求链接（获取小程序页面）
-var requestUrl = "?_easy=sp.api.get_xcxpage";
+var requestUrl = "get_one";
 // 定义保存/读取方法
 function GetQueryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -25,8 +25,9 @@ function GetQueryString(name) {
 }
 // if(typeof pageId == 'undefined')
 
-var pageId = GetQueryString("uid");
-var copyId = GetQueryString("copyUid");
+// var pageId = GetQueryString("uid");
+// var copyId = GetQueryString("copyUid");
+var pageId =14;
 
 // if (copyId) pageId = copyId;
 
@@ -80,7 +81,7 @@ var nodeStorage = {
 	},
 	save: function(type, allData) {
 		//TODO：增加编辑小程序页面
-		var postUrl = "get_one";
+		var postUrl = "add_page";
 		var xcxtitle = allData.basicInfo.xcxname ||  allData.basicInfo.pageTitle;
 
 		if (type === "online") {
@@ -145,7 +146,6 @@ function getAllImage() {
 		// file_group: ""
 	}, function(ret) {
 		ret = $.parseJSON(ret);
-		// console.log("get all img ret >>>", ret);
 		if(ret.data) {
 			var allImgList = ret.data.list;
 			allImgList.forEach(function(ele) {
