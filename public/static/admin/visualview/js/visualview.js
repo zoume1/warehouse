@@ -80,7 +80,7 @@ var nodeStorage = {
 	},
 	save: function(type, allData) {
 		//TODO：增加编辑小程序页面
-		var postUrl = "getOne";
+		var postUrl = "get_one";
 		var xcxtitle = allData.basicInfo.xcxname ||  allData.basicInfo.pageTitle;
 
 		if (type === "online") {
