@@ -8,7 +8,6 @@ namespace  app\admin\controller;
 
 use think\Controller;
 use think\Db;
-use think\paginator\driver\Bootstrap;
 
 class  General extends  Controller{
     
@@ -34,15 +33,38 @@ class  General extends  Controller{
      * [小程序装修]
      * 郭杨
      */
-    public function decoration_routine_index(){     
-        $list = Db::name('pages')->paginate(10);
+    public function decoration_routine_index(){
+        $list = Db::name('pages')->select();
         return view("decoration_routine_index",['list'=>$list,'page'=>'']);
     }
 
-    public function decoration_routine_details(){
+    /**
+     **************李火生*******************
+     * @param Request $request
+     * Notes:小程序编辑页面
+     **************************************
+     * @return \think\response\View
+     */
+    public function decoration_routine_details($id =null){
+        if($id>0){
+//            if(request()->isPost()){
+                //            //点击编辑
+//                $Pages = model('Pages');
+//                $Pages->getOne($id);
+//                echo json_encode(['errno'=>'','errstr'=>'','data'=>$Pages->data]);
+//            }
+
+        }
         return view("decoration_routine_details");
     }
 
+    /**
+     **************李火生*******************
+     * @param Request $request
+     * Notes:
+     **************************************
+     * @return \think\response\View
+     */
     public function delPages(){
         return view("decoration_routine_details");
     }

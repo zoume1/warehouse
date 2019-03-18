@@ -31,7 +31,7 @@
             <table class="layui-table">
                 <colgroup>
                     <col width="3%">
-
+                    <a class="layui-btn layui-btn-danger batchDel"  href="{:url('admin/General/decoration_routine_details')}">添加商品</a>
                 </colgroup>
                 <thead>
                     <tr>
@@ -54,7 +54,7 @@
                             <input type="checkbox" class="Status" name="status" value="{$value.status}" lay-skin="switch" lay-text="是|否" lay-filter="isShow" checked data-id="{$value.id}"> {/if}
                         </td>
                         <td>
-                            <a class="layui-btn layui-btn-mini edit" href="{:url('admin/General/decoration_routine_details',['id'=>$value.id])}"><i class="iconfont icon-edit"></i> 编辑
+                            <a class="layui-btn layui-btn-mini edit" href="{:url('admin/General/decoration_routine_details',['id'=>$value.id])}" onclick="save_id({$value.id})"><i class="iconfont icon-edit"></i> 编辑
                             </a>
                             <a href="{:url('admin/Pages/del',['id'=>$value.id])}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="undefined"><i class="layui-icon"></i> 删除</a>
                         </td>
@@ -63,7 +63,7 @@
                 </tbody>
             </table>
             <div id="page">
-                {$list->render()}
+
             </div>
 
         </div>
@@ -79,6 +79,15 @@
     <!--请在下方写此页面业务相关的脚本-->
     {block name="bottom"}
     <script type="text/javascript">
+        function save_id(id) {
+            setCookie("edit_id",id,1);
+        }
+        //设置cookie
+        function setCookie(name, value, day) {
+            var date = new Date();
+            date.setDate(date.getDate() + day);
+            document.cookie = name + '=' + value + ';expires=' + date;
+        };
         layui.config({
             base: "js/"
         }).use(['form', 'layer', 'jquery', 'laypage'], function() {

@@ -271,6 +271,11 @@ Route::group("admin",[
     "coupon_edit"=>"admin/Bonus/coupon_edit",      
     "coupon_add"=>"admin/Bonus/coupon_add",    
 
+   /*TODO:小程序装修页面分页开始*/
+   "pages_del"=>"admin/Pages/del",
+   "add_page"=>"admin/Pages/addPage",
+   "get_one"=>"admin/Pages/getOne",
+   /*TODO:小程序装修页面分页结束*/
 
    /*TODO:测试使用开始*/
    "test_index"=>"admin/Test/test_index",//测试首页

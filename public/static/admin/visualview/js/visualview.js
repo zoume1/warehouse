@@ -1,3 +1,30 @@
+
+//获取cookie
+function getCookie(name) {
+    var reg = RegExp(name + '=([^;]+)');
+    var arr = document.cookie.match(reg);
+    if (arr) {
+        return arr[1];
+    } else {
+        return '';
+    }
+};
+
+//设置cookie
+function setCookie(name, value, day) {
+    var date = new Date();
+    date.setDate(date.getDate() + day);
+    document.cookie = name + '=' + value + ';expires=' + date;
+};
+//删除cookie
+function delCookie(name) {
+    setCookie(name, null, -1);
+};
+var pageId=getCookie("edit_id");
+if(pageId){
+    delCookie("edit_id");
+}
+
 // 隐藏左右侧边栏
 $(function(){
 
@@ -15,7 +42,7 @@ $(function(){
 });
 
 // 请求链接（获取小程序页面）
-var requestUrl = "get_one";
+var requestUrl = "./../../get_one";
 // 定义保存/读取方法
 function GetQueryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -24,10 +51,9 @@ function GetQueryString(name) {
 	return null;
 }
 // if(typeof pageId == 'undefined')
-
 // var pageId = GetQueryString("uid");
 // var copyId = GetQueryString("copyUid");
-var pageId =14;
+// var pageId =14;
 
 // if (copyId) pageId = copyId;
 
@@ -68,7 +94,6 @@ var nodeStorage = {
 			console.log("get tabData ret >>>>>>", ret);
 			if(ret.data && ret.data.tabBar) {
 				var tabData = ret.data.tabBar;
-
 				console.log("get tabData >>>>>>", tabData);
 				if (tabData) {
 					app.xcxtab = tabData;
@@ -81,17 +106,19 @@ var nodeStorage = {
 	},
 	save: function(type, allData) {
 		//TODO：增加编辑小程序页面
-		var postUrl = "add_page";
+		if(pageId){
+            var postUrl = "./../../add_page";
+		}else {
+            var postUrl = "add_page";
+		}
 		var xcxtitle = allData.basicInfo.xcxname ||  allData.basicInfo.pageTitle;
-
 		if (type === "online") {
             //增加编辑小程序页面
 			postUrl = "get";
 		}
-
 		console.log("save allData >>>>>>", allData);
 		var dataString = JSON.stringify(allData);
-		$.post(postUrl, {content: dataString,title: xcxtitle,public_uid: 1111,id:14 }, function(ret) {
+		$.post(postUrl, {content: dataString,title: xcxtitle,public_uid: 1111,id:pageId}, function(ret) {
 			ret = $.parseJSON(ret);
 			if(ret.data && ret.data != 0) {
 				if(ret.data != pageId) {
