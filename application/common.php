@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 // | Author: 流年 <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-
+use think\Db;
 // 应用公共文件
 /**
  * Created by PhpStorm.
@@ -585,3 +585,85 @@ function show_lable_repay($label){
     }
 }
 
+/*TODO:小程序开始*/
+//远程图片链接处理
+
+function remote($uniacid,$url,$type){
+
+    $remote = DB::table("ims_sudu8_page_base")
+        ->where("uniacid",$uniacid)
+        ->field("remote")
+        ->find()['remote'];
+
+    if($remote == 1) {
+
+        if($type==1){   //1是取   2是写
+
+            if(strpos($url,'http') === false){
+
+                $host_rul = ROOT_HOST;
+                $temp_a = explode(":", $host_rul);
+
+                if($temp_a[0] == 'http'){
+                    $temp_a[0] = 'https';
+                    $host_rul = implode(':', $temp_a);
+                }
+
+                $url = $host_rul.$url;
+
+            }else{
+                $temp_a = explode(":", $url);
+
+                if($temp_a[0] == 'http'){
+                    $temp_a[0] = 'https';
+                    $url = implode(':', $temp_a);
+                }
+            }
+
+        }else{
+            if(strpos($url,'http') !== false){
+                if(strpos($url,'/upimages') !== false){
+                    $url = "/upimages".explode("/upimages",$url)[1];
+                }else if(strpos($url,'diypage/resource') !== false){
+                    $url = "/diypage/resource".explode("diypage/resource",$url)[1];
+                }
+
+            }
+        }
+
+    }else if ($remote == 2) {
+
+        $qiniu = DB::table("ims_sudu8_page_remote")
+            ->where("uniacid",$uniacid)
+            ->where('type',2)
+            ->find();
+        if($type==1){
+
+            if(strpos($url,'http') === false){
+                if(strpos($url,'/diypage/img/blank.jpg') !== false){
+                    $url = $url;
+                }else if(strpos($url,'/diypage/resource/images/diypage/default/default_start.jpg') !== false){
+                    $url = $url;
+                }else if(strpos($url,'/diypage/resource/images/diypage/default/tcgg.jpg') !== false){
+                    $url = $url;
+                }else{
+                    $url = $qiniu['domain'].$url;
+                }
+            }
+        }else{
+            if(strpos($url,$qiniu['domain']) !== false){
+                $url = explode($qiniu['domain'],$url)[1];
+            }
+
+        }
+
+    }else if ($remote == 3) {
+
+
+
+    }
+
+    return $url;
+
+}
+/*TODO:小程序结束*/

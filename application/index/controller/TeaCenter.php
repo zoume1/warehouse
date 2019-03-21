@@ -17,7 +17,6 @@ use think\Image;
 
 class TeaCenter extends Controller
 {
-
     /**
      * [茶圈父级显示]
      * 郭杨

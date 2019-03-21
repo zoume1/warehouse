@@ -91,7 +91,10 @@ Route::group("admin",[
     "general_index"=>"admin/General/general_index", //店铺信息
     "small_routine_index"=>"admin/General/small_routine_index", //小程序设置
     "decoration_routine_index"=>"admin/General/decoration_routine_index", //小程序装修
-    "decoration_routine_details"=>"admin/General/decoration_routine_details", //小程序装修
+    "decoration_routine_details"=>"admin/General/decoration_routine_details", //小程序装修详情
+    /*TODO：小程序装修2版本start*/
+    "show_index"=>"admin/StyleDiy/index",//小程序首页
+    /*TODO：小程序装修2版本end*/
 
     /*TODO：会员管理开始*/
     "user_index"=>"admin/User/index", //会员概况
@@ -125,8 +128,9 @@ Route::group("admin",[
     /* TODO:图片库结束*/
     /*TODO:小程序上传图片开始*/
     "img_upload"=>"admin/Upload/img_upload",//小程序上传图片
-
     /*TODO:小程序上传图片结束*/
+
+
 
 
 
