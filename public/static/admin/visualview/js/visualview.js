@@ -663,10 +663,15 @@ var app = new Vue({
 			for (var i = 0; i < uploadImgNum; i++) {
 				var formData = new FormData();
 				formData.append("file", imgFile[i]);
-
+                if(pageId){
+                    var postImgUrl = "./../../img_upload";
+                }else {
+                    var postImgUrl = "img_upload";
+                }
 				$.ajax({
 					//TODO:文件上传
-                    url: '?_a=upload&_u=index.upload',
+                    // url: '?_a=upload&_u=index.upload',
+                    url: postImgUrl,
 	                type: 'POST',
 	                dataType: 'json',
 	                cache: false,

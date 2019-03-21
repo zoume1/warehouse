@@ -93,8 +93,6 @@ Route::group("admin",[
     "decoration_routine_index"=>"admin/General/decoration_routine_index", //小程序装修
     "decoration_routine_details"=>"admin/General/decoration_routine_details", //小程序装修
 
-
-
     /*TODO：会员管理开始*/
     "user_index"=>"admin/User/index", //会员概况
     "user_status"=>"admin/User/status", //会员状态编辑
@@ -125,6 +123,13 @@ Route::group("admin",[
     "images_online_push"=>"admin/Photo/images_online_push", //上传图片库
     "photo_del"=>"admin/Photo/delete", //删除单张图片
     /* TODO:图片库结束*/
+    /*TODO:小程序上传图片开始*/
+    "img_upload"=>"admin/Upload/img_upload",//小程序上传图片
+
+    /*TODO:小程序上传图片结束*/
+
+
+
 
     /*TODO:订单开始*/
     "order_index"=>"admin/Order/order_index",//初始订单页面
