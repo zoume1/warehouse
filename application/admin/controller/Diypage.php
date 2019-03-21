@@ -6,3 +6,11 @@
  * Time: 14:22
  */
 namespace  app\index\controller;
+
+use think\Controller;
+
+class Diypage extends  Controller{
+   public function index(){
+
+   }
+}

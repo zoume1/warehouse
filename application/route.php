@@ -94,6 +94,8 @@ Route::group("admin",[
     "decoration_routine_details"=>"admin/General/decoration_routine_details", //小程序装修详情
     /*TODO：小程序装修2版本start*/
     "show_index"=>"admin/StyleDiy/index",//小程序首页
+    //详情页在test_add
+    "diypage_index"=>"admin/Diypage/index",//小程序页面保存
     /*TODO：小程序装修2版本end*/
 
     /*TODO：会员管理开始*/

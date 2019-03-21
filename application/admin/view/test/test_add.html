@@ -255,7 +255,7 @@
                                 {if $list}
                                 {foreach $list as $v}
                                 <tr>
-                                    <td data-id="{$v['id']}"><a href="javascript:window.location.href='{:Url('Diypage/index')}?appletid=<?php echo $_GET['appletid']?>&key_id={$v['id']}&tplid={$template_id}'"><span class="{if $key_id == $v['id']}text-success{else}text-muted{/if}">{$v['tpl_name']}</span></a></td>
+                                    <td data-id="{$v['id']}"><a href="javascript:window.location.href='/admin/test_add.html?appletid=<?php echo $_GET['appletid']?>&key_id={$v['id']}&tplid={$template_id}'"><span class="{if $key_id == $v['id']}text-success{else}text-muted{/if}">{$v['tpl_name']}</span></a></td>
                                     <td> <span class="{if $v['index'] == 0}label label-default defaults{else}label label-primary defaults{/if}" data-toggle="ajaxSwitch" data-switch-value="{$v['index']}" data-switch-value0="0|否|label label-default defaults|{:Url('Diypage/index')}?appletid=<?php echo $_GET['appletid']?>&key_id={$v['id']}&v=1&op=setindex" data-switch-value1="1|是|label label-primary defaults|{:Url('Diypage/index')}?appletid=<?php echo $_GET['appletid']?>&key_id={$v['id']}&v=0&op=setindex" data-switch-css=".defaults" data-switch-other="true"> {if $v['index'] == 1}是{else}否{/if}</span> </td>
                                     <td> <span class="label label-danger"> <a
                                             onclick="var r = confirm('是否删除当前页面？');if(!r){return false;}" href="{:Url('Diypage/index')}?appletid=<?php echo $_GET['appletid']?>&op=delpage&id={$v['id']}&tplid={$template_id}">删除</a> </span> </td>
@@ -669,7 +669,7 @@
         var bg_music = $("#bg_music").val();
         var foot_is = $("input[name='foot_is']:checked").val();
         $.ajax({
-            url:"{:Url('Diypage/index')}?appletid=<?php echo $_GET['appletid']?>&op=setsave&tplid=0",type:"get",dataType:"json",
+            url:"/admin/test_add.html?appletid=<?php echo $_GET['appletid']?>&op=setsave&tplid=0",type:"get",dataType:"json",
             data:{
                 key_id:key_id,
                 go_home:go_home,

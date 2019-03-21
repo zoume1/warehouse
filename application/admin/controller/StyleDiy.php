@@ -12,8 +12,8 @@ use think\Db;
 class StyleDiy extends  Controller{
     public function index()
     {
-        return $this->fetch('index');
-
+        $list =Db::table("applet")->paginate(20);
+        return view("index",["list"=>$list]);
     }
 
 
