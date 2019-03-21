@@ -19492,7 +19492,7 @@
 
     var custom = '/diypage/resource/js/diypage/custom.js';
 
-    var save_url = "{:Url('Diypage/index')}?appletid=<?php echo $_GET['appletid']?>&op=add";
+    var save_url = "/admin/test_add.html?appletid=<?php echo $_GET['appletid']?>&op=add";
 
     require([path,tpl,biz,custom],function(modal,tpl,biz,custom){
         modal.init({
