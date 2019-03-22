@@ -124,9 +124,12 @@ Route::group("admin",[
 
 
     /* TODO:图片库开始*/
-	"photo_index"=>"admin/Photo/index",
-    "images_online_push"=>"admin/Photo/images_online_push", //上传图片库
-    "photo_del"=>"admin/Photo/delete", //删除单张图片
+	"photo_index"=>"admin/Photo/index", //图片库进入页面
+	"phone_information"=>"admin/Photo/phone_information", //图片库页面
+	"imgupload"=>"admin/Photo/imgupload", //图片上传
+	"makegroup"=>"admin/Photo/makegroup", //创建相册
+	"phone_del"=>"admin/Photo/phone_del", //删除相册
+
     /* TODO:图片库结束*/
     /*TODO:小程序上传图片开始*/
     "img_upload"=>"admin/Upload/img_upload",//小程序上传图片
@@ -291,6 +294,7 @@ Route::group("admin",[
    /*TODO:测试使用开始*/
    "test_index"=>"admin/Test/test_index",//测试首页
    "test_add"=>"admin/Test/test_add",//测试添加页面
+    "test_selecticon"=>"admin/Test/selecticon",//图标库
    "test_edit"=>"admin/Test/test_edit",//测试编辑页面
     "test_list"=>"admin/Test/test_list",//测试分类
     "test_cart"=>"admin/Test/test_cart",//测试购物

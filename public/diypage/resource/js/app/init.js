@@ -809,7 +809,7 @@ define(['jquery', 'bootstrap'], function($, bs) {
 
 		var merch = $(".diy-phone").data("merch");
 
-		var url = "/index/diypage/selecticon";
+		var url = "/admin/test_selecticon.html";
 
 		$.ajax(url, {
 

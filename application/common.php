@@ -666,4 +666,12 @@ function remote($uniacid,$url,$type){
     return $url;
 
 }
+
+
+//定义上传图片的默认路径
+function upload_img(){
+    //1.设置上传路径
+    $dir = ROOT_PATH."public/upimages/";
+    return $dir;
+}
 /*TODO:小程序结束*/

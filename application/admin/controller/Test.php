@@ -26,7 +26,7 @@ class Test extends  Controller{
     /**
      **************李火生*******************
      * @param Request $request
-     * Notes:测试添加
+     * Notes:测试添加（小程序装修店铺）
      **************************************
      * @return \think\response\View
      */
@@ -43,32 +43,26 @@ class Test extends  Controller{
         $tplid=input("tplid");
         if($op){
             if($op=="setindex"){
-
                 $val = input('v');
-
                 $key_id = input('key_id');
-
                 if(empty($key_id)){
-
                     return false;
                 }
-
                 if($val == 1){
-
-                    Db::table('ims_sudu8_page_diypage')->where("uniacid",$appletid)->update(array("index"=>0));
-                    $result = Db::table('ims_sudu8_page_diypage')->where("uniacid",$appletid)->where("id",$key_id)->update(array("index"=>1));
+                    Db::table('ims_sudu8_page_diypage')
+                        ->where("uniacid",$appletid)
+                        ->update(array("index"=>0));
+                    $result = Db::table('ims_sudu8_page_diypage')
+                        ->where("uniacid",$appletid)
+                        ->where("id",$key_id)
+                        ->update(array("index"=>1));
                 }else{
                     $result = Db::table('ims_sudu8_page_diypage')->where("uniacid",$appletid)->where("id",$key_id)->update(array("index"=>0));
                 }
-
                 if($result){
-
                     return  json_encode(['status' => 1,'result' => ['returndata' => 1]]);
-
                 }else{
-
                     return json_encode(['status' => 0]);
-
                 }
             }
             if($op == "query"){
@@ -825,6 +819,11 @@ class Test extends  Controller{
             $this->assign("bg_music",$bg_music);
         }
         return view("test_add");
+    }
+
+    /*图标库*/
+    public function selecticon(){
+        return $this->fetch('icon');
     }
 
     /**
