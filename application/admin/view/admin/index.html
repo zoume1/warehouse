@@ -45,7 +45,7 @@
 				</tr>
 			</thead>
 			<tbody class="news_content">
-			{volist name="account_list" id="value"}
+			{foreach name="account_list" item="value" key="ks"}
 				<tr>
 					<td align="left">{$value.account}</td>
 					<td>{$value.id}</td>
@@ -56,17 +56,19 @@
 					<td>
 
 						{if $value.status == 0}
-						<input type="checkbox" class="Status" name="show" value="{$value.status}" lay-skin="switch" lay-text="是|否" lay-filter="isShow" data-id="{$value.id}"/>
-						{else /}
 						<input type="checkbox" class="Status" name="show" value="{$value.status}" lay-skin="switch" lay-text="是|否" lay-filter="isShow" checked="" data-id="{$value.id}"/>
+						{else /}
+						<input type="checkbox" class="Status" name="show" value="{$value.status}" lay-skin="switch" lay-text="是|否" lay-filter="isShow"  data-id="{$value.id}"/>
 						{/if}
 
 					<td>
 						<a class="layui-btn layui-btn-mini edit" href="{:url('admin/Admin/edit',['id'=>$value.id])}"><i class="iconfont icon-edit"></i> 编辑</a>
-						<a href="{:url('admin/Admin/del',['id'=>$value.id])}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="undefined"><i class="layui-icon"></i> 删除</a>
-					</td>
+							{if($ks !==0)}
+					<a href="{:url('admin/Admin/del',['id'=>$value.id])}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="undefined"><i class="layui-icon"></i> 删除</a>
+							{/if}
+							</td>
 				</tr>
-			{/volist}
+			{/foreach}
 			</tbody>
 		</table>
 	</div>

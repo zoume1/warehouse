@@ -74,7 +74,7 @@
                     </tr>
                 </thead>
                 <tbody class="news_content">
-                    {volist name="role_lists" id="value"}
+                    {foreach name="role_lists" item="value" key="k"}
                     <tr>
                         <td align="left">{$value.id}</td>
                         <td>{$value.name}</td>
@@ -88,10 +88,12 @@
                         <td>
                             <a class="layui-btn layui-btn-mini edit" data-id="2" href="{:url('admin/role/edit',['id'=>$value.id])}"><i class="iconfont icon-edit"></i>
 								编辑</a>
+                            {if($k !==0 && $k !==1 && $k !==2)}
                             <a href="{:url('admin/role/del',['id'=>$value.id])}" onclick="if(!confirm('确定要删除吗？')) return false" class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="2"><i class="layui-icon"></i> 删除</a>
+                            {/if}
                         </td>
                     </tr>
-                    {/volist}
+                    {/foreach}
                 </tbody>
             </table>
         </div>

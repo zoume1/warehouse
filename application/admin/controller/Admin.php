@@ -8,7 +8,6 @@ class Admin extends Controller
 {
     /**
      * [管理员列表]
-     * 陈绪
      */
     public function index(Request $request){
         $account_list = db("admin")->order("id")->select();
@@ -41,9 +40,9 @@ class Admin extends Controller
         $boolData = model("Admin")->sSave($data);
 
         if($boolData){
-            $this->redirect(url("admin/admin/index"));
+            $this->redirect("admin/admin/index");
         }else{
-            $this->redirect(url("admin/admin/add"));
+            $this->redirect("admin/admin/add");
         }
     }
 
@@ -54,9 +53,9 @@ class Admin extends Controller
     public function del($id){
         $bool = model("Admin")->where("id",$id)->delete();
         if($bool){
-            $this->redirect(url("admin/admin/index"));
+            $this->redirect("admin/admin/index");
         }else{
-            $this->error(url("admin/admin/index"));
+            $this->error("admin/admin/index");
         }
     }
 
@@ -82,9 +81,9 @@ class Admin extends Controller
         $id = $request->only(['id'])['id'];
         $bool = db("Admin")->where('id', $id)->update($data);
         if ($bool){
-            $this->success("编辑成功",url("admin/admin/index"));
+            $this->success("编辑成功","admin/admin/index");
         }else{
-            $this->error("编辑失败",url("admin/admin/edit"));
+            $this->error("编辑失败","admin/admin/edit");
         }
     }
 
@@ -101,18 +100,18 @@ class Admin extends Controller
                 $id = $request->only(["id"])["id"];
                 $bool = db("Admin")->where("id", $id)->update(["status" => 0]);
                 if ($bool) {
-                    $this->redirect(url("admin/admin/index"));
+                    $this->redirect("admin/admin/index");
                 } else {
-                    $this->error("修改失败", url("admin/admin/index"));
+                    $this->error("修改失败", "admin/admin/index");
                 }
             }
             if($status == 1){
                 $id = $request->only(["id"])["id"];
                 $bool = db("Admin")->where("id", $id)->update(["status" => 1]);
                 if ($bool) {
-                    $this->redirect(url("admin/admin/index"));
+                    $this->redirect("admin/admin/index");
                 } else {
-                    $this->error("修改失败", url("admin/admin/index"));
+                    $this->error("修改失败","admin/admin/index");
                 }
             }
         }
