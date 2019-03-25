@@ -403,9 +403,7 @@ class Test extends  Controller{
                         $idata = Db::table('ims_sudu8_page_diypage')->where("uniacid",$appletid)->where("tpl_name",$sd['tpl_name'])->find();
 
                         if($idata){
-
                             echo json_encode(['status' => 0,'message' => '创建页面名称重复','id' => 0],JSON_UNESCAPED_UNICODE);exit;
-
                         }
                         $is = Db::table('ims_sudu8_page_diypage')->where('uniacid',$appletid)->find();
                         if(!$is){
@@ -530,10 +528,7 @@ class Test extends  Controller{
                     'thumb' => input('preview'),
                     'create_time' => time()
                 ];
-
-
                 $key_id = Db::table("ims_sudu8_page_diypagetpl_sys")->insertGetId($data);
-
                 echo json_encode(['status' => 1,'id' => $key_id,'message' => '保存成功'],JSON_UNESCAPED_UNICODE);
                 exit;
 
@@ -804,15 +799,14 @@ class Test extends  Controller{
                     $data = json_encode($data, JSON_UNESCAPED_UNICODE);
                     $data = preg_replace("/\'/", "\'", $data);
                     $data = preg_replace('/(\\\n)/', "<br>", $data);
-
+                    $this->assign("page",$page);
                 }
             }
             //到这一块进行模板赋值
-            $this->assign("page",$page);
+            $this->assign("data",$data);
             $this->assign("template_id",$tplid);
             $this->assign("key_id",$key_id);
             $this->assign("list",$list);
-            $this->assign("data",$data);
             $this->assign("setsave",$setsave);
             $this->assign("foot_is",$foot_is);
             $this->assign("temp",$temp);
